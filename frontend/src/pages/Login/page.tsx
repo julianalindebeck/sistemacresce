@@ -5,6 +5,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleLogin() {
     if (email === "admin@test.com") {
@@ -23,17 +24,30 @@ export default function Login() {
   return (
     <div>
       <h1>Login</h1>
-
-      <input
+      <div>
+        <input
         type="email"
         placeholder="Digite o email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      />
+        />
+      </div>
 
-      <button onClick={handleLogin}>
-        Entrar
-      </button>
+      <div>
+        <input
+        type="password"
+        placeholder="Digite a senha"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <button onClick={handleLogin}>
+          Entrar
+        </button>
+      </div>
+      
     </div>
   );
 }
