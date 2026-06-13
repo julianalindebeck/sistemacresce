@@ -1,4 +1,4 @@
-import { TipoUsuario } from "../usuario/tipo-usuario";
+import { TipoUsuario } from "./tipo-usuario";
 import { Usuario } from "./Usuario";
 
 export class Professor extends Usuario{

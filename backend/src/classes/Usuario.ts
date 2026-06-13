@@ -1,4 +1,4 @@
-import { TipoUsuario } from '..//usuario/tipo-usuario';
+import { TipoUsuario } from './tipo-usuario';
 
 export abstract class Usuario{
     id: number;

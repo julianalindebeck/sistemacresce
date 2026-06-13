@@ -16,7 +16,7 @@ export class AuthService {
       nome: 'Administrador',
       email: 'admin@cresce.com',
       senha: '123456',
-      tipo: 'admin',
+      tipo: 'admin_sistema',
     };
 
     if (
