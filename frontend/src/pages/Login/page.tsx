@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./page.css";
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logo.png";
 
 export default function Login() {
 
