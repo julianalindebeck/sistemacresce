@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./page.css";
 import logo from "../../assets/logo.png";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Login() {
 
@@ -11,50 +12,33 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [erro, setErro] = useState("");
+  const { login } = useAuth();
 
-  async function handleLogin() {
-    setErro("");
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/auth/login",
-        {
-          email,
-          senha: password,
-        }
-      );
+ async function handleLogin() {
+  setErro("");
 
-      localStorage.setItem(
-        "token",
-        response.data.access_token
-      );
-
-      const tipo = response.data.tipo;
-
-      if (tipo === "admin_sistema") {
-        navigate("/admin-sistema");
-        return;
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/auth/login",
+      {
+        email,
+        senha: password,
       }
+    );
 
-      if (tipo === "admin_escolar") {
-        navigate("/admin-escolar");
-        return;
-      }
+    await login(response.data.access_token);
 
-      if (tipo === "prof") {
-        navigate("/prof");
-        return;
-      }
+    const tipo = response.data.tipo;
 
-      if (tipo === "responsavel") {
-        navigate("/responsavel");
-        return;
-      }
+    if (tipo === "admin_sistema") navigate("/admin-sistema");
+    if (tipo === "admin_escolar") navigate("/admin-escolar");
+    if (tipo === "prof") navigate("/prof/dashboard");
+    if (tipo === "responsavel") navigate("/responsavel");
 
-    } catch (error) {
-      setErro("Email ou senha inválidos.");
-    }
+  } catch {
+    setErro("Email ou senha inválidos");
   }
-
+}
   return (
     <div className="paginaLogin">
       <div className="topo">
