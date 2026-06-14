@@ -16,11 +16,11 @@ export default function ProtectedRoute({
   if (loading) return null;
 
   if (!user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 
   if (!allowedRoles.includes(user.tipo)) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 
   return children;
