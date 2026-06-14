@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./page.css";
+import logo from "../../assets/logo.png";
 
 export default function Login() {
 
@@ -54,37 +56,49 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="paginaLogin">
+      <div className="topo">
+        
+        <img src={logo} alt="logo cresce" className="logo"/>
 
-      <div>
+        <div className="texto">
+          <h1>CRESCE</h1>
+
+          <p className="subtitulo">Controle e Registro Escolar de Suporte ao Comportamento e Evolução</p>
+        </div>
+      
+      </div>
+
+      <div className="quadrado">
+
+        <h2>Acesse com suas credenciais</h2>
+
         <input
           type="email"
-          placeholder="Digite o email"
+          placeholder="Usuário"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
 
-      <div>
+        
         <input
           type="password"
-          placeholder="Digite a senha"
+          placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
+        
 
-      {erro && (
-        <p>{erro}</p>
-      )}
+        {erro && (
+          <p>{erro}</p>
+        )}
 
-      <div>
         <button onClick={handleLogin}>
           Entrar
         </button>
+        
       </div>
-
     </div>
+
   );
 }
