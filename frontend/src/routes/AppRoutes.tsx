@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login/page";
 import Prof from "../pages/Prof/page";
 import Responsavel from "../pages/Responsavel/page";
+
 import AdminEscolar from "../pages/AdminEscolar/page";
 import AdminSistema from "../pages/AdminSistema/page";
 import { Avisos } from "../pages/Prof/Avisos";
@@ -9,6 +10,13 @@ import { Frequencia } from "../pages/Prof/Frequencia";
 import { Notas } from "../pages/Prof/Notas";
 import { Dashboard } from "../pages/Prof/Dashboard";
 import ProtectedRoute from "../routes/ProtectedRoute";
+import { NotasAlunos } from "../pages/Responsavel/NotasAlunos";
+import { FrequenciaAlunos } from "../pages/Responsavel/FrequenciaAlunos";
+import { AvisosAlunos } from "../pages/Responsavel/AvisosAlunos";
+import { RelatorioFinalAlunos } from "../pages/Responsavel/RelatorioFinalAlunos";
+import { Solicitacoes } from "../pages/AdminSistema/Solicitacoes";
+import { Escolas } from "../pages/AdminSistema/Escolas";
+
 
 export default function AppRoutes() {
   return (
@@ -25,6 +33,12 @@ export default function AppRoutes() {
         <Route path="/prof/avisos" element={<ProtectedRoute allowedRoles={["prof"]}><Avisos /></ProtectedRoute>}/>
         <Route path="/prof/notas" element={<ProtectedRoute allowedRoles={["prof"]}><Notas /></ProtectedRoute>}/>
         <Route path="/prof/frequencia" element={<ProtectedRoute allowedRoles={["prof"]}><Frequencia /></ProtectedRoute>}/>
+        <Route path="/responsavel/notas" element={<ProtectedRoute allowedRoles={["responsavel"]}><NotasAlunos /></ProtectedRoute>}/>
+        <Route path="/responsavel/frequencia" element={<ProtectedRoute allowedRoles={["responsavel"]}><FrequenciaAlunos /></ProtectedRoute>}/>
+        <Route path="/responsavel/avisos" element={<ProtectedRoute allowedRoles={["responsavel"]}><AvisosAlunos /></ProtectedRoute>}/>
+        <Route path="/responsavel/relatoriofinal" element={<ProtectedRoute allowedRoles={["responsavel"]}><RelatorioFinalAlunos /></ProtectedRoute>}/>
+        <Route path="/admin-sistema/solicitacoes" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><Solicitacoes/></ProtectedRoute>}/>
+        <Route path="/admin-sistema/escolas" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><Escolas/></ProtectedRoute>}/>
       </Routes>
     </BrowserRouter>
   );

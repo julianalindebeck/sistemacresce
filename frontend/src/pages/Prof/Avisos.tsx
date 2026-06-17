@@ -1,5 +1,10 @@
+import { SidebarProfessor } from "./SidebarProfessor";
+
 export function Avisos(){
     return (
-        <h1>Teste</h1>
+        <>
+        <h1>Avisos</h1>
+        <SidebarProfessor></SidebarProfessor>
+        </>
     );
 }

@@ -1,11 +1,11 @@
-import { Sidebar } from "./SidebarProfessor";
+import {SidebarProfessor} from "./SidebarProfessor";
 
 export default function Prof() {
   return (
     <>
     <h1>Área do Professor</h1>
 
-    <Sidebar></Sidebar>
+    <SidebarProfessor></SidebarProfessor>
     </>
   );
 }

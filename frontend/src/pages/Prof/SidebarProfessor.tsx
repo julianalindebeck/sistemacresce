@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import "../../styles/sidebar.css";
 
-export function Sidebar() {
+export function SidebarProfessor() {
     return (
         <nav className="sidebar">
-            <Link to="/prof/dashboard">Dashboard</Link>
-            <Link to="/prof/notas">Notas</Link>
-            <Link to="/prof/frequencia">Frequência</Link>
-            <Link to="/prof/avisos">Avisos</Link>
+            <p>Menu</p>
+            <NavLink to="/prof/dashboard">Dashboard</NavLink>
+            <NavLink to="/prof/notas">Notas</NavLink>
+            <NavLink to="/prof/frequencia">Frequência</NavLink>
+            <NavLink to="/prof/avisos">Avisos</NavLink>
+            <Link to="/login">Sair</Link>
         </nav>
     );
 }

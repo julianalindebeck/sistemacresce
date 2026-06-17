@@ -1,5 +1,11 @@
-export function Dashboard(){
+import {SidebarProfessor } from "./SidebarProfessor";
+import "./Dashboard.css";
+
+export function Dashboard() {
     return (
-        <h1>Teste</h1>
-    );
+            <>
+            <h1>Dashboard</h1>
+            <SidebarProfessor></SidebarProfessor>
+            </>
+        );
 }
