@@ -16,6 +16,14 @@ import { AvisosAlunos } from "../pages/Responsavel/AvisosAlunos";
 import { RelatorioFinalAlunos } from "../pages/Responsavel/RelatorioFinalAlunos";
 import { Solicitacoes } from "../pages/AdminSistema/Solicitacoes";
 import { Escolas } from "../pages/AdminSistema/Escolas";
+import { DashboardAdminEscolar } from "../pages/AdminEscolar/DashboardAdminEscolar";
+import { Professores } from "../pages/AdminEscolar/Professores";
+import { Alunos } from "../pages/AdminEscolar/Alunos";
+import { Turmas } from "../pages/AdminEscolar/Turmas";
+import { Disciplinas } from "../pages/AdminEscolar/Disciplinas";
+import { AvisosAdminEscolar } from "../pages/AdminEscolar/AvisosAdminEscolar";
+import { RelatorioFinalAdminEscolar } from "../pages/AdminEscolar/RelatorioFinalAdminEscolar";
+import { Escola } from "../pages/AdminEscolar/Escola";
 
 
 export default function AppRoutes() {
@@ -39,6 +47,14 @@ export default function AppRoutes() {
         <Route path="/responsavel/relatoriofinal" element={<ProtectedRoute allowedRoles={["responsavel"]}><RelatorioFinalAlunos /></ProtectedRoute>}/>
         <Route path="/admin-sistema/solicitacoes" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><Solicitacoes/></ProtectedRoute>}/>
         <Route path="/admin-sistema/escolas" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><Escolas/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/dashboard" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><DashboardAdminEscolar/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/professores" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Professores/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/alunos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Alunos/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/turmas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Turmas/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/disciplinas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Disciplinas/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/avisos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><AvisosAdminEscolar/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/relatoriofinal" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><RelatorioFinalAdminEscolar/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/escola" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Escola/></ProtectedRoute>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,4 @@
 import {SidebarProfessor } from "./SidebarProfessor";
-import "./Dashboard.css";
 
 export function Dashboard() {
     return (
