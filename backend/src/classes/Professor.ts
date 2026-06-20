@@ -14,5 +14,4 @@ export class Professor extends Usuario{
         this.dataNascimento = dataNascimento;
         this.formacao = formacao;
     }
-    
 }
