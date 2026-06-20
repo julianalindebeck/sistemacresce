@@ -1,4 +1,4 @@
-.paginaLogin{
+.paginaLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@ body {
     height: auto;
 }
 
-.topo{
+.topo {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -29,8 +29,7 @@ body {
     margin-top: 70px;
 }
 
-h1{
-    font-family: 'Poppins', sans-serif;
+h1 {
     font-weight: bold;
     font-size: 75px;
     margin-bottom: 7%;
@@ -38,7 +37,6 @@ h1{
 }
 
 .subtitulo{
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 30px;
