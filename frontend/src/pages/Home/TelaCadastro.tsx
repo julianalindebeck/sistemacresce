@@ -28,7 +28,7 @@ export default function SolicitacaoCadastro() {
         <div className="linha-formulario">
             <div className="campo">
             <label>Telefone:</label>
-            <input type="text" name="telefone" placeholder="Digite o telefone:"/>
+            <input type="text" name="telefone" placeholder="Digite o telefone"/>
           </div>
 
           <div className="campo">
@@ -41,7 +41,7 @@ export default function SolicitacaoCadastro() {
             <select name="setorEducacional">
               <option value="">Selecione...</option>
               <option value="infantil">Educação Infantil</option>
-              <option value="fundamental">Ensino Fundamental</option>
+              <option value="fundamental">Ensino Fundamental I</option>
             </select>
           </div>          
       </div>
@@ -54,7 +54,7 @@ export default function SolicitacaoCadastro() {
 
           <div className="campo">
             <label>CPF do Representante:</label>
-            <input type="text" name="cnpj" placeholder="Digite o CPF do representante"/>
+            <input type="text" name="cnpj" placeholder="Digite o CPF do Representante"/>
           </div>
 
           <div className="campo">
@@ -81,7 +81,7 @@ export default function SolicitacaoCadastro() {
 
           <div className="botao-enviar">
             <button type="submit">
-              Solicitar Cadastro
+              Solicitar cadastro
             </button>
           </div>
 
