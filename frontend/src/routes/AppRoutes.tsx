@@ -24,14 +24,15 @@ import { Disciplinas } from "../pages/AdminEscolar/Disciplinas";
 import { AvisosAdminEscolar } from "../pages/AdminEscolar/AvisosAdminEscolar";
 import { RelatorioFinalAdminEscolar } from "../pages/AdminEscolar/RelatorioFinalAdminEscolar";
 import { Escola } from "../pages/AdminEscolar/Escola";
-
+import TelaInicial from "../pages/Home/TelaInicial";
+import TelaCadastro from "../pages/Home/TelaCadastro";
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        {/*trocar para pagina inicial do figma*/}
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/" element={<TelaInicial/>} />
+        <Route path="/telacadastro" element={<TelaCadastro/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin-sistema" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><AdminSistema /></ProtectedRoute>}/>
         <Route path="/admin-escolar" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><AdminEscolar /></ProtectedRoute>}/>
