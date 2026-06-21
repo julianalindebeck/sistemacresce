@@ -19,7 +19,7 @@ export class ProfessoresController {
     findOne(@Param('id') id: string) {
         return this.service.findOne(Number(id));
     }
-
+    
     @Put(':id')
     update(@Param('id') id: string, @Body() body: any) {
         return this.service.update(Number(id), body);
