@@ -4,6 +4,7 @@ import axios from "axios";
 import "./page.css";
 import logo from "../../assets/logo.png";
 import { useAuth } from "../../contexts/AuthContext";
+import { FiChevronLeft } from "react-icons/fi";
 
 export default function Login() {
 
@@ -44,7 +45,8 @@ export default function Login() {
     <div className="paginaLogin">
       <div className="topo">
       <button className="voltar" onClick={() => navigate("/")}>
-        ← Voltar ao Início
+          <FiChevronLeft />
+          <span>Voltar ao Início</span>
       </button>
         
         <img src={logo} alt="logo cresce" className="logo"/>
