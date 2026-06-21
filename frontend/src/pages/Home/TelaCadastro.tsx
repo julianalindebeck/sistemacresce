@@ -64,6 +64,7 @@ export default function SolicitacaoCadastro() {
               <option value="0-100">Até 100 alunos</option>
               <option value="101-500">101 a 500 alunos</option>
               <option value="501-1000">501 a 1000 alunos</option>
+              <option value="1000+">1000+ alunos</option>
             </select>
           </div>          
         </div>

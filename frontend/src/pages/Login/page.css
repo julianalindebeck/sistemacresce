@@ -1,17 +1,17 @@
 .paginaLogin {
+    position: fixed;
+    min-height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #001CA9;
-}
-
-body {
-    margin: 0%;
-    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .logo {
-    margin-top: 10px;
+    margin-top: -80px;
     width: 220px;
     height: auto;
 }
@@ -24,9 +24,10 @@ body {
 
 .texto{
     display: flex;
+    color: white;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 70px;
+    margin-top: -20px;
 }
 
 h1 {
@@ -40,7 +41,6 @@ h1 {
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 30px;
-    color: white;
     max-width: 300px;
     line-height: 1.6;
     text-align: left;
@@ -55,7 +55,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 h2{
@@ -76,7 +76,21 @@ input {
     color: black;
 }
 
-button {
+.voltar{
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #1325b3;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.entrar {
     width: 404px;
     height: 54px;
     border: none;
@@ -88,5 +102,5 @@ button {
 }
 
 button:hover{
-    background-color: #778EFF;
+    background-color: #3249D8;
 }
