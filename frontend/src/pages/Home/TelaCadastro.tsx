@@ -33,11 +33,10 @@ export default function SolicitacaoCadastro() {
         "http://localhost:3000/solicitacoes-cadastro",
         form
       );
-      //criar um alerta de sucesso
-      alert("Solicitação de cadastro enviada com sucesso!");
+      //criar uma janela de sucesso (aviso no meio)
     } catch (error) {
       console.error(error);
-      alert("Ocorreu um erro ao enviar a solicitação. Tente novamente.");
+      //criar uma janela de erro (aviso no meio)
     }
   }
   return (
@@ -110,7 +109,7 @@ export default function SolicitacaoCadastro() {
         <div className="linha-formulario">
           <div className="campo">
             <label>E-mail do Representante:</label>
-            <input type="text" name="emailRepresentante" value={form.emailRepresentante} onChange={handleChange} placeholder="Digite o e-mail"/>
+            <input type="email" name="emailRepresentante" value={form.emailRepresentante} onChange={handleChange} placeholder="Digite o e-mail"/>
           </div>
 
           <div className="campo">
