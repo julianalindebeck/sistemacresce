@@ -108,4 +108,9 @@
     .botao-enviar button {
         margin-top: 10px;
     }
+    
+}
+
+.campo-invalido {
+    border-color: red !important;
 }
