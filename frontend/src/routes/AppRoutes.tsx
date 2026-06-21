@@ -8,6 +8,7 @@ import { Avisos } from "../pages/Prof/Avisos";
 import { Frequencia } from "../pages/Prof/Frequencia";
 import { Notas } from "../pages/Prof/Notas";
 import { Dashboard } from "../pages/Prof/Dashboard";
+import { VerAvisos } from "../pages/Prof/VerAvisos";
 import ProtectedRoute from "../routes/ProtectedRoute";
 import { NotasAlunos } from "../pages/Responsavel/NotasAlunos";
 import { FrequenciaAlunos } from "../pages/Responsavel/FrequenciaAlunos";
@@ -21,6 +22,7 @@ import { Alunos } from "../pages/AdminEscolar/Alunos";
 import { Turmas } from "../pages/AdminEscolar/Turmas";
 import { Disciplinas } from "../pages/AdminEscolar/Disciplinas";
 import { AvisosAdminEscolar } from "../pages/AdminEscolar/AvisosAdminEscolar";
+import { VerAvisosAdminEscolar } from "../pages/AdminEscolar/VerAvisosAdminEscolar";
 import { RelatorioFinalAdminEscolar } from "../pages/AdminEscolar/RelatorioFinalAdminEscolar";
 import { Escola } from "../pages/AdminEscolar/Escola";
 import TelaInicial from "../pages/Home/TelaInicial";
@@ -39,6 +41,7 @@ export default function AppRoutes() {
         <Route path="/prof" element={<ProtectedRoute allowedRoles={["prof"]}><Prof /></ProtectedRoute>}/>
         <Route path="/prof/dashboard" element={<ProtectedRoute allowedRoles={["prof"]}><Dashboard /></ProtectedRoute>}/>
         <Route path="/prof/avisos" element={<ProtectedRoute allowedRoles={["prof"]}><Avisos /></ProtectedRoute>}/>
+        <Route path="/prof/avisos/ver" element={<ProtectedRoute allowedRoles={["prof"]}><VerAvisos /></ProtectedRoute>}/>
         <Route path="/prof/notas" element={<ProtectedRoute allowedRoles={["prof"]}><Notas /></ProtectedRoute>}/>
         <Route path="/prof/frequencia" element={<ProtectedRoute allowedRoles={["prof"]}><Frequencia /></ProtectedRoute>}/>
         <Route path="/responsavel/notas" element={<ProtectedRoute allowedRoles={["responsavel"]}><NotasAlunos /></ProtectedRoute>}/>
@@ -53,6 +56,7 @@ export default function AppRoutes() {
         <Route path="/admin-escolar/turmas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Turmas/></ProtectedRoute>}/>
         <Route path="/admin-escolar/disciplinas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Disciplinas/></ProtectedRoute>}/>
         <Route path="/admin-escolar/avisos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><AvisosAdminEscolar/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/avisos/ver" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><VerAvisosAdminEscolar/></ProtectedRoute>}/>
         <Route path="/admin-escolar/relatoriofinal" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><RelatorioFinalAdminEscolar/></ProtectedRoute>}/>
         <Route path="/admin-escolar/escola" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Escola/></ProtectedRoute>}/>
       </Routes>

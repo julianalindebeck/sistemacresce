@@ -1,0 +1,28 @@
+.paginaAdminSistema {
+    min-height: 100vh;
+    width: calc(100vw - 280px);
+    margin-left: 280px;
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+.paginaAdminSistema .topo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.paginaAdminSistema .texto {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.paginaAdminSistema h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    color: black;
+}

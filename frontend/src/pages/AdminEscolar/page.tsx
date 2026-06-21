@@ -1,11 +1,14 @@
 import { SidebarAdminEscolar } from "./SidebarAdminEscolar";
+import "./pageEscolar.css"
 
 export default function AdminEscolar() {
   return (
-      <>
-      <h1>Área do Admin Escolar</h1>
-  
-      <SidebarAdminEscolar></SidebarAdminEscolar>
-      </>
-    );
+    <>
+    <div className="container">
+        <h1>Área do Admin Escolar</h1>
+    </div>
+
+    <SidebarAdminEscolar></SidebarAdminEscolar>
+    </>
+  );
 }

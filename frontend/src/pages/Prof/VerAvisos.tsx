@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { SidebarProfessor } from "./SidebarProfessor";
 import "./pageProf.css"
-import "./Avisos.css"
+import "./VerAvisos.css"
 
-export function Avisos(){
+export function VerAvisos(){
     const navigate = useNavigate();
 
     return (
@@ -11,11 +11,11 @@ export function Avisos(){
         <div className="paginaProf">
           <div className="topo">
             <div className="texto">
-              <h1>Envio de Avisos</h1>
+              <h1>Visualização de Avisos</h1>
 
                 <div className="botoesTopo">
-                    <button className="btnEnviarpagAviso">Enviar</button>
-                    <button className="btnVisualizarpagAviso" onClick={() => navigate("/prof/avisos/ver")}>Visualizar</button>
+                    <button className="btnEnviarpagVerAviso" onClick={() => navigate("/prof/avisos")}>Enviar</button>
+                    <button className="btnVisualizarpagVerAviso">Visualizar</button>
                 </div>
             </div>
           </div>

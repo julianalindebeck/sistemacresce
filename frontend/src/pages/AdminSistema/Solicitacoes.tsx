@@ -1,10 +1,18 @@
 import { SidebarAdminSistema } from "./SidebarAdminSistema";
+import "./pageAdmin.css"
 
 export function Solicitacoes(){
     return (
-            <>
-            <h1>Solicitacoes</h1>
-            <SidebarAdminSistema></SidebarAdminSistema>
-            </>
+        <>
+        <div className="paginaAdminSistema">
+            <div className="topo">
+                <div className="texto">
+                    <h1>Solicitações</h1>
+                </div>
+      
+            </div>
+        </div>
+        <SidebarAdminSistema></SidebarAdminSistema>
+        </>
     );
 }

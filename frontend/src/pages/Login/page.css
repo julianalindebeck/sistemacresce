@@ -10,19 +10,19 @@
     box-sizing: border-box;
 }
 
-.logo {
+.paginaLogin .logo {
     margin-top: -80px;
     width: 220px;
     height: auto;
 }
 
-.topo {
+.paginaLogin .topo {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.texto{
+.paginaLogin .texto{
     display: flex;
     color: white;
     flex-direction: column;
@@ -30,14 +30,14 @@
     margin-top: -20px;
 }
 
-h1 {
+.paginaLogin h1 {
     font-weight: bold;
     font-size: 75px;
     margin-bottom: 7%;
     font-stretch: semi-condensed;
 }
 
-.subtitulo{
+.paginaLogin .subtitulo{
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 30px;
@@ -46,7 +46,7 @@ h1 {
     text-align: left;
 }
 
-.quadrado {
+.paginaLogin .quadrado {
     background: white;
     width: 400px;
     border-radius: 30px;
@@ -58,14 +58,14 @@ h1 {
     margin-top: 20px;
 }
 
-h2{
+.paginaLogin h2{
     font-family: 'Poppins', sans-serif;
     font-weight: 550;
     font-size: 20px;
     color: black;
 }
 
-input {
+.paginaLogin input {
     width: 380px;
     height: 50px;
     border-radius: 10px;
@@ -76,7 +76,7 @@ input {
     color: black;
 }
 
-.voltar{
+.paginaLogin .voltar{
     position: fixed;
     top: 40px;
     left: 40px;
@@ -90,7 +90,7 @@ input {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.entrar {
+.paginaLogin .entrar {
     width: 404px;
     height: 54px;
     border: none;
@@ -101,6 +101,6 @@ input {
     cursor: pointer;
 }
 
-button:hover{
+.paginaLogin button:hover{
     background-color: #3249D8;
 }

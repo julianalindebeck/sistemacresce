@@ -1,0 +1,27 @@
+.paginaProf .btnVisualizarpagVerAviso {
+    width: 140px;
+    border: 1px solid #ccc;
+    background: #001CA9;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+
+}
+
+.paginaProf .btnEnviarpagVerAviso:hover{
+    background-color: gray;
+}
+
+.paginaProf .btnEnviarpagVerAviso {
+    width: 140px;
+    border: 1px solid #ccc;
+    background: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+
+}
