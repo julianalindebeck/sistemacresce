@@ -1,21 +1,23 @@
 export class SolicitacaoCadastro {
-  id: String="";
-  nomeInstituicao: String;
-  cnpj: String;
-  endereco: String;
-  telefone: String;
-  emailInstituicao: String;
-  setorEducacional: String;
-  nomeRepresentante: String;
-  cpfRepresentante: String;
-  emailRepresentante: String;
-  cargo: String;
-  numeroAlunos: String;
-  status: String;
+  id?: string;
 
-constructor(
-    nomeInstituicao: String, cnpj: String, endereco: String, telefone: String,emailInstituicao: String, setorEducacional: String, nomeRepresentante: String, cpfRepresentante: String, emailRepresentante: String, cargo: String, numeroAlunos: String,status: String = "PENDENTE"
-  ) {
+  nomeInstituicao: string;
+  cnpj: string;
+  endereco: string;
+  telefone: string;
+  emailInstituicao: string;
+  setorEducacional: string;
+
+  nomeRepresentante: string;
+  cpfRepresentante: string;
+  emailRepresentante: string;
+  cargo: string;
+
+  numeroAlunos: string;
+
+  status: string;
+
+  constructor(nomeInstituicao: string, cnpj: string, endereco: string, telefone: string,emailInstituicao: string, setorEducacional: string, nomeRepresentante: string, cpfRepresentante: string, emailRepresentante: string, cargo: string, numeroAlunos: string, status: string = "PENDENTE") {
     this.nomeInstituicao = nomeInstituicao;
     this.cnpj = cnpj;
     this.endereco = endereco;

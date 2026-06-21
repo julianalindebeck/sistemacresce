@@ -35,5 +35,23 @@
   "turmas": [],
   "disciplinas": [],
   "avisos": [],
+  "solicitacoesCadastro": [
+    {
+      "nomeInstituicao": "escola estadual duque de caxias",
+      "cnpj": "85796256666",
+      "endereco": "cedcece",
+      "telefone": "323232323",
+      "emailInstituicao": "edededede@gmail.com",
+      "setorEducacional": "infantil",
+      "nomeRepresentante": "fernanda coutinho",
+      "cpfRepresentante": "14262726690",
+      "emailRepresentante": "nandinha",
+      "cargo": "chefe",
+      "numeroAlunos": "101-500",
+      "status": "PENDENTE",
+      "dataSolicitacao": "2026-06-21T01:56:20.596Z",
+      "id": "tylW4CmrV90"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

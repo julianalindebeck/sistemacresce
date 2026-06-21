@@ -1,44 +1,82 @@
 import "./TelaCadastro.css";
 import { SidebarInicial } from "./SidebarInicial";
+import { useState } from "react";
+import axios from "axios";
 
 export default function SolicitacaoCadastro() {
+  const [form, setForm] = useState({
+    nomeInstituicao: "",
+    cnpj: "",
+    endereco: "",
+    telefone: "",
+    emailInstituicao: "",
+    setorEducacional: "",
+    nomeRepresentante: "",
+    cpfRepresentante: "",
+    emailRepresentante: "",
+    cargo: "",
+    numeroAlunos: "",
+  });
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    try {
+      await axios.post(
+        "http://localhost:3000/solicitacoes-cadastro",
+        form
+      );
+      //criar um alerta de sucesso
+      alert("Solicitação de cadastro enviada com sucesso!");
+    } catch (error) {
+      console.error(error);
+      alert("Ocorreu um erro ao enviar a solicitação. Tente novamente.");
+    }
+  }
   return (
     <>
     <SidebarInicial></SidebarInicial>
     <div className="container-cadastro">
-      <form className="formulario">
+      <form className="formulario" onSubmit={handleSubmit}>
        
         <div className="linha-formulario">
           <div className="campo">
             <label>Nome da Instituição:</label>
-            <input type="text" name="nomeInstituição" placeholder="Digite o nome da instituição"/>
+            <input type="text" name="nomeInstituicao" value={form.nomeInstituicao} onChange={handleChange} placeholder="Digite o nome da instituição"/>
           </div>
 
           <div className="campo">
             <label>CNPJ:</label>
-            <input type="text" name="cnpj" placeholder="Digite o CNPJ da instituição"/>
+            <input type="text" name="cnpj" value={form.cnpj} onChange={handleChange} placeholder="Digite o CNPJ da instituição"/>
           </div>
 
           <div className="campo">
             <label>Endereço:</label>
-            <input type="text" name="endereço" placeholder="Digite o endereço"/>
+            <input type="text" name="endereco" value={form.endereco} onChange={handleChange} placeholder="Digite o endereço"/>
           </div>          
         </div>
 
         <div className="linha-formulario">
             <div className="campo">
             <label>Telefone:</label>
-            <input type="text" name="telefone" placeholder="Digite o telefone"/>
+            <input type="text" name="telefone" value={form.telefone} onChange={handleChange} placeholder="Digite o telefone"/>
           </div>
 
           <div className="campo">
             <label>E-mail:</label>
-            <input type="email" name="emailInstituição" placeholder="Digite o e-mail"/>
+            <input type="email" name="emailInstituicao" value={form.emailInstituicao} onChange={handleChange} placeholder="Digite o e-mail"/>
           </div>
 
           <div className="campo">
             <label>Setor Educacional:</label>
-            <select name="setorEducacional">
+            <select name="setorEducacional" value={form.setorEducacional} onChange={handleChange}>
               <option value="">Selecione...</option>
               <option value="infantil">Educação Infantil</option>
               <option value="fundamental">Ensino Fundamental I</option>
@@ -49,17 +87,17 @@ export default function SolicitacaoCadastro() {
       <div className="linha-formulario">
           <div className="campo">
             <label>Nome da Representante:</label>
-            <input type="text" name="nomeRepresentante" placeholder="Digite o nome do Representante"/>
+            <input type="text" name="nomeRepresentante" value={form.nomeRepresentante} onChange={handleChange} placeholder="Digite o nome do Representante"/>
           </div>
 
           <div className="campo">
             <label>CPF do Representante:</label>
-            <input type="text" name="cnpj" placeholder="Digite o CPF do Representante"/>
+            <input type="text" name="cpfRepresentante" value={form.cpfRepresentante} onChange={handleChange} placeholder="Digite o CPF do Representante"/>
           </div>
 
           <div className="campo">
             <label>Número de Alunos:</label>
-            <select name="numeroAlunos">
+            <select name="numeroAlunos" value={form.numeroAlunos} onChange={handleChange}>
               <option value="">Selecione...</option>
               <option value="0-100">Até 100 alunos</option>
               <option value="101-500">101 a 500 alunos</option>
@@ -72,12 +110,12 @@ export default function SolicitacaoCadastro() {
         <div className="linha-formulario">
           <div className="campo">
             <label>E-mail do Representante:</label>
-            <input type="text" name="emailRepresentante" placeholder="Digite o e-mail"/>
+            <input type="text" name="emailRepresentante" value={form.emailRepresentante} onChange={handleChange} placeholder="Digite o e-mail"/>
           </div>
 
           <div className="campo">
             <label>Cargo:</label>
-            <input type="text" name="cargo" placeholder="Digite o cargo"/>
+            <input type="text" name="cargo" value={form.cargo} onChange={handleChange} placeholder="Digite o cargo"/>
           </div>
 
           <div className="botao-enviar">
