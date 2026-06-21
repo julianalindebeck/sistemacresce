@@ -41,7 +41,7 @@ export default function AppRoutes() {
         <Route path="/prof" element={<ProtectedRoute allowedRoles={["prof"]}><Prof /></ProtectedRoute>}/>
         <Route path="/prof/dashboard" element={<ProtectedRoute allowedRoles={["prof"]}><Dashboard /></ProtectedRoute>}/>
         <Route path="/prof/avisos" element={<ProtectedRoute allowedRoles={["prof"]}><Avisos /></ProtectedRoute>}/>
-        <Route path="/prof/avisos/ver" element={<ProtectedRoute allowedRoles={["prof"]}><VerAvisos /></ProtectedRoute>}/>
+        <Route path="/prof/avisos/visualizar" element={<ProtectedRoute allowedRoles={["prof"]}><VerAvisos /></ProtectedRoute>}/>
         <Route path="/prof/notas" element={<ProtectedRoute allowedRoles={["prof"]}><Notas /></ProtectedRoute>}/>
         <Route path="/prof/frequencia" element={<ProtectedRoute allowedRoles={["prof"]}><Frequencia /></ProtectedRoute>}/>
         <Route path="/responsavel/notas" element={<ProtectedRoute allowedRoles={["responsavel"]}><NotasAlunos /></ProtectedRoute>}/>
@@ -56,7 +56,7 @@ export default function AppRoutes() {
         <Route path="/admin-escolar/turmas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Turmas/></ProtectedRoute>}/>
         <Route path="/admin-escolar/disciplinas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Disciplinas/></ProtectedRoute>}/>
         <Route path="/admin-escolar/avisos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><AvisosAdminEscolar/></ProtectedRoute>}/>
-        <Route path="/admin-escolar/avisos/ver" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><VerAvisosAdminEscolar/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/avisos/visualizar" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><VerAvisosAdminEscolar/></ProtectedRoute>}/>
         <Route path="/admin-escolar/relatoriofinal" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><RelatorioFinalAdminEscolar/></ProtectedRoute>}/>
         <Route path="/admin-escolar/escola" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Escola/></ProtectedRoute>}/>
       </Routes>

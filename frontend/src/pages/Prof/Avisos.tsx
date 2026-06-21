@@ -15,7 +15,7 @@ export function Avisos(){
 
                 <div className="botoesTopo">
                     <button className="btnEnviarpagAviso">Enviar</button>
-                    <button className="btnVisualizarpagAviso" onClick={() => navigate("/prof/avisos/ver")}>Visualizar</button>
+                    <button className="btnVisualizarpagAviso" onClick={() => navigate("/prof/avisos/visualizar")}>Visualizar</button>
                 </div>
             </div>
           </div>
