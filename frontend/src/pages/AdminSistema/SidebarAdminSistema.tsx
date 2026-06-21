@@ -1,14 +1,30 @@
 import { Link, NavLink } from "react-router-dom";
+import { FiHome, FiClipboard, FiMapPin, FiLogOut } from "react-icons/fi";
 import "../../styles/sidebar.css";
 
 export function SidebarAdminSistema() {
     return (
         <nav className="sidebar">
-            <p>Menu</p>
-            <NavLink to="/admin-sistema" end>Inicio</NavLink>
-            <NavLink to="/admin-sistema/solicitacoes">Solicitações</NavLink>
-            <NavLink to="/admin-sistema/escolas">Escolas</NavLink>
-            <Link to="/login">Sair</Link>
+            <p>MENU</p>
+            <NavLink to="/admin-sistema" end>
+                <FiHome />
+                <span>Início</span>
+            </NavLink>
+
+            <NavLink to="/admin-sistema/solicitacoes">
+                <FiClipboard />
+                <span>Solicitações</span>
+            </NavLink>
+
+            <NavLink to="/admin-sistema/escolas">
+                <FiMapPin />
+                <span>Escolas</span>
+            </NavLink>
+
+            <Link to="/login" className="logout">
+                <FiLogOut />
+                <span>Sair</span>
+            </Link>
         </nav>
     );
 }

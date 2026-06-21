@@ -1,10 +1,14 @@
 import { SidebarAdminEscolar } from "./SidebarAdminEscolar";
+import "./pageEscolar.css"
 
 export function RelatorioFinalAdminEscolar(){
     return (
-            <>
-            <h1>Dashboard</h1>
-            <SidebarAdminEscolar></SidebarAdminEscolar>
-            </>
+        <>
+        <div className="container">
+            <h1>Relatório Final</h1>
+        </div>
+
+        <SidebarAdminEscolar></SidebarAdminEscolar>
+        </>
     );
 }

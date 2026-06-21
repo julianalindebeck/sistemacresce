@@ -1,9 +1,17 @@
 import {SidebarProfessor} from "./SidebarProfessor";
+import "./pageProf.css"
 
 export default function Prof() {
   return (
     <>
-    <h1>Área do Professor</h1>
+    <div className="paginaProf">
+      <div className="topo">
+        <div className="texto">
+          <h1>Dashboard</h1>
+        </div>
+      
+      </div>
+    </div>
 
     <SidebarProfessor></SidebarProfessor>
     </>

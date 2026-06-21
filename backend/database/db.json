@@ -1,0 +1,40 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Administrador Sistema",
+      "email": "adminsistema@cresce.com",
+      "senha": "123456",
+      "tipo": "admin_sistema"
+    },
+    {
+      "id": "2",
+      "nome": "Administrador Escolar",
+      "email": "adminescolar@cresce.com",
+      "senha": "123456",
+      "tipo": "admin_escolar"
+    },
+    {
+      "id": "3",
+      "nome": "Professor",
+      "email": "prof@cresce.com",
+      "senha": "123456",
+      "tipo": "prof"
+    },
+    {
+      "id": "4",
+      "nome": "Responsável",
+      "email": "responsavel@cresce.com",
+      "senha": "123456",
+      "tipo": "responsavel"
+    }
+  ],
+  "alunos": [],
+  "professores": [],
+  "responsaveis": [],
+  "turmas": [],
+  "disciplinas": [],
+  "avisos": [],
+  "solicitacoesCadastro": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

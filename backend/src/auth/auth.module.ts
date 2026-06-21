@@ -9,7 +9,6 @@ import { JwtStrategy } from './jwt.strategy';
 @Module({
   imports: [
     PassportModule,
-
     JwtModule.register({
       secret: 'cresce-secret',
       signOptions: {
@@ -17,7 +16,7 @@ import { JwtStrategy } from './jwt.strategy';
       },
     }),
   ],
-
+  
   controllers: [AuthController],
 
   providers: [

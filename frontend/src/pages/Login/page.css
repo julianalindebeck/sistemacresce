@@ -1,54 +1,52 @@
-.paginaLogin{
+.paginaLogin {
+    position: fixed;
+    min-height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-body {
-    margin: 0%;
-    min-height: 100vh;
+    justify-content: center;
     background-color: #001CA9;
+    box-sizing: border-box;
 }
 
-.logo {
-    margin-top: 10px;
+.paginaLogin .logo {
+    margin-top: -80px;
     width: 220px;
     height: auto;
 }
 
-.topo{
+.paginaLogin .topo {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.texto{
+.paginaLogin .texto{
     display: flex;
+    color: white;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 70px;
+    margin-top: -20px;
 }
 
-h1{
-    font-family: 'Poppins', sans-serif;
+.paginaLogin h1 {
     font-weight: bold;
     font-size: 75px;
     margin-bottom: 7%;
     font-stretch: semi-condensed;
 }
 
-.subtitulo{
-    font-family: 'Poppins', sans-serif;
+.paginaLogin .subtitulo{
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 30px;
-    color: white;
     max-width: 300px;
     line-height: 1.6;
     text-align: left;
 }
 
-.quadrado {
+.paginaLogin .quadrado {
     background: white;
     width: 400px;
     border-radius: 30px;
@@ -57,17 +55,17 @@ h1{
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
-h2{
+.paginaLogin h2{
     font-family: 'Poppins', sans-serif;
     font-weight: 550;
     font-size: 20px;
     color: black;
 }
 
-input {
+.paginaLogin input {
     width: 380px;
     height: 50px;
     border-radius: 10px;
@@ -78,7 +76,21 @@ input {
     color: black;
 }
 
-button {
+.paginaLogin .voltar{
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #1325b3;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.paginaLogin .entrar {
     width: 404px;
     height: 54px;
     border: none;
@@ -89,6 +101,6 @@ button {
     cursor: pointer;
 }
 
-button:hover{
-    background-color: #778EFF;
+.paginaLogin button:hover{
+    background-color: #3249D8;
 }

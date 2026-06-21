@@ -1,57 +1,25 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import axios from 'axios';
 import { LoginDto } from './login.dto';
+import { Usuario } from '../classes/Usuario';
 
 @Injectable()
 export class AuthService {
-
-  constructor(
-    private readonly jwtService: JwtService,
-  ) {}
+  constructor(private readonly jwtService: JwtService) {}
 
   async login(loginDto: LoginDto) {
+    const url = 'http://localhost:3001/usuarios';
 
-    const usuarios = [
-      {
-        id: 1,
-        nome: 'Administrador Sistema',
-        email: 'adminsistema@cresce.com',
-        senha: '123456',
-        tipo: 'admin_sistema',
-      },
-      {
-        id: 2,
-        nome: 'Administrador Escolar',
-        email: 'adminescolar@cresce.com',
-        senha: '123456',
-        tipo: 'admin_escolar',
-      },
-      {
-        id: 3,
-        nome: 'Professor',
-        email: 'prof@cresce.com',
-        senha: '123456',
-        tipo: 'prof',
-      },
-      {
-        id: 4,
-        nome: 'Responsável',
-        email: 'responsavel@cresce.com',
-        senha: '123456',
-        tipo: 'responsavel',
-      },
-    ];
+    const response = await axios.get(url);
+    const usuarios: Usuario[] = response.data;
 
     const usuario = usuarios.find(
-      (u) =>
-        u.email === loginDto.email &&
-        u.senha === loginDto.senha,
+      (u) => u.email === loginDto.email && u.senha === loginDto.senha,
     );
 
     if (!usuario) {
-      throw new UnauthorizedException(
-        'Credenciais inválidas',
-      );
+      throw new UnauthorizedException('Credenciais inválidas');
     }
 
     const payload = {

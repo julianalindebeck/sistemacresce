@@ -40,8 +40,12 @@ export default function Login() {
   }
 }
   return (
+  
     <div className="paginaLogin">
       <div className="topo">
+      <button className="voltar" onClick={() => navigate("/")}>
+        ← Voltar ao Início
+      </button>
         
         <img src={logo} alt="logo cresce" className="logo"/>
 
@@ -77,7 +81,7 @@ export default function Login() {
           <p>{erro}</p>
         )}
 
-        <button onClick={handleLogin}>
+        <button onClick={handleLogin} className="entrar">
           Entrar
         </button>
         
