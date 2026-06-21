@@ -19,7 +19,7 @@ export function Professores(){
                         <div className="campo">
                             <label>CPF:</label>
                             <input type="text" name="cpfProfessor"
-                            placeholder="Digite o nome do professor"/>
+                            placeholder="000.000.000-00"/>
                         </div>
                     </div>
 

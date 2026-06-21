@@ -1,48 +1,48 @@
-.container-cadastro-professores {
+.container-cadastro-alunos {
     margin-left: 250px; 
     margin-top: 100px;
     display: flex;
     justify-content: center;
 }
 
-.formulario-cadastro-professores {
+.formulario-cadastro-alunos {
     display: flex;
     flex-direction: column;
 }
 
-.formulario-cadastro-professores .linha-formulario {
+.formulario-cadastro-alunos .linha-formulario {
     display: flex;
     justify-content: center;
     gap: 150px;
     margin-bottom: 15px;
 }
 
-.formulario-cadastro-professores .campo {
+.formulario-cadastro-alunos .campo {
     display: flex;
     flex-direction: column;
     width: 380px;
 }
 
-.formulario-cadastro-professores .campo label {
+.formulario-cadastro-alunos .campo label {
     margin-bottom: 8px;
     font-size: 18px;
     font-weight: 600;
 }
 
-.formulario-cadastro-professores .campo input {
+.formulario-cadastro-alunos .campo input {
     width: 100%;
     height: 48px;
     padding: 0 12px;
     box-sizing: border-box;
 }
 
-.botao-enviar-professores {
+.botao-enviar-alunos {
     display: flex;
     justify-content: center;
     margin-top: 25px;
 }
 
-.botao-enviar-professores button {
+.botao-enviar-alunos button {
     width: 180px;
     height: 50px;
     border: none;
