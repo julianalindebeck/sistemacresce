@@ -115,6 +115,7 @@
 .campo-invalido {
     border-color: red !important;
 }
+<<<<<<< HEAD
 
 .modal-overlay {
     position: fixed;
@@ -168,3 +169,5 @@
         opacity: 1;
     }
 }
+=======
+>>>>>>> origin/bell
