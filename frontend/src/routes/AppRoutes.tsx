@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login/page";
 import Prof from "../pages/Prof/page";
 import Responsavel from "../pages/Responsavel/page";
-
 import AdminEscolar from "../pages/AdminEscolar/page";
 import AdminSistema from "../pages/AdminSistema/page";
 import { Avisos } from "../pages/Prof/Avisos";
