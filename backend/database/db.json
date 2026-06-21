@@ -83,6 +83,22 @@
       "status": "PENDENTE",
       "dataSolicitacao": "2026-06-21T19:43:36.540Z",
       "id": "9OaUdHf0NSk"
+    },
+    {
+      "nomeInstituicao": "tetst2 ",
+      "cnpj": "00394460005867",
+      "endereco": "ueu",
+      "telefone": "32999991111",
+      "emailInstituicao": "ju@shsh.com",
+      "setorEducacional": "infantil",
+      "nomeRepresentante": "12ei2",
+      "cpfRepresentante": "12312312367",
+      "emailRepresentante": "aaaaaa@aaa.com",
+      "cargo": "1d",
+      "numeroAlunos": "101-500",
+      "status": "PENDENTE",
+      "dataSolicitacao": "2026-06-21T20:08:43.526Z",
+      "id": "wkgeRx2rAAU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
