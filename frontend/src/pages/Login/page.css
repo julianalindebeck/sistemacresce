@@ -76,18 +76,31 @@
     color: black;
 }
 
-.paginaLogin .voltar{
+.paginaLogin .voltar {
     position: fixed;
     top: 40px;
     left: 40px;
-    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
     border: none;
     border-radius: 8px;
-    background-color: white;
-    color: #1325b3;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.paginaLogin .voltar:hover {
+    background: transparent !important;
+    opacity: 0.8;
+}
+
+.paginaLogin .voltar svg {
+    font-size: 19px;
 }
 
 .paginaLogin .entrar {
@@ -99,8 +112,9 @@
     color: white;
     font-size: 20px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.paginaLogin button:hover{
+.paginaLogin .entrar:hover {
     background-color: #3249D8;
 }

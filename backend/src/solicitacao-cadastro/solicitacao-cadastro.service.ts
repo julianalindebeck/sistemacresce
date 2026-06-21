@@ -23,8 +23,15 @@ export class SolicitacaoCadastroService {
         return response.data;
     }
 
-    async findOne(id: number) {
+    async findOne(id: string) {
         const response = await axios.get(`${this.url}/${id}`);
+        return response.data;
+    }
+
+    async updateStatus(id: string, novoStatus: string) {
+        const response = await axios.patch(`${this.url}/${id}`, {
+            status: novoStatus
+        });
         return response.data;
     }
 }

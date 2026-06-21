@@ -4,21 +4,41 @@ import { useState } from "react";
 import axios from "axios";
 import {validarTelefone, validarCPF, validarCNPJ} from "../../utils/validadores";
 
+const formInicial = {
+  nomeInstituicao: "",
+  cnpj: "",
+  endereco: "",
+  telefone: "",
+  emailInstituicao: "",
+  setorEducacional: "",
+  nomeRepresentante: "",
+  cpfRepresentante: "",
+  emailRepresentante: "",
+  cargo: "",
+  numeroAlunos: "",
+};
+
 export default function SolicitacaoCadastro() {
-  const [form, setForm] = useState({
-    nomeInstituicao: "",
-    cnpj: "",
-    endereco: "",
-    telefone: "",
-    emailInstituicao: "",
-    setorEducacional: "",
-    nomeRepresentante: "",
-    cpfRepresentante: "",
-    emailRepresentante: "",
-    cargo: "",
-    numeroAlunos: "",
-  });
+  const [form, setForm] = useState(formInicial);
   const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
+
+  const [modal, setModal] = useState<{
+    visivel: boolean;
+    tipo: "sucesso" | "erro";
+    mensagem: string;
+  }>({
+    visivel: false,
+    tipo: "sucesso",
+    mensagem: "",
+  });
+
+  function acionarModal(tipo: "sucesso" | "erro", mensagem: string) {
+    setModal({ visivel: true, tipo, mensagem });
+    
+    setTimeout(() => {
+      setModal(prev => ({ ...prev, visivel: false }));
+    }, 3000); 
+  }
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -61,19 +81,28 @@ export default function SolicitacaoCadastro() {
     }
 
     try {
-      await axios.post(
-        "http://localhost:3000/solicitacoes-cadastro",
-        form
-      );
-      // sucesso
+      await axios.post("http://localhost:3000/solicitacoes-cadastro", form);
+      acionarModal("sucesso", "Cadastro solicitado com sucesso!");
+      setForm(formInicial);
+      setCamposInvalidos([]);
+
     } catch (error) {
       console.error(error);
-      // erro
+      acionarModal("erro", "Erro ao solicitar cadastro. Tente novamente.");
     }
   }
   return (
     <>
     <SidebarInicial></SidebarInicial>
+
+    {modal.visivel && (
+        <div className="modal-overlay">
+          <div className={`modal-caixa modal-${modal.tipo}`}>
+            <p>{modal.mensagem}</p>
+          </div>
+        </div>
+      )}
+
     <div className="container-cadastro">
       <form className="formulario" onSubmit={enviarSolicitacao}>
        

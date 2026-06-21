@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { SolicitacaoCadastroService } from './solicitacao-cadastro.service';
 import { SolicitacaoCadastro } from '../classes/SolicitacaoCadastro';
 
@@ -20,6 +20,14 @@ export class SolicitacaoCadastroController {
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return this.service.findOne(Number(id));
+        return this.service.findOne(id);
+    }
+
+    @Patch(':id/status')
+    updateStatus(
+        @Param('id') id: string, 
+        @Body('status') novoStatus: string
+    ) {
+        return this.service.updateStatus(id, novoStatus);
     }
 }
