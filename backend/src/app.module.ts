@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { ProfessoresModule } from './professores/professores.module';
 import { SolicitacaoCadastroModule } from './solicitacao-cadastro/solicitacao-cadastro.module';
+import { AlunosModule } from './alunos/alunos.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { SolicitacaoCadastroModule } from './solicitacao-cadastro/solicitacao-ca
     AuthModule,
     ProfessoresModule,
     SolicitacaoCadastroModule,
+    AlunosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
