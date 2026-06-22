@@ -1,8 +1,51 @@
+.conteudo-principal {
+    margin-left: 280px;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    width: calc(100% - 280px);
+}
+
+.cabecalho-abas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.botoes-alternador {
+    display: flex;
+    gap: 12px;
+}
+
+.botao-aba {
+    width: 140px;
+    height: 44px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.botao-aba.ativo {
+    background-color: #0021a5;
+    color: #ffffff;
+    border-color: #0021a5;
+}
+
+.titulo-pagina {
+    font-size: 34px;
+    color: #000000;
+    margin: 0;
+}
+
 .container-cadastro-alunos {
-    margin-left: 250px; 
-    margin-top: 100px;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .formulario-cadastro-alunos {
@@ -52,4 +95,84 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.container-tabela-alunos {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tabela-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.tabela-alunos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tabela-alunos th {
+    color: #0021a5;
+    font-size: 18px;
+    padding: 24px 16px;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.tabela-alunos td {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 22px 16px;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.tabela-alunos th:last-child,
+.tabela-alunos td:last-child {
+    border-right: none;
+}
+
+.tabela-alunos tr:last-child td {
+    border-bottom: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-caixa {
+    padding: 20px 40px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-sucesso {
+    background-color: #2ecc71;
+}
+
+.modal-erro {
+    background-color: #e74c3c;
+}
+
+.campo-invalido {
+    border: 2px solid #e74c3c;
 }

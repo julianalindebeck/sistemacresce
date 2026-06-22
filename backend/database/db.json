@@ -29,7 +29,17 @@
       "tipo": "responsavel"
     }
   ],
-  "alunos": [],
+  "alunos": [
+    {
+      "nomeAluno": "jujufuracao",
+      "cpfAluno": "12345678967",
+      "dataNascimentoAluno": "11111111",
+      "nomeResponsavel": "jujufuraco",
+      "emailResponsavel": "skdj@kdj.com",
+      "telefoneResponsavel": "32999996767",
+      "id": "tM4Wo-fv5b4"
+    }
+  ],
   "professores": [
     {
       "nomeProfessor": "juju furacao",
