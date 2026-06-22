@@ -30,7 +30,19 @@
     }
   ],
   "alunos": [],
-  "professores": [],
+  "professores": [
+    {
+      "nomeProfessor": "juju furacao",
+      "cpfProfessor": "12345678967",
+      "dataNascimentoProfessor": "11111111",
+      "emailProfessor": "email@email.com",
+      "telefoneProfessor": "32999991111",
+      "formacao": "todas",
+      "senha": "123456",
+      "tipo": "prof",
+      "id": "iA-zflJbl4I"
+    }
+  ],
   "responsaveis": [],
   "turmas": [],
   "disciplinas": [],
