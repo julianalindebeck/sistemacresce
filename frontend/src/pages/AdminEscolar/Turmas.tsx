@@ -6,7 +6,7 @@ export function Turmas(){
     return (
         <>
         <div className="container">
-            <h1>Cadastrar Turma</h1>
+            <h1>Cadastro de Turma</h1>
         </div>
         <div className="container-cadastro-turmas">
             <form className="formulario-cadastro-turmas">
