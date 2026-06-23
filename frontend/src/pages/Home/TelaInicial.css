@@ -4,6 +4,11 @@
     margin-left: 280px;
     box-sizing: border-box;
     padding: 40px;
+
+    background-image: url("../Home/img/image.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .paginaInicial .topo {
