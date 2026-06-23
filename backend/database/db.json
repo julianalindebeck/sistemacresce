@@ -55,7 +55,26 @@
   ],
   "responsaveis": [],
   "turmas": [],
-  "disciplinas": [],
+  "disciplinas": [
+    {
+      "nomeDisciplina": "Disciplina Teste",
+      "cargaHoraria": "4",
+      "codigo": "DIS01",
+      "areaConhecimento": "Idioma",
+      "descricao": "Disciplina para teste",
+      "professorId": "iA-zflJbl4I",
+      "id": "nhpB7GpT_7I"
+    },
+    {
+      "nomeDisciplina": "Matemática Avançada",
+      "cargaHoraria": "5",
+      "codigo": "MAT002",
+      "areaConhecimento": "Exatas",
+      "descricao": "Matemática teste",
+      "professorId": "iA-zflJbl4I",
+      "id": "R8Hoj42-aBU"
+    }
+  ],
   "avisos": [],
   "solicitacoesCadastro": [
     {

@@ -34,3 +34,13 @@ export function validarDataNascimento(data: string): boolean {
 
     return true;
 }
+
+export function validarCargaHoraria(cargaHoraria: string) {
+    const numero = Number(cargaHoraria);
+
+    return (
+        Number.isInteger(numero) &&
+        numero >= 0 &&
+        numero <= 168
+    );
+}
