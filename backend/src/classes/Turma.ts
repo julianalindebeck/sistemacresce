@@ -1,11 +1,11 @@
 export class Turma{
     nomeTurma: String;
     capacidade: number;
-    alunos: String[] = [];
+    alunos: string[] = [];
     anoSerie: String;
-    disciplinas: String[] = [];
+    disciplinas: string[] = [];
     turno: String;
-    professores: String[] = [];
+    //professores: String[] = [];
 
     constructor(nomeTurma: String, capacidade: number, anoSerie: String, turno: String){
         this.nomeTurma = nomeTurma;
