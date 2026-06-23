@@ -1,0 +1,71 @@
+.tabela-ver-turma {
+    margin-left: 280px;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    width: calc(100% - 280px);
+    display: flex;
+    gap: 20px;
+    padding-top: 300px;
+}
+
+.tabela-ver-turma .container-tabela-alunos {
+    flex: 1;
+    min-width: 0;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.tabela-ver-turma .container-tabela-disciplinas {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.tabela-ver-turma .tabela-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.tabela-ver-turma .tabela-alunos,
+.tabela-ver-turma .tabela-disciplinas {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tabela-ver-turma .tabela-alunos th, 
+.tabela-ver-turma .tabela-disciplinas th {
+    color: #0021a5;
+    font-size: 18px;
+    padding: 24px 16px;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.tabela-ver-turma .tabela-alunos td,
+.tabela-ver-turma .tabela-disciplinas td {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 22px 16px;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.tabela-ver-turma .tabela-alunos th:last-child,
+.tabela-ver-turma .tabela-alunos td:last-child,
+.tabela-ver-turma .tabela-disciplinas th:last-child,
+.tabela-ver-turma .tabela-disciplinas td:last-child {
+    border-right: none;
+}
+
+.tabela-ver-turma .tabela-alunos tr:last-child td,
+.tabela-ver-turma .tabela-disciplinas tr:last-child td {
+    border-bottom: none;
+}

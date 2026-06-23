@@ -20,6 +20,7 @@ import { DashboardAdminEscolar } from "../pages/AdminEscolar/DashboardAdminEscol
 import { Professores } from "../pages/AdminEscolar/Professores";
 import { Alunos } from "../pages/AdminEscolar/Alunos";
 import { Turmas } from "../pages/AdminEscolar/Turmas";
+import { TurmaDetalhes } from "../pages/AdminEscolar/TurmaDetalhes";
 import { Disciplinas } from "../pages/AdminEscolar/Disciplinas";
 import { AvisosAdminEscolar } from "../pages/AdminEscolar/AvisosAdminEscolar";
 import { VerAvisosAdminEscolar } from "../pages/AdminEscolar/VerAvisosAdminEscolar";
@@ -54,6 +55,7 @@ export default function AppRoutes() {
         <Route path="/admin-escolar/professores" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Professores/></ProtectedRoute>}/>
         <Route path="/admin-escolar/alunos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Alunos/></ProtectedRoute>}/>
         <Route path="/admin-escolar/turmas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Turmas/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/turmas/:id" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><TurmaDetalhes/></ProtectedRoute>}/>
         <Route path="/admin-escolar/disciplinas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Disciplinas/></ProtectedRoute>}/>
         <Route path="/admin-escolar/avisos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><AvisosAdminEscolar/></ProtectedRoute>}/>
         <Route path="/admin-escolar/avisos/visualizar" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><VerAvisosAdminEscolar/></ProtectedRoute>}/>

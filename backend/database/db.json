@@ -54,7 +54,48 @@
     }
   ],
   "responsaveis": [],
-  "turmas": [],
+  "turmas": [
+    {
+      "nomeTurma": " Turma A",
+      "capacidade": "22",
+      "anoSerie": "3",
+      "disciplinas": [
+        "R8Hoj42-aBU"
+      ],
+      "turno": "Tarde",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "L9OiW_tJAZM"
+    },
+    {
+      "nomeTurma": "Turma D",
+      "capacidade": "18",
+      "anoSerie": "1",
+      "disciplinas": [
+        "nhpB7GpT_7I"
+      ],
+      "turno": "Noite",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "4GJbhv2QBSw"
+    },
+    {
+      "nomeTurma": "Turma B",
+      "capacidade": "100",
+      "anoSerie": "2",
+      "disciplinas": [
+        "nhpB7GpT_7I",
+        "R8Hoj42-aBU"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "A38hJ8yEmhI"
+    }
+  ],
   "disciplinas": [
     {
       "nomeDisciplina": "Disciplina Teste",
