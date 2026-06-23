@@ -2,11 +2,14 @@
     min-height: 100vh;
     margin-left: 280px;
     padding: 30px 40px;
-
     background-image: url("../Home/img/image.png");
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+body {
+    background-color: #f6fafd;
 }
 
 .cresce {
@@ -38,26 +41,26 @@
     margin-top: 40px;
 }
 
-.funcionalidades h3 {
-    text-align: center;
+.tituloFuncionalidades h3 {
+    margin: 0;
+}
+
+.tituloFuncionalidades {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
     margin-bottom: 30px;
 }
 
 .cards {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
-.card {
-    width: 220px;
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.1);
-}
-
-.cta {
+.fim {
     margin-top: 40px;
 
     display: flex;
@@ -88,4 +91,105 @@
 
     transition: 0.2s ease;
     cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.texto {
+    max-width: 520px;
+}
+
+.subtitulo {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    max-width: 420px;
+}
+
+.card {
+    width: 280px;
+    min-height: 100px;
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 16px;
+}
+
+.cardHeader h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.iconeWrapper {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.iconeCard {
+    font-size: 28px;
+}
+
+.verde {
+    background: #eefaf1;
+    color: #55b46c;
+}
+
+.azul {
+    background: #eef4ff;
+    color: #4d7be8;
+}
+
+.amarelo {
+    background: #fff8e8;
+    color: #f2b637;
+}
+
+.roxo {
+    background: #f5efff;
+    color: #9a60f2;
+}
+
+.linha-curta {
+    width: 25px;
+    height: 7px;
+    background: #1637b7;
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .paginaInicial {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .hero,
+    .cards,
+    .fim {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
 }

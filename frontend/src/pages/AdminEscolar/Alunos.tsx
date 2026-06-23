@@ -202,7 +202,7 @@ export function Alunos() {
                                         name="telefoneResponsavel"
                                         value={form.telefoneResponsavel}
                                         onChange={handleChange}
-                                        placeholder="(00)00000-0000"
+                                        placeholder="(00) 00000-0000"
                                         required
                                         className={camposInvalidos.includes("telefoneResponsavel") ? "campo-invalido" : ""}
                                     />

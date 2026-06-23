@@ -51,6 +51,17 @@
       "senha": "123456",
       "tipo": "prof",
       "id": "iA-zflJbl4I"
+    },
+    {
+      "nomeProfessor": "Loboxco de hierarquia ",
+      "cpfProfessor": "12312312390",
+      "dataNascimentoProfessor": "18021970",
+      "emailProfessor": "loboxco@cresce",
+      "telefoneProfessor": "32988444444",
+      "formacao": "todas",
+      "senha": "123456",
+      "tipo": "prof",
+      "id": "F4rPwEa-eu8"
     }
   ],
   "responsaveis": [],
