@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from "../pages/Login/page";
 import Prof from "../pages/Prof/page";
 import Responsavel from "../pages/Responsavel/page";
-import AdminEscolar from "../pages/AdminEscolar/page";
 import AdminSistema from "../pages/AdminSistema/page";
 import { Avisos } from "../pages/Prof/Avisos";
 import { Frequencia } from "../pages/Prof/Frequencia";
@@ -16,7 +15,6 @@ import { AvisosAlunos } from "../pages/Responsavel/AvisosAlunos";
 import { RelatorioFinalAlunos } from "../pages/Responsavel/RelatorioFinalAlunos";
 import { Solicitacoes } from "../pages/AdminSistema/Solicitacoes";
 import { Escolas } from "../pages/AdminSistema/Escolas";
-import { DashboardAdminEscolar } from "../pages/AdminEscolar/DashboardAdminEscolar";
 import { Professores } from "../pages/AdminEscolar/Professores";
 import { Alunos } from "../pages/AdminEscolar/Alunos";
 import { Turmas } from "../pages/AdminEscolar/Turmas";
@@ -27,6 +25,7 @@ import { RelatorioFinalAdminEscolar } from "../pages/AdminEscolar/RelatorioFinal
 import { Escola } from "../pages/AdminEscolar/Escola";
 import TelaInicial from "../pages/Home/TelaInicial";
 import TelaCadastro from "../pages/Home/TelaCadastro";
+import { AdminEscolar } from "../pages/AdminEscolar/AdminEscolar";
 
 export default function AppRoutes() {
   return (
@@ -50,7 +49,7 @@ export default function AppRoutes() {
         <Route path="/responsavel/relatoriofinal" element={<ProtectedRoute allowedRoles={["responsavel"]}><RelatorioFinalAlunos /></ProtectedRoute>}/>
         <Route path="/admin-sistema/solicitacoes" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><Solicitacoes/></ProtectedRoute>}/>
         <Route path="/admin-sistema/escolas" element={<ProtectedRoute allowedRoles={["admin_sistema"]}><Escolas/></ProtectedRoute>}/>
-        <Route path="/admin-escolar/dashboard" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><DashboardAdminEscolar/></ProtectedRoute>}/>
+        <Route path="/admin-escolar/dashboard" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><AdminEscolar/></ProtectedRoute>}/>
         <Route path="/admin-escolar/professores" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Professores/></ProtectedRoute>}/>
         <Route path="/admin-escolar/alunos" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Alunos/></ProtectedRoute>}/>
         <Route path="/admin-escolar/turmas" element={<ProtectedRoute allowedRoles={["admin_escolar"]}><Turmas/></ProtectedRoute>}/>

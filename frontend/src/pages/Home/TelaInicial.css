@@ -1,9 +1,7 @@
 .paginaInicial {
     min-height: 100vh;
-    width: calc(100vw - 280px);
     margin-left: 280px;
-    box-sizing: border-box;
-    padding: 40px;
+    padding: 30px 40px;
 
     background-image: url("../Home/img/image.png");
     background-size: cover;
@@ -11,43 +9,83 @@
     background-repeat: no-repeat;
 }
 
-.paginaInicial .topo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.paginaInicial .texto {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.paginaInicial h1 {
-    font-size: 40px;
-    font-weight: 500;
-    margin: 0;
-    line-height: 1;
-    color: black;
-}
-
-.paginaInicial h2 {
-    font-size: 80px;
-    font-weight: 800;
-    margin: 0;
-    line-height: 1.2;
+.cresce {
     color: #1637b7;
-    transform: scale(0.85, 0.85);
-    transform-origin: left center;
+    font-weight: 700;
+    font-size: 48px;
 }
 
-.paginaInicial .subtitulo {
-    font-size: 17px;
-    font-weight: 800;
-    margin: 0;
-    max-width: 330px;
-    line-height: 1.4;
-    color: black;
-    margin-top: -20px;
+.linha {
+    width: 120px;
+    height: 6px;
+    background: #1637b7;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
+.descricao {
+    max-width: 450px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.destaque {
+    font-weight: 700;
+    color: #1637b7;
+}
+
+.funcionalidades {
+    margin-top: 40px;
+}
+
+.funcionalidades h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 220px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+}
+
+.cta {
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mensagem {
+    border: 2px solid #31c76a;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.botaoCadastro {
+    background-color: #2ecf73;
+    color: white;
+    text-decoration: none;
+
+    padding: 14px 24px;
+    border-radius: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 16px;
+
+    transition: 0.2s ease;
+    cursor: pointer;
+}
