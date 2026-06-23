@@ -37,9 +37,11 @@
 }
 
 .titulo-pagina {
-    font-size: 34px;
-    color: #000000;
+    font-size: 40px;
+    font-weight: 500;
     margin: 0;
+    line-height: 1.3;
+    color: black;
 }
 
 .container-cadastro-professores {
@@ -95,6 +97,10 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.botao-enviar-professores button:hover{
+    background-color: #27ae60;
 }
 
 .container-tabela-professores {

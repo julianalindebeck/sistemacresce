@@ -1,11 +1,16 @@
 import { SidebarAdminEscolar } from "./SidebarAdminEscolar";
-import "./pageEscolar.css"
+import "./dashboard.css"
 
 export function DashboardAdminEscolar(){
     return (
         <>
-        <div className="container">
-            <h1>Dashboard</h1>
+        <div className="pagAdmEsc">
+            <div className="topo">
+                <div className="texto">
+                    <h1>Dashboard</h1>
+                </div>
+      
+            </div>
         </div>
 
         <SidebarAdminEscolar></SidebarAdminEscolar>

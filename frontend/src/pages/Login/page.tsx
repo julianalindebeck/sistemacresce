@@ -32,7 +32,7 @@ export default function Login() {
     const tipo = response.data.tipo;
 
     if (tipo === "admin_sistema") navigate("/admin-sistema");
-    if (tipo === "admin_escolar") navigate("/admin-escolar");
+    if (tipo === "admin_escolar") navigate("/admin-escolar/dashboard");
     if (tipo === "prof") navigate("/prof/dashboard");
     if (tipo === "responsavel") navigate("/responsavel");
 
