@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Patch } from '@nestjs/common';
 import { SolicitacaoCadastroService } from './solicitacao-cadastro.service';
 import { SolicitacaoCadastro } from '../classes/SolicitacaoCadastro';
 
@@ -7,7 +7,7 @@ export class SolicitacaoCadastroController {
     constructor(
         private readonly service: SolicitacaoCadastroService,
     ) {}
-    
+
     @Post()
     create(@Body() data: SolicitacaoCadastro) {
         return this.service.create(data);
@@ -24,10 +24,7 @@ export class SolicitacaoCadastroController {
     }
 
     @Patch(':id/status')
-    updateStatus(
-        @Param('id') id: string, 
-        @Body('status') novoStatus: string
-    ) {
-        return this.service.updateStatus(id, novoStatus);
+    updateStatus(@Param('id') id: string, @Body('status') status: string) {
+        return this.service.updateStatus(id, status);
     }
 }
