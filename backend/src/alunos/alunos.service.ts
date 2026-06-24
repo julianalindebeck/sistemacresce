@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import gerarSenhaAleatoria from '../utils/password.util';
+import { EmailService } from '../email/email.service';
 
 @Injectable()
 export class AlunosService {
     private url = 'http://localhost:3001/alunos';
+
+    constructor(
+        private readonly emailService: EmailService
+    ) {}
 
     async findAll() {
         const response = await axios.get(this.url);
@@ -14,9 +20,12 @@ export class AlunosService {
         const response = await axios.get(this.url);
         const alunos = response.data;
 
-        const maiorId = alunos.length > 0 ? Math.max(...alunos.map((a: any) => Number(a.id))) : 0;
-        
-        const payload = { 
+        const senhaAleatoria = gerarSenhaAleatoria();
+
+        const maiorId =
+            alunos.length > 0 ? Math.max(...alunos.map((a: any) => Number(a.id))) : 0;
+
+        const payload = {
             id: maiorId + 1,
             nomeAluno: aluno.nomeAluno,
             cpfAluno: aluno.cpfAluno,
@@ -24,12 +33,31 @@ export class AlunosService {
             nomeResponsavel: aluno.nomeResponsavel,
             emailResponsavel: aluno.emailResponsavel,
             telefoneResponsavel: aluno.telefoneResponsavel,
-            senha: "123456",
-            tipo: 'aluno'
+            senha: senhaAleatoria,
+            tipo: 'responsavel',
         };
 
         const novo = await axios.post(this.url, payload);
-        return novo.data;
+
+        await this.emailService.enviarCredenciais(
+            aluno.nomeResponsavel,
+            aluno.emailResponsavel,
+            senhaAleatoria
+        );
+
+        await axios.post('http://localhost:3001/usuarios', {
+            id: payload.id,
+            nome: payload.nomeResponsavel,
+            email: payload.emailResponsavel,
+            telefone: payload.telefoneResponsavel,
+            senha: payload.senha,
+            tipo: 'responsavel',
+        });
+
+        return {
+            ...novo.data,
+            senha: senhaAleatoria
+        };
     }
 
     async findOne(id: number) {
