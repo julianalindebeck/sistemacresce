@@ -42,7 +42,8 @@ export class AlunosService {
         await this.emailService.enviarCredenciais(
             aluno.nomeResponsavel,
             aluno.emailResponsavel,
-            senhaAleatoria
+            senhaAleatoria,
+            'Responsável'
         );
 
         await axios.post('http://localhost:3001/usuarios', {
@@ -51,7 +52,7 @@ export class AlunosService {
             email: payload.emailResponsavel,
             telefone: payload.telefoneResponsavel,
             senha: payload.senha,
-            tipo: 'responsavel',
+            tipo: payload.tipo,
         });
 
         return {

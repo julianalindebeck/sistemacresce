@@ -38,9 +38,10 @@ export class ProfessoresService {
         const novo = await axios.post(this.url, payload);
 
         await this.emailService.enviarCredenciais(
-            payload.nome,
-            payload.email,
-            senhaAleatoria
+            professor.nome,
+            professor.email,
+            senhaAleatoria,
+            'Professor',
         );
 
         await axios.post('http://localhost:3001/usuarios', {
@@ -48,7 +49,7 @@ export class ProfessoresService {
             nome: payload.nome,
             email: payload.email,
             senha: payload.senha,
-            tipo: 'prof',
+            tipo: payload.tipo,
         });
 
         return {

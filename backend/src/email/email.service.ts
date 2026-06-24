@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
+import { templateEmailCredenciais } from '../utils/credenciais';
 
 @Injectable()
 export class EmailService {
@@ -15,26 +16,15 @@ export class EmailService {
     async enviarCredenciais(
         nome: string,
         email: string,
-        senha: string
+        senha: string,
+        contextoAcesso: string
     ) {
 
         await this.transporter.sendMail({
             from: '"Sistema CRESCE" <gerenciamentocresce@gmail.com>',
             to: email,
-            subject: 'Credenciais de acesso ao Sistema CRESCE',
-            html: `
-                <h2>Olá, ${nome}!</h2>
-
-                <p>Seu cadastro foi realizado com sucesso.</p>
-
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Senha:</strong> ${senha}</p>
-
-                <br>
-
-                <p>Equipe Sistema CRESCE</p>
-            `
+            subject: 'Acesso ao Sistema CRESCE',
+            html: templateEmailCredenciais(nome, email, senha, contextoAcesso),
         });
-
     }
 }
