@@ -75,7 +75,104 @@
       "id": "R8Hoj42-aBU"
     }
   ],
-  "avisos": [],
+  "avisos": [
+    {
+      "publico": "",
+      "tipoAviso": "informativo",
+      "titulo": "teste",
+      "mensagem": "11111",
+      "dataCriacao": "2026-06-23T23:04:52.921Z",
+      "id": "jT2ZAjuQZtg"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "informativo",
+      "titulo": "teste",
+      "mensagem": "11111",
+      "dataCriacao": "2026-06-23T23:09:41.833Z",
+      "id": "SIDtkkvOxek"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "informativo",
+      "titulo": "teste",
+      "mensagem": "11111",
+      "dataCriacao": "2026-06-23T23:12:42.406Z",
+      "id": "rlcQZkWSqv4"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "informativo",
+      "titulo": "teste",
+      "mensagem": "11111",
+      "dataCriacao": "2026-06-23T23:13:13.588Z",
+      "id": "1_AVMtkswBA"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "informativo",
+      "titulo": "teste",
+      "mensagem": "11111",
+      "dataCriacao": "2026-06-23T23:13:52.400Z",
+      "id": "nrGMO9BJ1GU"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "alerta",
+      "titulo": "Testando 3",
+      "mensagem": "3333",
+      "dataCriacao": "2026-06-23T23:14:15.100Z",
+      "id": "2jyLQh7hq0A"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "alerta",
+      "titulo": "juju furacao",
+      "mensagem": "222",
+      "dataCriacao": "2026-06-23T23:15:45.724Z",
+      "id": "Ru108F7iEs8"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "alerta",
+      "titulo": "33",
+      "mensagem": "22",
+      "dataCriacao": "2026-06-23T23:21:15.791Z",
+      "id": "hyiWkmcElvI"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "alerta",
+      "titulo": "x",
+      "mensagem": "dedede",
+      "dataCriacao": "2026-06-23T23:23:06.450Z",
+      "id": "wYqdRUAkoH4"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "alerta",
+      "titulo": "teste",
+      "mensagem": "33",
+      "dataCriacao": "2026-06-23T23:24:11.285Z",
+      "id": "fl3spxq5FuM"
+    },
+    {
+      "publico": "",
+      "tipoAviso": "alerta",
+      "titulo": "teste",
+      "mensagem": "12345",
+      "dataCriacao": "2026-06-23T23:28:44.582Z",
+      "id": "dEC97wDCqis"
+    },
+    {
+      "publico": "turma 2",
+      "tipoAviso": "informativo",
+      "tituloAviso": "JOGO DA COPA",
+      "descricao": " NAO HAVERA AULA",
+      "dataCriacao": "2026-06-24T00:52:56.633Z",
+      "id": "UGi6nXOExK8"
+    }
+  ],
   "solicitacoesCadastro": [
     {
       "nomeInstituicao": "escola da bell",
