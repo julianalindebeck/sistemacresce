@@ -1,7 +1,7 @@
 import { SidebarAdminEscolar } from "./SidebarAdminEscolar";
 import "./dashboard.css"
 
-export function DashboardAdminEscolar(){
+export function AdminEscolar(){
     return (
         <>
         <div className="pagAdmEsc">

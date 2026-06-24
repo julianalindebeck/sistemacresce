@@ -1,48 +1,195 @@
 .paginaInicial {
     min-height: 100vh;
-    width: calc(100vw - 280px);
     margin-left: 280px;
-    box-sizing: border-box;
-    padding: 40px;
+    padding: 30px 40px;
+    background-image: url("../Home/img/image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-.paginaInicial .topo {
+body {
+    background-color: #f6fafd;
+}
+
+.cresce {
+    color: #1637b7;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+.linha {
+    width: 120px;
+    height: 6px;
+    background: #1637b7;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.descricao {
+    max-width: 450px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.destaque {
+    font-weight: 700;
+    color: #1637b7;
+}
+
+.funcionalidades {
+    margin-top: 40px;
+}
+
+.tituloFuncionalidades h3 {
+    margin: 0;
+}
+
+.tituloFuncionalidades {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.fim {
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mensagem {
+    border: 2px solid #31c76a;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.botaoCadastro {
+    background-color: #2ecf73;
+    color: white;
+    text-decoration: none;
+
+    padding: 14px 24px;
+    border-radius: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 16px;
+
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
     align-items: flex-start;
 }
 
-.paginaInicial .texto {
+.texto {
+    max-width: 520px;
+}
+
+.subtitulo {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    max-width: 420px;
+}
+
+.card {
+    width: 280px;
+    min-height: 100px;
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
-.paginaInicial h1 {
-    font-size: 40px;
-    font-weight: 500;
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 16px;
+}
+
+.cardHeader h4 {
     margin: 0;
-    line-height: 1;
-    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.7;
 }
 
-.paginaInicial h2 {
-    font-size: 80px;
-    font-weight: 800;
-    margin: 0;
-    line-height: 1.2;
-    color: #1637b7;
-    transform: scale(0.85, 0.85);
-    transform-origin: left center;
+.iconeWrapper {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-.paginaInicial .subtitulo {
-    font-size: 17px;
-    font-weight: 800;
-    margin: 0;
-    max-width: 330px;
-    line-height: 1.4;
-    color: black;
-    margin-top: -20px;
+.iconeCard {
+    font-size: 28px;
 }
 
+.verde {
+    background: #eefaf1;
+    color: #55b46c;
+}
+
+.azul {
+    background: #eef4ff;
+    color: #4d7be8;
+}
+
+.amarelo {
+    background: #fff8e8;
+    color: #f2b637;
+}
+
+.roxo {
+    background: #f5efff;
+    color: #9a60f2;
+}
+
+.linha-curta {
+    width: 25px;
+    height: 7px;
+    background: #1637b7;
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .paginaInicial {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .hero,
+    .cards,
+    .fim {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
