@@ -1,7 +1,7 @@
 import { SidebarAdminEscolar } from "./SidebarAdminEscolar";
 import "./pageEscolar.css"
 import "./avisosAdminEscolar.css"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const formInicial = {
@@ -14,6 +14,7 @@ const formInicial = {
 export function AvisosAdminEscolar(){
     const [form, setForm] = useState(formInicial);
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
+    const [listaTurmas, setListaTurmas] = useState<any[]>([]);
 
     const [modal, setModal] = useState<{
         visivel: boolean;
@@ -33,6 +34,19 @@ export function AvisosAdminEscolar(){
         }, 3000);
     }
 
+    useEffect(()=> {
+        buscarTurmas();
+    }, []);
+    
+    async function buscarTurmas() {
+        try {
+            const response = await axios.get("http://localhost:3001/turmas");
+            setListaTurmas(response.data);
+        } catch (error) {
+            console.error("Erro ao buscar turmas:", error);
+            acionarModal("erro", "Não foi possivel carregar lista de turmas.");
+        }
+    }
     function limparErro(campo: string){
         setCamposInvalidos((prev) => prev.filter((item) => item !== campo));
     }
@@ -109,9 +123,9 @@ export function AvisosAdminEscolar(){
                         required 
                         className={camposInvalidos.includes("publico") ? "campo-invalido" : ""}>
                             <option value="">Selecione...</option>
-                            <option value="turma 1">Turma 1</option>
-                            <option value="turma 2">Turma 2</option>
-                            <option value="turma 3">Turma 3</option>
+                            {listaTurmas.map((turma) => (
+                                <option key={turma.id} value={turma.id}>{turma.nomeTurma} - {turma.turno}</option>
+                            ))}
                         </select>
                     </div>
                 </div>
