@@ -13,8 +13,10 @@ const formInicial = {
 
 export function AvisosAdminEscolar(){
     const [form, setForm] = useState(formInicial);
+    const [aba, setAba] = useState<"cadastro" | "visualizacao">("cadastro");
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
     const [listaTurmas, setListaTurmas] = useState<any[]>([]);
+    const [listaAvisos, setListaAvisos] = useState<any[]>([]);
 
     const [modal, setModal] = useState<{
         visivel: boolean;
@@ -36,8 +38,19 @@ export function AvisosAdminEscolar(){
 
     useEffect(()=> {
         buscarTurmas();
+        buscarAvisos();
     }, []);
     
+    async function buscarAvisos(){
+        try {
+            const response = await axios.get("http://localhost:3001/avisos");
+            setListaAvisos(response.data);
+        } catch (error) {
+            console.error("Erro ao buscar avisos:", error);
+            acionarModal("erro", "Não foi possivel carregar lista de avisos.");
+        }
+    }
+
     async function buscarTurmas() {
         try {
             const response = await axios.get("http://localhost:3001/turmas");
@@ -92,6 +105,7 @@ export function AvisosAdminEscolar(){
             await axios.post("http://localhost:3000/avisos", form);
             acionarModal("sucesso", "Aviso enviado com sucesso!");
             setForm(formInicial); 
+            buscarAvisos();
         } catch (erro) {
             console.error("Erro ao enviar o aviso:", erro);
             acionarModal("erro", "Erro ao enviar aviso. Tente novamente.");
@@ -100,9 +114,6 @@ export function AvisosAdminEscolar(){
 
     return (
         <>
-        <div className="container">
-            <h1>Avisos</h1>
-        </div>
 
         {modal.visivel && (
             <div className="modal-overlay">
@@ -112,6 +123,35 @@ export function AvisosAdminEscolar(){
             </div>
         )}
 
+        <div className="conteudo-principal-avisos">
+                <div className="cabecalho-abas-avisos">
+                    <h1 className="titulo-pagina">
+                        {aba === "cadastro" ? (
+                            "Envio de aviso"
+                        ) : (
+                        <>
+                            Visualização <br /> de aviso
+                            </>
+                         )}
+                    </h1>
+                    
+                    <div className="botoes-alternador-avisos">
+                        <button
+                            className={aba === "cadastro" ? "botao-aba ativo" : "botao-aba"}
+                            onClick={() => setAba("cadastro")}
+                        >
+                            Cadastrar
+                        </button>
+                        <button
+                            className={aba === "visualizacao" ? "botao-aba ativo" : "botao-aba"}
+                            onClick={() => setAba("visualizacao")}
+                        >
+                            Visualizar
+                        </button>
+                    </div>
+                </div>
+
+        {aba === "cadastro" ? (
         <div className="container-avisos">
             <form className="envio-avisos" onSubmit={enviarAviso}>
                 <div className="linha-formulario">
@@ -202,6 +242,35 @@ export function AvisosAdminEscolar(){
                     </div>
                 </div>
             </form>
+        </div>
+        ) : (
+            <div className="container-lista-avisos">
+                <div className="box-borda-avisos">
+                    <div className="box-scroll-avisos">
+                        {listaAvisos.map((aviso) => (
+                            <div className="linha-aviso" key={aviso.id}>
+                                <div className="aviso-esquerda">
+                                    <div className={`bolinha-status ${aviso.tipoAviso === "alerta" ? "vermelha" : "azul"}`}></div>
+                                    <div className="aviso-textos">
+                                        <h4>{aviso.tituloAviso}</h4>
+                                        <p>{aviso.descricao}</p>
+                                    </div>
+                                </div>
+                                <div className="aviso-direita">
+                                    <span className="aviso-data">
+                                        {aviso.dataCriacao ? new Date(aviso.dataCriacao).toLocaleDateString('pt-BR') : "Data indisponível"}
+                                    </span> 
+                                    <div className={`badge-lidos ${aviso.lidoAdmin ? "status-lido" : "status-nao-lido"}`}>
+                                        <strong>{aviso.lidos || 0}</strong>/{aviso.total || 0} lidos
+                                    </div>
+                                    {/*Pedente Avisos Lidos, e o total de avisos enviado*/}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        )} 
         </div>
         <SidebarAdminEscolar></SidebarAdminEscolar>
         </>
