@@ -17,16 +17,16 @@ export class TurmasController {
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return this.service.findOne(String(id));
+        return this.service.findOne(id);
     }
     
     @Put(':id')
     update(@Param('id') id: string, @Body() body: any) {
-        return this.service.update(String(id), body);
+        return this.service.update((id), body);
     }
     
     @Delete(':id')
     remove(@Param('id') id: string) {
-        return this.service.remove(String(id));
+        return this.service.remove(id);
     }
 }
