@@ -51,10 +51,62 @@
       "senha": "123456",
       "tipo": "prof",
       "id": "iA-zflJbl4I"
+    },
+    {
+      "nomeProfessor": "Loboxco de hierarquia ",
+      "cpfProfessor": "12312312390",
+      "dataNascimentoProfessor": "18021970",
+      "emailProfessor": "loboxco@cresce",
+      "telefoneProfessor": "32988444444",
+      "formacao": "todas",
+      "senha": "123456",
+      "tipo": "prof",
+      "id": "F4rPwEa-eu8"
     }
   ],
   "responsaveis": [],
-  "turmas": [],
+  "turmas": [
+    {
+      "nomeTurma": " Turma A",
+      "capacidade": "22",
+      "anoSerie": "3",
+      "disciplinas": [
+        "R8Hoj42-aBU"
+      ],
+      "turno": "Tarde",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "L9OiW_tJAZM"
+    },
+    {
+      "nomeTurma": "Turma D",
+      "capacidade": "18",
+      "anoSerie": "1",
+      "disciplinas": [
+        "nhpB7GpT_7I"
+      ],
+      "turno": "Noite",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "4GJbhv2QBSw"
+    },
+    {
+      "nomeTurma": "Turma B",
+      "capacidade": "100",
+      "anoSerie": "2",
+      "disciplinas": [
+        "nhpB7GpT_7I",
+        "R8Hoj42-aBU"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "A38hJ8yEmhI"
+    }
+  ],
   "disciplinas": [
     {
       "nomeDisciplina": "Disciplina Teste",
@@ -75,7 +127,48 @@
       "id": "R8Hoj42-aBU"
     }
   ],
-  "avisos": [],
+  "avisos": [
+    {
+      "publico": "4GJbhv2QBSw",
+      "tipoAviso": "alerta",
+      "tituloAviso": "Festa",
+      "descricao": "tera uma festa",
+      "dataCriacao": "2026-06-24T21:37:24.891Z",
+      "id": "G4FIbff7DbU"
+    },
+    {
+      "publico": "A38hJ8yEmhI",
+      "tipoAviso": "informativo",
+      "tituloAviso": "Reuniao",
+      "descricao": "blablaaaaa",
+      "dataCriacao": "2026-06-24T21:40:22.808Z",
+      "id": "fC88O1gb8T8"
+    },
+    {
+      "publico": "4GJbhv2QBSw",
+      "tipoAviso": "informativo",
+      "tituloAviso": "reuniao 2",
+      "descricao": "blablaaa",
+      "dataCriacao": "2026-06-24T21:46:11.424Z",
+      "id": "LIiGUJfYTXo"
+    },
+    {
+      "publico": "4GJbhv2QBSw",
+      "tipoAviso": "alerta",
+      "tituloAviso": "teste",
+      "descricao": "ddede",
+      "dataCriacao": "2026-06-24T21:46:19.986Z",
+      "id": "vTq5Rc_PYA0"
+    },
+    {
+      "publico": "L9OiW_tJAZM",
+      "tipoAviso": "informativo",
+      "tituloAviso": "teste",
+      "descricao": "dededede",
+      "dataCriacao": "2026-06-24T21:46:28.563Z",
+      "id": "xB-Owycvpfg"
+    }
+  ],
   "solicitacoesCadastro": [
     {
       "nomeInstituicao": "escola da bell",

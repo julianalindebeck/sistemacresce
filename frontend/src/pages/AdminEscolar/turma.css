@@ -1,66 +1,259 @@
-.container-cadastro-turmas {
-    margin-left: 250px; 
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
+.conteudo-principal-turmas {
+    margin-left: 280px;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    width: calc(100% - 280px);
 }
 
-.formulario-cadastro-turmas {
+.conteudo-principal-turmas .cabecalho-abas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.conteudo-principal-turmas .botoes-alternador {
+    display: flex;
+    gap: 2px;
+}
+
+.conteudo-principal-turmas .botao-aba {
+    width: 140px;
+    height: 44px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.conteudo-principal-turmas .botao-aba.ativo {
+    background-color: #0021a5;
+    color: #ffffff;
+    border-color: #0021a5;
+}
+
+.conteudo-principal-turmas .titulo-pagina {
+    font-size: 34px;
+    color: #000000;
+    margin: 0;
+}
+
+.conteudo-principal-turmas .container-cadastro-turmas {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.conteudo-principal-turmas .formulario-cadastro-turmas {
     display: flex;
     flex-direction: column;
 }
 
-.formulario-cadastro-turmas .linha-formulario {
+.conteudo-principal-turmas .formulario-cadastro-turmas .linha-formulario {
     display: flex;
     justify-content: center;
     gap: 150px;
     margin-bottom: 15px;
 }
 
-.formulario-cadastro-turmas .campo {
+.conteudo-principal-turmas .formulario-cadastro-turmas .campo {
     display: flex;
     flex-direction: column;
     width: 380px;
 }
 
-.formulario-cadastro-turmas .campo label {
+.conteudo-principal-turmas .formulario-cadastro-turmas .campo label {
     margin-bottom: 8px;
     font-size: 18px;
     font-weight: 600;
 }
 
-.formulario-cadastro-turmas .campo input {
+.conteudo-principal-turmas .formulario-cadastro-turmas .campo input {
     width: 100%;
     height: 48px;
     padding: 0 12px;
     box-sizing: border-box;
 }
 
-.botoes-turma {
+.conteudo-principal-turmas .selecionar-turmas__control {
+    min-height: 48px;
+    border: 0.4px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: none;
+    padding-left: 4px;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__control:hover{
+    border-color: #cccccc;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__control--is-focused {
+    border-color: blue;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__control--is-focused:hover {
+    border-color: blue;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__value-container {
+    padding: 0 8px;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__placeholder {
+    color: #999999;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__input-container {
+    margin: 0;
+    padding: 0;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__multi-value {
+    background-color: #e8eefc;
+    border-radius: 6px;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__multi-value__label {
+    color: #0021a5;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__multi-value__remove {
+    color: #0021a5;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__indicators {
+    height: 48px;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__indicator-separator {
+    background-color: #cccccc;
+}
+
+.conteudo-principal-turmas .selecionar-turmas__value-container {
+    max-height: 48px;
+    overflow-y: auto;
+}
+
+.conteudo-principal-turmas .botao-enviar-turmas {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
     margin-top: 25px;
 }
 
-.botao-cancelar-turma button,
-.botao-enviar-turma button {
+.conteudo-principal-turmas .botao-enviar-turmas button {
     width: 180px;
     height: 50px;
     border: none;
     border-radius: 8px;
+    background-color: #2ecc71;
+    color: white;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.botao-cancelar-turma button {
-    background-color: #9C9C9C;
-    color: white;
+.conteudo-principal-turmas .botao-enviar-turmas button:hover{
+    background-color: #27ae60;
 }
 
-.botao-enviar-turma button {
+.conteudo-principal-turmas .container-tabela-turmas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.conteudo-principal-turmas .tabela-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.conteudo-principal-turmas .tabela-turmas {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.conteudo-principal-turmas .tabela-turmas th {
+    color: #0021a5;
+    font-size: 18px;
+    padding: 24px 16px;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.conteudo-principal-turmas .tabela-turmas td {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 22px 16px;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.conteudo-principal-turmas .tabela-turmas th:last-child,
+.conteudo-principal-turmas .tabela-turmas td:last-child {
+    border-right: none;
+}
+
+.conteudo-principal-turmas .tabela-turmas tr:last-child td {
+    border-bottom: none;
+}
+
+.conteudo-principal-turmas .botao-ver-mais{
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
     background-color: #2ecc71;
     color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.conteudo-principal-turmas .botao-ver-mais:hover{
+    background-color: #27ae60;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-caixa {
+    padding: 20px 40px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-sucesso {
+    background-color: #2ecc71;
+}
+
+.modal-erro {
+    background-color: #e74c3c;
+}
+
+.campo-invalido {
+    border: 2px solid #e74c3c;
 }

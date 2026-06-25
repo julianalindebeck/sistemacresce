@@ -7,6 +7,8 @@ import { ProfessoresModule } from './professores/professores.module';
 import { SolicitacaoCadastroModule } from './solicitacao-cadastro/solicitacao-cadastro.module';
 import { AlunosModule } from './alunos/alunos.module';
 import { EscolasModule } from './escolas/escolas.module';
+import { AvisosModule } from './avisos/avisos.module';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { EscolasModule } from './escolas/escolas.module';
     SolicitacaoCadastroModule,
     AlunosModule,
     EscolasModule,
+    AvisosModule,
+    EmailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

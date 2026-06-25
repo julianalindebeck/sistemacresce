@@ -86,9 +86,7 @@ export function Professores() {
 
         try {
             await axios.post("http://localhost:3001/professores", {
-                ...form,
-                senha: "123456",
-                tipo: "prof",
+                ...form
             });
 
             acionarModal("sucesso", "Professor cadastrado com sucesso!");

@@ -1,15 +1,15 @@
 export class Disciplina {
-    nome: String;
-    codigo: String;
+    nome: string;
+    codigo: string;
     cargaHorarioSemanal: number;
-    areaConhecimento: String;
-    descricao: String;
-    professor: String;
+    areaConhecimento: string;
+    descricao: string;
+    professor: string;
     // nota: number=0;
     // frequencia: boolean=true;
 
     constructor(
-        nome: String, codigo: String,cargaHorarioSemanal: number, areaConhecimento: String, descricao: String, professor: String) {
+        nome: string, codigo: string,cargaHorarioSemanal: number, areaConhecimento: string, descricao: string, professor: string) {
         this.nome = nome;
         this.codigo = codigo;
         this.cargaHorarioSemanal = cargaHorarioSemanal;
