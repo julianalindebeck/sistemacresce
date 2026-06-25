@@ -42,9 +42,6 @@ export function Escolas() {
         <div className="conteudo-escolas">
           <div className="topo-gerenciar">
             <h1>Gerenciar escolas</h1>
-            <button className="btn-cadastrar-topo">
-              Cadastrar nova escola <FaPlus />
-            </button>
           </div>
 
           <div className="tabela-scroll-container">
