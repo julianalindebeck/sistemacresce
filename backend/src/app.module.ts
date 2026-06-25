@@ -8,6 +8,7 @@ import { SolicitacaoCadastroModule } from './solicitacao-cadastro/solicitacao-ca
 import { AlunosModule } from './alunos/alunos.module';
 import { EscolasModule } from './escolas/escolas.module';
 import { AvisosModule } from './avisos/avisos.module';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { AvisosModule } from './avisos/avisos.module';
     AlunosModule,
     EscolasModule,
     AvisosModule,
+    EmailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

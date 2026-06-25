@@ -1,18 +1,18 @@
 export class Escola {
-    nome: String;
-    endereco: String;
-    email: String;
-    telefone: String;
-    cnpj: String;
-    nomeRepresentante: String;
-    cpfRepresentante: String;
-    emailRepresentante: String;
-    cargoRepresentante: String;
+    nome: string;
+    endereco: string;
+    email: string;
+    telefone: string;
+    cnpj: string;
+    nomeRepresentante: string;
+    cpfRepresentante: string;
+    emailRepresentante: string;
+    cargoRepresentante: string;
     numeroAlunos: number;
-    setorEducacional: String;
-    
-    constructor(nome: String, endereco: String,email: String,telefone: String,cnpj: String,
-    nomeRepresentante: String,cpfRepresentante: String,emailRepresentante: String,cargoRepresentante: String, numeroAlunos: number,setorEducacional: String){
+    setorEducacional: string;
+
+    constructor(nome: string, endereco: string,email: string,telefone: string,cnpj: string,
+    nomeRepresentante: string,cpfRepresentante: string,emailRepresentante: string,cargoRepresentante: string, numeroAlunos: number,setorEducacional: string){
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;

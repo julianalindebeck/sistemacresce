@@ -1,12 +1,12 @@
 export class Aluno{
-    nome: String;
+    nome: string;
     dataNascimento: Date;
-    cpf: String;
-    nomeResponsavel: String;
-    emailResponsavel: String;
-    telefone: String;
+    cpf: string;
+    nomeResponsavel: string;
+    emailResponsavel: string;
+    telefone: string;
     
-    constructor(nome: String, dataNascimento: Date, cpf: String, nomeResponsavel: String, emailResponsavel: String, telefone: String){
+    constructor(nome: string, dataNascimento: Date, cpf: string, nomeResponsavel: string, emailResponsavel: string, telefone: string){
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
