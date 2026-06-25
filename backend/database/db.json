@@ -207,11 +207,24 @@
       "emailRepresentante": "isabelly.silva@estudante.ufjf.br",
       "cargo": "chefe",
       "numeroAlunos": "0-100",
-      "status": "PENDENTE",
+      "status": "APROVADA",
       "dataSolicitacao": "2026-06-25T21:08:53.937Z",
       "id": "IvsRQncMfqk"
     }
   ],
-  "escolas": [],
+  "escolas": [
+    {
+      "nome": "bell",
+      "cnpj": "00394460005867",
+      "endereco": "rua bell",
+      "telefone": "32999991111",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "0-100",
+      "emailLogin": "bell@cresce.com",
+      "senhaLogin": "123456",
+      "dataRegistro": "2026-06-25T21:34:08.382Z",
+      "id": "ZTQZThg9F84"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -2,7 +2,7 @@ import { SidebarAdminSistema } from "./SidebarAdminSistema";
 import "./Escola.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface Escola {
   id: string;
