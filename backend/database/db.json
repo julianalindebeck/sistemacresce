@@ -27,6 +27,34 @@
       "email": "responsavel@cresce.com",
       "senha": "123456",
       "tipo": "responsavel"
+    },
+    {
+      "id": "MSCduqxc5KY",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "OQ7WX4nUVlYUAqHs",
+      "tipo": "admin_escolar"
+    },
+    {
+      "id": "i-hW1r3PLc4",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "ZB0oIOa$H%VKNb50",
+      "tipo": "admin_escolar"
+    },
+    {
+      "id": "DqMBLgJqtF8",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "B*bWPa%$rFF6ZUz2",
+      "tipo": "admin_escolar"
+    },
+    {
+      "id": "g4CcjwUZS7s",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "ElB1G$iMYf*$zsdJ",
+      "tipo": "admin_escolar"
     }
   ],
   "alunos": [
@@ -241,6 +269,22 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-23T16:17:06.754Z",
       "id": "vvri3omC2mI"
+    },
+    {
+      "nomeInstituicao": "Fernanda Htinha",
+      "cnpj": "90893316000142",
+      "endereco": "Rua Vasco da Gama",
+      "telefone": "32988014437",
+      "emailInstituicao": "nandinhafefecoutinho@gmail.com",
+      "setorEducacional": "infantil",
+      "nomeRepresentante": "Fernanda Coutis",
+      "cpfRepresentante": "14262726690",
+      "emailRepresentante": "nandinhafefecoutinho@gmail.com",
+      "cargo": "todos",
+      "numeroAlunos": "501-1000",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-26T14:07:44.451Z",
+      "id": "AvAZldo6qr0"
     }
   ],
   "escolas": [
@@ -255,6 +299,84 @@
       "senhaLogin": "123456",
       "dataRegistro": "2026-06-23T16:20:41.213Z",
       "id": "su7aj6ifZ7k"
+    },
+    {
+      "nome": "Fernanda Htinha",
+      "cnpj": "90893316000142",
+      "endereco": "Rua Vasco da Gama",
+      "telefone": "32988014437",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "501-1000",
+      "dataRegistro": "2026-06-26T14:08:08.390Z",
+      "id": "QDIie9KFN8A"
+    },
+    {
+      "nome": "Fernanda Htinha",
+      "cnpj": "90893316000142",
+      "endereco": "Rua Vasco da Gama",
+      "telefone": "32988014437",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "501-1000",
+      "dataRegistro": "2026-06-26T14:08:10.818Z",
+      "id": "i7PKmUEE7V0"
+    },
+    {
+      "nome": "Fernanda Htinha",
+      "cnpj": "90893316000142",
+      "endereco": "Rua Vasco da Gama",
+      "telefone": "32988014437",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "501-1000",
+      "dataRegistro": "2026-06-26T14:08:12.646Z",
+      "id": "1OpVjH3Us3I"
+    },
+    {
+      "nome": "Fernanda Htinha",
+      "cnpj": "90893316000142",
+      "endereco": "Rua Vasco da Gama",
+      "telefone": "32988014437",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "501-1000",
+      "dataRegistro": "2026-06-26T14:08:13.488Z",
+      "id": "48AvFRHMxps"
+    }
+  ],
+  "administradoresEscolares": [
+    {
+      "id": "P2ylqHdjNp4",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "OQ7WX4nUVlYUAqHs",
+      "tipo": "admin_escolar",
+      "cargo": "todos",
+      "escolaId": "QDIie9KFN8A"
+    },
+    {
+      "id": "NMVP4eojMW4",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "ZB0oIOa$H%VKNb50",
+      "tipo": "admin_escolar",
+      "cargo": "todos",
+      "escolaId": "i7PKmUEE7V0"
+    },
+    {
+      "id": "CHIpcEyoo6Y",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "B*bWPa%$rFF6ZUz2",
+      "tipo": "admin_escolar",
+      "cargo": "todos",
+      "escolaId": "1OpVjH3Us3I"
+    },
+    {
+      "id": "wXvovar2zc0",
+      "nome": "Fernanda Coutis",
+      "email": "nandinhafefecoutinho@gmail.com",
+      "senha": "ElB1G$iMYf*$zsdJ",
+      "tipo": "admin_escolar",
+      "cargo": "todos",
+      "escolaId": "48AvFRHMxps"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

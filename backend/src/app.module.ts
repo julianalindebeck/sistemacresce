@@ -9,6 +9,7 @@ import { AlunosModule } from './alunos/alunos.module';
 import { EscolasModule } from './escolas/escolas.module';
 import { AvisosModule } from './avisos/avisos.module';
 import { EmailModule } from './email/email.module';
+import { AdministradoresEscolaresModule } from './administrador-escolar/administrador-escolar.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { EmailModule } from './email/email.module';
     EscolasModule,
     AvisosModule,
     EmailModule,
+    AdministradoresEscolaresModule,
   ],
   controllers: [AppController],
   providers: [AppService],
