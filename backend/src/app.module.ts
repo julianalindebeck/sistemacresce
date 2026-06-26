@@ -10,6 +10,10 @@ import { EscolasModule } from './escolas/escolas.module';
 import { AvisosModule } from './avisos/avisos.module';
 import { EmailModule } from './email/email.module';
 import { AdministradoresEscolaresModule } from './administrador-escolar/administrador-escolar.module';
+import { TurmasModule } from './turmas/turmas.module';
+import { DisciplinasModule } from './disciplinas/disciplinas.module';
+import { SolicitacaoEdicaoModule } from './solicitacao-edicao/solicitacao-edicao.module';
+import { SolicitacaoRemocaoModule } from './solicitacao-remocao/solicitacao-remocao.module';
 
 @Module({
   imports: [
@@ -24,6 +28,10 @@ import { AdministradoresEscolaresModule } from './administrador-escolar/administ
     AvisosModule,
     EmailModule,
     AdministradoresEscolaresModule,
+    TurmasModule,
+    DisciplinasModule,
+    SolicitacaoEdicaoModule,
+    SolicitacaoRemocaoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

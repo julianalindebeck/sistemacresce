@@ -95,19 +95,6 @@
   "responsaveis": [],
   "turmas": [
     {
-      "nomeTurma": " Turma A",
-      "capacidade": "22",
-      "anoSerie": "3",
-      "disciplinas": [
-        "R8Hoj42-aBU"
-      ],
-      "turno": "Tarde",
-      "alunos": [
-        "tM4Wo-fv5b4"
-      ],
-      "id": "L9OiW_tJAZM"
-    },
-    {
       "nomeTurma": "Turma D",
       "capacidade": "18",
       "anoSerie": "1",
@@ -133,6 +120,66 @@
         "tM4Wo-fv5b4"
       ],
       "id": "A38hJ8yEmhI"
+    },
+    {
+      "nomeTurma": "Turma E",
+      "capacidade": "10",
+      "anoSerie": "1",
+      "disciplinas": [
+        "CSvcK5OmDpw",
+        "RkUPwufqRf8",
+        "_e5F8MwsqWU",
+        "krRwQU4V_EY"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "24QE16q8WcY"
+    },
+    {
+      "nomeTurma": "Turma Z",
+      "capacidade": "35",
+      "anoSerie": "2",
+      "disciplinas": [
+        "nhpB7GpT_7I",
+        "R8Hoj42-aBU",
+        "CSvcK5OmDpw",
+        "RkUPwufqRf8"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "u9DiDSmuZw8"
+    },
+    {
+      "nomeTurma": "turma ódio",
+      "capacidade": "22",
+      "anoSerie": "2",
+      "disciplinas": [
+        "nhpB7GpT_7I",
+        "CSvcK5OmDpw"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "CkJ5lCdWCYo"
+    },
+    {
+      "nomeTurma": "Turma Ze",
+      "capacidade": "2",
+      "anoSerie": "5",
+      "disciplinas": [
+        "RkUPwufqRf8",
+        "R8Hoj42-aBU"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "tM4Wo-fv5b4"
+      ],
+      "id": "V6zF6bdw6kE"
     }
   ],
   "disciplinas": [
@@ -162,6 +209,42 @@
       "descricao": "juju furacao",
       "professorId": "iA-zflJbl4I",
       "id": "E52POHSP8Ko"
+    },
+    {
+      "nomeDisciplina": "Disciplina Teste3",
+      "cargaHoraria": "4",
+      "codigo": "d3",
+      "areaConhecimento": "Exatas",
+      "descricao": "shsad",
+      "professorId": "iA-zflJbl4I",
+      "id": "CSvcK5OmDpw"
+    },
+    {
+      "nomeDisciplina": "Disciplina Teste4",
+      "cargaHoraria": "4",
+      "codigo": "d4",
+      "areaConhecimento": "Natureza",
+      "descricao": "jsad",
+      "professorId": "F4rPwEa-eu8",
+      "id": "RkUPwufqRf8"
+    },
+    {
+      "nomeDisciplina": "Disciplina Teste3",
+      "cargaHoraria": "4",
+      "codigo": "d4",
+      "areaConhecimento": "Idioma",
+      "descricao": "sjadn",
+      "professorId": "F4rPwEa-eu8",
+      "id": "krRwQU4V_EY"
+    },
+    {
+      "nomeDisciplina": "Disciplina Teste6",
+      "cargaHoraria": "5",
+      "codigo": "d6",
+      "areaConhecimento": "Humanas",
+      "descricao": "skadh",
+      "professorId": "iA-zflJbl4I",
+      "id": "_e5F8MwsqWU"
     }
   ],
   "avisos": [
@@ -264,6 +347,8 @@
       "id": "IvsRQncMfqk"
     }
   ],
+  "solicitacoesEdicao": [],
+  "solicitacoesRemocao": [],
   "escolas": [
     {
       "nome": "bell",

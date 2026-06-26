@@ -47,4 +47,46 @@ export class TurmasService {
         await axios.delete(`${this.url}/${id}`);
         return { message: 'Turma removida' };
     }
+
+    async removerAluno(id: string, alunoId: string) {
+        try{
+            const turma = await this.findOne(id);
+
+            const novosAlunos = turma.alunos.filter(
+                (aluno: string) => aluno !== alunoId
+            );
+
+            const response = await axios.patch(`${this.url}/${id}`, {
+                alunos: novosAlunos
+            });
+            return response.data;
+        }
+        catch (error) {
+            console.log(error.response?.data);
+            console.log(error.message);
+            throw error;
+        }
+    
+    }
+
+    async removerDisciplina(id: string, disciplinaId: string) {
+        try{
+            const turma = await this.findOne(id);
+
+            const novasDisciplinas = turma.disciplinas.filter(
+                (disciplina: string) => disciplina !== disciplinaId
+            );
+
+            const response = await axios.patch(`${this.url}/${id}`, {
+                disciplinas: novasDisciplinas
+            });
+            return response.data;
+        }
+        catch (error) {
+            console.log(error.response?.data);
+            console.log(error.message);
+            throw error;
+        }
+    
+    }
 }

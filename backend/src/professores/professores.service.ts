@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Professor } from '../classes/Professor';
 import { EmailService } from '../email/email.service';
 import gerarSenhaAleatoria from '../utils/password.util';
+import { ConflictException } from '@nestjs/common';
 
 @Injectable()
 export class ProfessoresService {
@@ -71,7 +72,19 @@ export class ProfessoresService {
         return response.data;
     }
 
-    async remove(id: number) {
+    async remove(id: string) {
+        const disciplinas = await axios.get("http://localhost:3001/disciplinas");
+
+        const profEmUso = disciplinas.data.some((disciplina: any) =>
+            disciplina.professorId === id
+        );
+
+        if (profEmUso) {
+            throw new ConflictException(
+                "Professor está dando disciplina(s)."
+            );
+        }
+
         await axios.delete(`${this.url}/${id}`);
         return { message: 'Professor removido' };
     }

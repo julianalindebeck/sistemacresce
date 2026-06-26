@@ -63,6 +63,28 @@ export function Alunos() {
         setCamposInvalidos((prev) => prev.filter((item) => item !== name));
     }
 
+    async function deletarAluno(alunoId: string) {
+        const confirmar = window.confirm(
+            "Tem certeza que deseja excluir este aluno?"
+        );
+    
+        if (!confirmar) return;
+
+        try {
+            await axios.delete(`http://localhost:3000/alunos/${alunoId}`);
+            
+            acionarModal("sucesso", "Aluno removido com sucesso!");
+            buscarAlunos();
+        } catch (error: any) {
+            console.error(error);
+    
+            acionarModal(
+                "erro",
+                error.response?.data?.message || "Erro ao deletar o aluno."
+            );
+        }
+    }
+
     async function enviarAluno(e: React.FormEvent) {
         e.preventDefault();
 
@@ -223,6 +245,7 @@ export function Alunos() {
                                         <th>Nome do Responsável</th>
                                         <th>E-mail do Responsável</th>
                                         <th>Telefone</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -234,6 +257,12 @@ export function Alunos() {
                                             <td>{aluno.nomeResponsavel}</td>
                                             <td>{aluno.emailResponsavel}</td>
                                             <td>{aluno.telefoneResponsavel}</td>
+                                            <td>
+                                                <button className="botao-deletar" 
+                                                onClick={() => deletarAluno(aluno.id)}>
+                                                Deletar
+                                                </button>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>

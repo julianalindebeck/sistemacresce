@@ -134,6 +134,10 @@
     color: white;
 }
 
+.botao-enviar-aviso button:hover {
+    background-color: #27ae60;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;

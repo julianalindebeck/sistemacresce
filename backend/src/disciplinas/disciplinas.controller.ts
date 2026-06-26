@@ -27,6 +27,6 @@ export class DisciplinasController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.service.remove(Number(id));
+    return this.service.remove(id);
   }
 }

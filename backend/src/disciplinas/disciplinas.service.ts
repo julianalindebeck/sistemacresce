@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { Disciplina } from '../classes/Disciplina';
+import { ConflictException } from '@nestjs/common';
 
 @Injectable()
 export class DisciplinasService {
@@ -45,7 +46,19 @@ export class DisciplinasService {
     return response.data;
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
+    const turmas = await axios.get("http://localhost:3001/turmas");
+
+    const disciplinaEmUso = turmas.data.some((turma: any) =>
+        turma.disciplinas.includes(id)
+    );
+
+    if (disciplinaEmUso) {
+        throw new ConflictException(
+            "Disciplina está sendo dada em turma(s)."
+        );
+    }
+
     await axios.delete(`${this.url}/${id}`);
     return { message: 'Disciplina removida' };
   }
