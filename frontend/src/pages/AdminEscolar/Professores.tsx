@@ -39,7 +39,7 @@ export function Professores() {
 
     async function buscarProfessores() {
         try {
-            const response = await axios.get("http://localhost:3001/professores");
+            const response = await axios.get("http://localhost:3000/professores");
             setListaProfessores(response.data);
         } catch (error) {
             console.error(error);
@@ -85,8 +85,13 @@ export function Professores() {
         if (erros.length > 0) return;
 
         try {
-            await axios.post("http://localhost:3001/professores", {
-                ...form
+            await axios.post("http://localhost:3000/professores", {
+                nome: form.nomeProfessor,
+                cpf: form.cpfProfessor,
+                dataNascimento: form.dataNascimentoProfessor,
+                email: form.emailProfessor,
+                telefone: form.telefoneProfessor,
+                formacao: form.formacao,
             });
 
             acionarModal("sucesso", "Professor cadastrado com sucesso!");

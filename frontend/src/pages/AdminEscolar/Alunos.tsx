@@ -39,7 +39,7 @@ export function Alunos() {
 
     async function buscarAlunos() {
         try {
-            const response = await axios.get("http://localhost:3001/alunos");
+            const response = await axios.get("http://localhost:3000/alunos");
             setListaAlunos(response.data);
         } catch (error) {
             console.error(error);
@@ -85,7 +85,7 @@ export function Alunos() {
         if (erros.length > 0) return;
 
         try {
-            await axios.post("http://localhost:3001/alunos", form);
+            await axios.post("http://localhost:3000/alunos", form);
 
             acionarModal("sucesso", "Aluno cadastrado com sucesso!");
             setForm(formInicial);
