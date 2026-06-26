@@ -13,7 +13,7 @@ const formInicial = {
 
 export function AvisosAdminEscolar(){
     const [form, setForm] = useState(formInicial);
-    const [aba, setAba] = useState<"cadastro" | "visualizacao">("cadastro");
+    const [aba, setAba] = useState<"envio" | "visualizacao">("envio");
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
     const [listaTurmas, setListaTurmas] = useState<any[]>([]);
     const [listaAvisos, setListaAvisos] = useState<any[]>([]);
@@ -126,7 +126,7 @@ export function AvisosAdminEscolar(){
         <div className="conteudo-principal-avisos">
                 <div className="cabecalho-abas-avisos">
                     <h1 className="titulo-pagina">
-                        {aba === "cadastro" ? (
+                        {aba === "envio" ? (
                             "Envio de aviso"
                         ) : (
                         <>
@@ -137,10 +137,10 @@ export function AvisosAdminEscolar(){
                     
                     <div className="botoes-alternador-avisos">
                         <button
-                            className={aba === "cadastro" ? "botao-aba ativo" : "botao-aba"}
-                            onClick={() => setAba("cadastro")}
+                            className={aba === "envio" ? "botao-aba ativo" : "botao-aba"}
+                            onClick={() => setAba("envio")}
                         >
-                            Cadastrar
+                            Enviar
                         </button>
                         <button
                             className={aba === "visualizacao" ? "botao-aba ativo" : "botao-aba"}
@@ -151,7 +151,7 @@ export function AvisosAdminEscolar(){
                     </div>
                 </div>
 
-        {aba === "cadastro" ? (
+        {aba === "envio" ? (
         <div className="container-avisos">
             <form className="envio-avisos" onSubmit={enviarAviso}>
                 <div className="linha-formulario">
@@ -230,11 +230,11 @@ export function AvisosAdminEscolar(){
                 </div>
 
                 <div className="botoes-avisos">
-                    <div className="botao-cancelar-aviso">
+                    {/* <div className="botao-cancelar-aviso">
                         <button type="button" onClick={() => setForm(formInicial)}>
                             Cancelar
                         </button>
-                    </div>
+                    </div> */}
                     <div className="botao-enviar-aviso">
                         <button type="submit">
                             Enviar

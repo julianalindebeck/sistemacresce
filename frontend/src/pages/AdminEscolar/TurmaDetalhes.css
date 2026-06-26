@@ -5,7 +5,8 @@
     width: calc(100% - 280px);
     display: flex;
     gap: 20px;
-    padding-top: 300px;
+    padding-top: 0px;
+    align-items: flex-start;
 }
 
 .tabela-ver-turma .container-tabela-alunos {
@@ -68,4 +69,62 @@
 .tabela-ver-turma .tabela-alunos tr:last-child td,
 .tabela-ver-turma .tabela-disciplinas tr:last-child td {
     border-bottom: none;
+}
+
+.conteudo-principal-turmas .botao-deletar {
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #E74C3C;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.conteudo-principal-turmas .botao-deletar:hover {
+    background-color: #C0392B;
+}
+
+.botao-remover-aluno-disciplina {
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: #E74C3C;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-remover-aluno-disciplina:hover {
+    background-color: #C0392B;
+}
+
+.topo-ver-turma {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    padding: 30px 40px 0px;
+}
+
+.topo-ver-turma .voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    color: #0021a5;
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: color .2s;
+}
+
+.topo-ver-turma .voltar:hover {
+    color: #4b68e8;
 }

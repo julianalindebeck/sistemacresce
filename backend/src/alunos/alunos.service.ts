@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import gerarSenhaAleatoria from '../utils/password.util';
 import { EmailService } from '../email/email.service';
+import { ConflictException } from '@nestjs/common';
 
 @Injectable()
 export class AlunosService {
@@ -74,7 +75,19 @@ export class AlunosService {
         return response.data;
     }
 
-    async remove(id: number) {
+    async remove(id: string) {
+        const turmas = await axios.get("http://localhost:3001/turmas");
+
+        const alunoEmUso = turmas.data.some((turma: any) =>
+            turma.alunos.includes(id)
+        );
+
+        if (alunoEmUso) {
+            throw new ConflictException(
+                "Aluno pertence a uma turma."
+            );
+        }
+
         await axios.delete(`${this.url}/${id}`);
         return { message: 'Aluno removido' };
     }

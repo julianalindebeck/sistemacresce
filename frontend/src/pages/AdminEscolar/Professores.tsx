@@ -63,6 +63,28 @@ export function Professores() {
         setCamposInvalidos((prev) => prev.filter((item) => item !== name));
     }
 
+    async function deletarProf(profId: string) {
+        const confirmar = window.confirm(
+            "Tem certeza que deseja excluir este professor?"
+        );
+    
+        if (!confirmar) return;
+
+        try {
+            await axios.delete(`http://localhost:3000/professores/${profId}`);
+            
+            acionarModal("sucesso", "Professor removido com sucesso!");
+            buscarProfessores();
+        } catch (error: any) {
+            console.error(error);
+    
+            acionarModal(
+                "erro",
+                error.response?.data?.message || "Erro ao deletar o professor."
+            );
+        }
+    }
+
     async function enviarProfessor(e: React.FormEvent) {
         e.preventDefault();
 
@@ -225,6 +247,7 @@ export function Professores() {
                                         <th>E-mail</th>
                                         <th>Telefone</th>
                                         <th>Formação</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -243,6 +266,12 @@ export function Professores() {
                                                 <td>{email}</td>
                                                 <td>{telefone}</td>
                                                 <td>{formacao}</td>
+                                                <td>
+                                                    <button className="botao-deletar" 
+                                                    onClick={() => deletarProf(prof.id)}>
+                                                    Deletar
+                                                    </button>
+                                                </td>
                                             </tr>
                                         );
                                     })}

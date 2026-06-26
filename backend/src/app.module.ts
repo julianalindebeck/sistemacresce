@@ -9,6 +9,11 @@ import { AlunosModule } from './alunos/alunos.module';
 import { EscolasModule } from './escolas/escolas.module';
 import { AvisosModule } from './avisos/avisos.module';
 import { EmailModule } from './email/email.module';
+import { TurmasModule } from './turmas/turmas.module';
+import { DisciplinasModule } from './disciplinas/disciplinas.module';
+import { SolicitacaoEdicaoModule } from './solicitacao-edicao/solicitacao-edicao.module';
+import { SolicitacaoRemocaoModule } from './solicitacao-remocao/solicitacao-remocao.module';
+
 
 @Module({
   imports: [
@@ -22,6 +27,10 @@ import { EmailModule } from './email/email.module';
     EscolasModule,
     AvisosModule,
     EmailModule,
+    TurmasModule,
+    DisciplinasModule,
+    SolicitacaoEdicaoModule,
+    SolicitacaoRemocaoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

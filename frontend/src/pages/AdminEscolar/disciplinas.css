@@ -191,3 +191,19 @@
 .campo-invalido {
     border: 2px solid #e74c3c;
 }
+
+.container-tabela-disciplinas .botao-deletar {
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #E74C3C;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container-tabela-disciplinas .botao-deletar:hover {
+    background-color: #C0392B;
+}

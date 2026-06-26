@@ -96,6 +96,28 @@ export function Disciplinas(){
         );
     }
 
+    async function deletarDisciplina(disciplinaId: string) {
+        const confirmar = window.confirm(
+            "Tem certeza que deseja excluir esta disciplina?"
+        );
+    
+        if (!confirmar) return;
+
+        try {
+            await axios.delete(`http://localhost:3000/disciplinas/${disciplinaId}`);
+            
+            acionarModal("sucesso", "Disciplina removida com sucesso!");
+            buscarDisciplinas();
+        } catch (error: any) {
+            console.error(error);
+    
+            acionarModal(
+                "erro",
+                error.response?.data?.message || "Erro ao deletar a disciplina."
+            );
+        }
+    }
+
     async function enviarDisciplina(e: React.FormEvent) {
         e.preventDefault();
     
@@ -269,6 +291,7 @@ export function Disciplinas(){
                                         <th>Carga Horária</th>
                                         <th>Área do Conhecimento</th>
                                         <th>Professor</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
 
@@ -286,6 +309,12 @@ export function Disciplinas(){
                                                 <td>{disciplina.areaConhecimento}</td>
                                                 <td>
                                                     {professor?.nomeProfessor || "Professor não encontrado"}
+                                                </td>
+                                                <td>
+                                                    <button className="botao-deletar" 
+                                                    onClick={() => deletarDisciplina(disciplina.id)}>
+                                                    Deletar
+                                                    </button>
                                                 </td>
                                             </tr>
                                         );

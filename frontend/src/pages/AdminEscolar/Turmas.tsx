@@ -4,7 +4,7 @@ import "./turma.css"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Select from "react-select";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const formInicial = {
     nomeTurma: "",
@@ -17,6 +17,7 @@ const formInicial = {
 
 export function Turmas() {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [aba, setAba] = useState<"cadastro" | "visualizacao">("cadastro");
     const [listaTurmas, setListaTurmas] = useState<any[]>([]);
@@ -46,6 +47,18 @@ export function Turmas() {
         tipo: "sucesso",
         mensagem: "",
     });
+
+    useEffect(() => {
+        if (location.state?.aba === "visualizacao") {
+            setAba("visualizacao");
+        }
+    }, [location.state]);
+
+    useEffect(() => {
+        if (location.state?.mensagem) {
+            acionarModal(location.state.tipo, location.state.mensagem);
+        }
+    }, []);
 
     useEffect(() => {
         if (aba === "visualizacao") {
