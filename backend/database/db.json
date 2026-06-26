@@ -153,104 +153,65 @@
       "descricao": "Matemática teste",
       "professorId": "iA-zflJbl4I",
       "id": "R8Hoj42-aBU"
+    },
+    {
+      "nomeDisciplina": "juju furacao ",
+      "cargaHoraria": "60",
+      "codigo": "juju67",
+      "areaConhecimento": "Exatas",
+      "descricao": "juju furacao",
+      "professorId": "iA-zflJbl4I",
+      "id": "E52POHSP8Ko"
     }
   ],
   "avisos": [
     {
-      "publico": "",
-      "tipoAviso": "informativo",
-      "titulo": "teste",
-      "mensagem": "11111",
-      "dataCriacao": "2026-06-23T23:04:52.921Z",
-      "id": "jT2ZAjuQZtg"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "informativo",
-      "titulo": "teste",
-      "mensagem": "11111",
-      "dataCriacao": "2026-06-23T23:09:41.833Z",
-      "id": "SIDtkkvOxek"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "informativo",
-      "titulo": "teste",
-      "mensagem": "11111",
-      "dataCriacao": "2026-06-23T23:12:42.406Z",
-      "id": "rlcQZkWSqv4"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "informativo",
-      "titulo": "teste",
-      "mensagem": "11111",
-      "dataCriacao": "2026-06-23T23:13:13.588Z",
-      "id": "1_AVMtkswBA"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "informativo",
-      "titulo": "teste",
-      "mensagem": "11111",
-      "dataCriacao": "2026-06-23T23:13:52.400Z",
-      "id": "nrGMO9BJ1GU"
-    },
-    {
-      "publico": "",
+      "publico": "4GJbhv2QBSw",
       "tipoAviso": "alerta",
-      "titulo": "Testando 3",
-      "mensagem": "3333",
-      "dataCriacao": "2026-06-23T23:14:15.100Z",
-      "id": "2jyLQh7hq0A"
+      "tituloAviso": "Festa",
+      "descricao": "tera uma festa",
+      "dataCriacao": "2026-06-24T21:37:24.891Z",
+      "id": "G4FIbff7DbU"
     },
     {
-      "publico": "",
-      "tipoAviso": "alerta",
-      "titulo": "juju furacao",
-      "mensagem": "222",
-      "dataCriacao": "2026-06-23T23:15:45.724Z",
-      "id": "Ru108F7iEs8"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "alerta",
-      "titulo": "33",
-      "mensagem": "22",
-      "dataCriacao": "2026-06-23T23:21:15.791Z",
-      "id": "hyiWkmcElvI"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "alerta",
-      "titulo": "x",
-      "mensagem": "dedede",
-      "dataCriacao": "2026-06-23T23:23:06.450Z",
-      "id": "wYqdRUAkoH4"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "alerta",
-      "titulo": "teste",
-      "mensagem": "33",
-      "dataCriacao": "2026-06-23T23:24:11.285Z",
-      "id": "fl3spxq5FuM"
-    },
-    {
-      "publico": "",
-      "tipoAviso": "alerta",
-      "titulo": "teste",
-      "mensagem": "12345",
-      "dataCriacao": "2026-06-23T23:28:44.582Z",
-      "id": "dEC97wDCqis"
-    },
-    {
-      "publico": "turma 2",
+      "publico": "A38hJ8yEmhI",
       "tipoAviso": "informativo",
-      "tituloAviso": "JOGO DA COPA",
-      "descricao": " NAO HAVERA AULA",
-      "dataCriacao": "2026-06-24T00:52:56.633Z",
-      "id": "UGi6nXOExK8"
+      "tituloAviso": "Reuniao",
+      "descricao": "blablaaaaa",
+      "dataCriacao": "2026-06-24T21:40:22.808Z",
+      "id": "fC88O1gb8T8"
+    },
+    {
+      "publico": "4GJbhv2QBSw",
+      "tipoAviso": "informativo",
+      "tituloAviso": "reuniao 2",
+      "descricao": "blablaaa",
+      "dataCriacao": "2026-06-24T21:46:11.424Z",
+      "id": "LIiGUJfYTXo"
+    },
+    {
+      "publico": "4GJbhv2QBSw",
+      "tipoAviso": "alerta",
+      "tituloAviso": "teste",
+      "descricao": "ddede",
+      "dataCriacao": "2026-06-24T21:46:19.986Z",
+      "id": "vTq5Rc_PYA0"
+    },
+    {
+      "publico": "L9OiW_tJAZM",
+      "tipoAviso": "informativo",
+      "tituloAviso": "teste",
+      "descricao": "dededede",
+      "dataCriacao": "2026-06-24T21:46:28.563Z",
+      "id": "xB-Owycvpfg"
+    },
+    {
+      "publico": "L9OiW_tJAZM",
+      "tipoAviso": "alerta",
+      "tituloAviso": "Reuniao",
+      "descricao": "Tera uma reuniao",
+      "dataCriacao": "2026-06-26T01:53:42.108Z",
+      "id": "0yGzCf9UvP8"
     }
   ],
   "solicitacoesCadastro": [
@@ -285,17 +246,33 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-26T14:07:44.451Z",
       "id": "AvAZldo6qr0"
+    },
+    {
+      "nomeInstituicao": "bell",
+      "cnpj": "00394460005867",
+      "endereco": "rua bell",
+      "telefone": "32999991111",
+      "emailInstituicao": "isabelly.silva@estudante.ufjf.br",
+      "setorEducacional": "infantil",
+      "nomeRepresentante": "Isabelly Silva",
+      "cpfRepresentante": "12312312367",
+      "emailRepresentante": "isabelly.silva@estudante.ufjf.br",
+      "cargo": "chefe",
+      "numeroAlunos": "0-100",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-25T21:08:53.937Z",
+      "id": "IvsRQncMfqk"
     }
   ],
   "escolas": [
     {
-      "nome": "escola da bell",
+      "nome": "bell",
       "cnpj": "00394460005867",
       "endereco": "rua bell",
       "telefone": "32999991111",
-      "setorEducacional": "fundamental",
-      "numeroAlunos": "1000+",
-      "emailLogin": "escoladabell@cresce.com",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "0-100",
+      "emailLogin": "bell@cresce.com",
       "senhaLogin": "123456",
       "dataRegistro": "2026-06-23T16:20:41.213Z",
       "id": "su7aj6ifZ7k"

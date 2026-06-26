@@ -2,7 +2,7 @@ import { SidebarAdminSistema } from "./SidebarAdminSistema";
 import "./Escola.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface Escola {
   id: string;
@@ -42,9 +42,6 @@ export function Escolas() {
         <div className="conteudo-escolas">
           <div className="topo-gerenciar">
             <h1>Gerenciar escolas</h1>
-            <button className="btn-cadastrar-topo">
-              Cadastrar nova escola <FaPlus />
-            </button>
           </div>
 
           <div className="tabela-scroll-container">

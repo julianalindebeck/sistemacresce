@@ -4,6 +4,7 @@
     margin-left: 280px;
     box-sizing: border-box;
     padding: 40px;
+    background-color: #FAFAFA; 
 }
 
 .paginaAdminSistema .topo {
@@ -21,8 +22,77 @@
 
 .paginaAdminSistema h1 {
     font-size: 40px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 0;
     line-height: 1;
     color: black;
+}
+
+.dashboard-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    max-width: 760px; 
+    margin: 60px auto 0 auto;
+}
+
+.card-metric {
+    background: #FFFFFF;
+    width: 320px;
+    height: 140px;
+    border-radius: 24px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.04); 
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    box-sizing: border-box;
+    gap: 22px;
+    border: 1px solid rgba(0,0,0, 0.02);
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.bg-roxo {
+    background-color: #ECEEFE;
+    color: #3D4EEA;
+}
+
+.bg-verde {
+    background-color: #E6F4EA;
+    color: #138636;
+}
+
+.bg-vermelho {
+    background-color: #FCE8E6;
+    color: #D93025;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-info span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin-bottom: 6px;
+}
+
+.card-info strong {
+    font-size: 38px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1;
 }
