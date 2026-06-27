@@ -6,6 +6,13 @@ import axios from "axios";
 interface Turma {
     id: string;
     nomeTurma: string;
+    disciplinas?: string[]; 
+}
+
+interface Disciplina {
+    id: string;
+    nomeDisciplina: string;
+    nome?: string;
 }
 
 interface AlunoFrequencia {
@@ -18,6 +25,9 @@ export function Frequencia() {
     const [turmas, setTurmas] = useState<Turma[]>([]);
     const [turmaSelecionada, setTurmaSelecionada] = useState<string>("");
     
+    const [disciplinas, setDisciplinas] = useState<Disciplina[]>([]);
+    const [disciplinaSelecionada, setDisciplinaSelecionada] = useState<string>("");
+
     const [dataSelecionada, setDataSelecionada] = useState<string>(
         new Date().toISOString().split("T")[0]
     );
@@ -40,13 +50,23 @@ export function Frequencia() {
     }, []);
 
     useEffect(() => {
-        if (turmaSelecionada && dataSelecionada) {
-            buscarAlunosEChamada(turmaSelecionada, dataSelecionada);
+        if (turmaSelecionada) {
+            buscarDisciplinasDaTurma(turmaSelecionada);
+            setDisciplinaSelecionada(""); 
+        } else {
+            setDisciplinas([]);
+            setDisciplinaSelecionada("");
+        }
+    }, [turmaSelecionada]);
+
+    useEffect(() => {
+        if (turmaSelecionada && dataSelecionada && disciplinaSelecionada) {
+            buscarAlunosEChamada(turmaSelecionada, dataSelecionada, disciplinaSelecionada);
         } else {
             setAlunos([]);
             setPresencasForm({});
         }
-    }, [turmaSelecionada, dataSelecionada]);
+    }, [turmaSelecionada, dataSelecionada, disciplinaSelecionada]);
 
     async function buscarTurmas() {
         try {
@@ -58,21 +78,37 @@ export function Frequencia() {
         }
     }
 
-    async function buscarAlunosEChamada(turmaId: string, data: string) {
+    async function buscarDisciplinasDaTurma(turmaId: string) {
+        try {
+            const responseTurma = await axios.get(`http://localhost:3000/turmas/${turmaId}`);
+            const idsDisciplinas: string[] = responseTurma.data.disciplinas || [];
+
+            const responseTodasDisciplinas = await axios.get("http://localhost:3000/disciplinas");
+            
+            const filtradas = responseTodasDisciplinas.data.filter((d: any) => 
+                idsDisciplinas.map(String).includes(String(d.id))
+            );
+            setDisciplinas(filtradas);
+        } catch (error) {
+            console.error(error);
+            acionarModal("erro", "Erro ao filtrar as disciplinas da turma.");
+        }
+    }
+
+    async function buscarAlunosEChamada(turmaId: string, data: string, disciplinaId: string) {
         try {
             const responseTurma = await axios.get(`http://localhost:3000/turmas/${turmaId}`);
             const idsAlunosDaTurma: string[] = responseTurma.data.alunos || [];
 
             const responseTodosAlunos = await axios.get(`http://localhost:3000/alunos`);
-            const todosAlunos = responseTodosAlunos.data;
-
-            const listaAlunosFiltrados = todosAlunos.filter((aluno: any) => 
+            
+            const listaAlunosFiltrados = responseTodosAlunos.data.filter((aluno: any) => 
                 idsAlunosDaTurma.includes(aluno.id)
             );
             setAlunos(listaAlunosFiltrados);
 
             const responseChamada = await axios.get(
-                `http://localhost:3000/frequencia/buscar?turmaId=${turmaId}&data=${data}`
+                `http://localhost:3000/frequencia/buscar?turmaId=${turmaId}&disciplinaId=${disciplinaId}&data=${data}`
             );
             const chamadaSalva = responseChamada.data;
 
@@ -83,15 +119,14 @@ export function Frequencia() {
                     const registro = chamadaSalva.chamada.find((c: any) => c.alunoId === aluno.id);
                     estruturaPresenca[aluno.id] = registro ? registro.presente : false;
                 } else {
-                    // Inicializa desmarcado (Falso) por padrão quando for uma nova chamada
-                    estruturaPresenca[aluno.id] = false;
+                    estruturaPresenca[aluno.id] = false; 
                 }
             });
 
             setPresencasForm(estruturaPresenca);
         } catch (error) {
             console.error(error);
-            acionarModal("erro", "Erro ao carregar a lista de frequência.");
+            acionarModal("erro", "Erro ao carregar os registros de frequência.");
         }
     }
 
@@ -112,14 +147,15 @@ export function Frequencia() {
     async function salvarFrequencia(e: React.FormEvent) {
         e.preventDefault();
 
-        if (!turmaSelecionada || !dataSelecionada) {
-            acionarModal("erro", "Selecione a turma e a data antes de salvar.");
+        if (!turmaSelecionada || !dataSelecionada || !disciplinaSelecionada) {
+            acionarModal("erro", "Preencha todos os campos antes de salvar.");
             return;
         }
 
         try {
             const payload = {
                 turmaId: turmaSelecionada,
+                disciplinaId: disciplinaSelecionada,
                 data: dataSelecionada,
                 chamada: Object.entries(presencasForm).map(([alunoId, presente]) => ({
                     alunoId,
@@ -130,7 +166,7 @@ export function Frequencia() {
             await axios.post("http://localhost:3000/frequencia/registrar", payload);
 
             acionarModal("sucesso", "Frequência salva com sucesso!");
-            buscarAlunosEChamada(turmaSelecionada, dataSelecionada);
+            buscarAlunosEChamada(turmaSelecionada, dataSelecionada, disciplinaSelecionada);
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao salvar a lista de chamada.");
@@ -171,6 +207,24 @@ export function Frequencia() {
                     </div>
 
                     <div className="grupo-filtro">
+                        <label htmlFor="select-disciplina">Disciplina:</label>
+                        <select
+                            id="select-disciplina"
+                            value={disciplinaSelecionada}
+                            onChange={(e) => setDisciplinaSelecionada(e.target.value)}
+                            className="select-filtro-custom"
+                            disabled={!turmaSelecionada}
+                        >
+                            <option value="">-- Escolha uma Disciplina --</option>
+                            {disciplinas.map((disc) => (
+                                <option key={disc.id} value={disc.id}>
+                                    {disc.nomeDisciplina || disc.nome}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="grupo-filtro">
                         <label htmlFor="input-data">Data:</label>
                         <input
                             type="date"
@@ -182,7 +236,7 @@ export function Frequencia() {
                     </div>
                 </div>
 
-                {turmaSelecionada && dataSelecionada && (
+                {turmaSelecionada && dataSelecionada && disciplinaSelecionada && (
                     <div className="container-tabela-layout">
                         {alunos.length === 0 ? (
                             <p className="mensagem-lista-vazia">

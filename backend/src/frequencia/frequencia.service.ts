@@ -6,9 +6,11 @@ import { Frequencia } from '../classes/Frequencia';
 export class FrequenciaService {
     private url = 'http://localhost:3001/frequencia';
 
-    async findByTurmaEData(turmaId: string, data: string) {
+    async findByTurmaEDisciplinaEData(turmaId: string, disciplinaId: string, data: string) {
         try {
-            const response = await axios.get(`${this.url}?turmaId=${turmaId}&data=${data}`);
+            const response = await axios.get(
+                `${this.url}?turmaId=${turmaId}&disciplinaId=${disciplinaId}&data=${data}`
+            );
             return response.data[0] || null;
         } catch (error) {
             return null;
@@ -17,9 +19,11 @@ export class FrequenciaService {
 
     async registrarFrequencia(payload: Frequencia) {
         try {
-            const { turmaId, data, chamada } = payload;
+            const { turmaId, disciplinaId, data } = payload as any; 
 
-            const responseExistente = await axios.get(`${this.url}?turmaId=${turmaId}&data=${data}`);
+            const responseExistente = await axios.get(
+                `${this.url}?turmaId=${turmaId}&disciplinaId=${disciplinaId}&data=${data}`
+            );
             const frequenciaExistente = responseExistente.data[0];
 
             if (frequenciaExistente && frequenciaExistente.id) {

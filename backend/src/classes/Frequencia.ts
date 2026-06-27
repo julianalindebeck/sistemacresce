@@ -1,9 +1,10 @@
 export interface Frequencia {
     id?: string;
     turmaId: string;
+    disciplinaId: string;
     data: string;
-    chamada: {
+    chamada: Array<{
         alunoId: string;
         presente: boolean;
-    }[];
+    }>;
 }

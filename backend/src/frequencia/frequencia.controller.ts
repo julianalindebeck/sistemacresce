@@ -7,8 +7,12 @@ export class FrequenciaController {
     constructor(private readonly service: FrequenciaService) {}
 
     @Get('buscar')
-    findByTurmaEData(@Query('turmaId') turmaId: string, @Query('data') data: string) {
-        return this.service.findByTurmaEData(turmaId, data);
+    findByTurmaEDisciplinaEData(
+        @Query('turmaId') turmaId: string, 
+        @Query('disciplinaId') disciplinaId: string,
+        @Query('data') data: string
+    ) {
+        return this.service.findByTurmaEDisciplinaEData(turmaId, disciplinaId, data);
     }
 
     @Post('registrar')

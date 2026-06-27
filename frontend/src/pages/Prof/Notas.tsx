@@ -180,8 +180,11 @@ export function Notas() {
 
     function handleNotaChange(alunoId: string, bimestre: keyof NotasBimestre, valor: string) {
         const valorFormatado = valor.replace(",", ".");
-        if (valorFormatado !== "" && isNaN(Number(valorFormatado))) {
-            return;
+        
+        if (valorFormatado !== "") {
+            const numero = Number(valorFormatado);
+            if (isNaN(numero)) return;
+            if (numero < 0 || numero > 25) return; // Limita o valor individual digitado entre 0 e 25
         }
 
         setNotasForm((prev) => ({
@@ -193,7 +196,8 @@ export function Notas() {
         }));
     }
 
-    function calcularMedia(alunoId: string): string {
+    // Calcula a Soma Acumulada (Nota Final) das notas digitadas
+    function calcularNotaFinal(alunoId: string): string {
         const notasObj = notasForm[alunoId];
         if (!notasObj) return "-";
 
@@ -204,9 +208,8 @@ export function Notas() {
         if (valores.length === 0) return "-";
 
         const soma = valores.reduce((acc, val) => acc + Number(val), 0);
-        const media = soma / valores.length;
 
-        return media.toFixed(1).replace(".", ",");
+        return soma.toFixed(1).replace(".", ",");
     }
 
     async function salvarNotas(e: React.FormEvent) {
@@ -309,7 +312,7 @@ export function Notas() {
                                                 <th className="col-bim">2º Bim</th>
                                                 <th className="col-bim">3º Bim</th>
                                                 <th className="col-bim">4º Bim</th>
-                                                <th className="col-media">Média</th>
+                                                <th className="col-nota-final">Nota Final</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -355,8 +358,8 @@ export function Notas() {
                                                             className="input-nota-boletim"
                                                         />
                                                     </td>
-                                                    <td className="celula-media-resultado">
-                                                        {calcularMedia(aluno.id)}
+                                                    <td className="celula-nota-final-resultado">
+                                                        {calcularNotaFinal(aluno.id)}
                                                     </td>
                                                 </tr>
                                             ))}
