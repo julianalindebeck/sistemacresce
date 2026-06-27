@@ -234,11 +234,12 @@
     font-size: 34px;
     color: #000000;
     margin: 0;
+    font-weight: 700;
 }
 
 .container-lista-avisos {
     width: 900px; 
-    margin-top: 20px;
+    margin: 20px auto 0 auto; 
 }
 
 .box-scroll-avisos {
@@ -254,8 +255,9 @@
     border: 1px solid #cccccc;
     border-radius: 16px;
     background-color: #ffffff;
-    width: 870px;
+    width: 100%; 
 }
+
 
 .box-scroll-avisos::-webkit-scrollbar {
     width: 14px;
