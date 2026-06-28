@@ -122,14 +122,20 @@ export default function Responsavel() {
   const valorMediaNumerico = Number(String(mediaGeral).replace(",", "."));
   const percentualMedia = (valorMediaNumerico / 10) * 100;
 
-  function obterClasseStatus(percentual: number) {
+  function obterClasseStatusNota(percentual: number) {
     if (percentual >= 70) return "status-bom";
     if (percentual >= 60) return "status-medio";
     return "status-ruim";
   }
 
-  const statusMediaClasse = obterClasseStatus(percentualMedia);
-  const statusFrequenciaClasse = obterClasseStatus(frequenciaGeral);
+  function obterClasseStatusFrequencia(percentual: number) {
+    if (percentual >= 90) return "status-bom";
+    if (percentual >= 75) return "status-medio";
+    return "status-ruim";
+  }
+
+  const statusMediaClasse = obterClasseStatusNota(percentualMedia);
+  const statusFrequenciaClasse = obterClasseStatusFrequencia(frequenciaGeral);
 
   return (
     <div className="layout-responsavel-container">
