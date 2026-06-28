@@ -3,9 +3,10 @@ import "./pageEscolar.css"
 import "./avisosAdminEscolar.css"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Select from "react-select";
 
 const formInicial = {
-    publico: "",
+    publico: [] as any,
     tipoAviso: "informativo",
     tituloAviso: "",
     descricao: "",
@@ -17,6 +18,11 @@ export function AvisosAdminEscolar(){
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
     const [listaTurmas, setListaTurmas] = useState<any[]>([]);
     const [listaAvisos, setListaAvisos] = useState<any[]>([]);
+
+    const opcoesTurmas = listaTurmas.map((turma) => ({
+        value: turma.id,
+        label: `${turma.nomeTurma} - ${turma.turno}`
+    }));
 
     const [modal, setModal] = useState<{
         visivel: boolean;
@@ -39,6 +45,10 @@ export function AvisosAdminEscolar(){
     useEffect(()=> {
         buscarTurmas();
         buscarAvisos();
+        const intervalo = setInterval(() => {
+            buscarAvisos(); //para atualizar os lidos e nao lidos
+        }, 5000);
+        return () => clearInterval(intervalo);
     }, []);
     
     async function buscarAvisos(){
@@ -84,6 +94,10 @@ export function AvisosAdminEscolar(){
     async function enviarAviso(e: React.FormEvent) {
         e.preventDefault();
         const erros: string[] = [];
+
+        if (form.publico.length === 0) {
+            erros.push("publico");
+        }
 
         if(!form.publico){
             erros.push("publico");
@@ -157,16 +171,24 @@ export function AvisosAdminEscolar(){
                 <div className="linha-formulario">
                     <div className="campo">
                         <label>Público:</label>
-                        <select name="publico" 
-                        value={form.publico} 
-                        onChange={handleChange} 
-                        required 
-                        className={camposInvalidos.includes("publico") ? "campo-invalido" : ""}>
-                            <option value="">Selecione...</option>
-                            {listaTurmas.map((turma) => (
-                                <option key={turma.id} value={turma.id}>{turma.nomeTurma} - {turma.turno}</option>
-                            ))}
-                        </select>
+                        <Select
+                            isMulti
+                            name="publico"
+                            classNamePrefix="selecionar-turmas"
+                            placeholder="Selecione as turmas..."
+                            options={opcoesTurmas}
+                            value={opcoesTurmas.filter(opcao => form.publico.includes(opcao.value as never))}
+                            className={camposInvalidos.includes("publico") ? "campo-invalido" : ""}
+                            onChange={(selecionadas) => {
+                                const ids = selecionadas ? selecionadas.map(item => item.value) : [];
+                                
+                                setForm(prev => ({
+                                    ...prev,
+                                    publico: ids 
+                                }));
+                                if (ids.length > 0) limparErro("publico");
+                            }}
+                        />
                     </div>
                 </div>
 
@@ -245,31 +267,45 @@ export function AvisosAdminEscolar(){
         </div>
         ) : (
             <div className="container-lista-avisos">
-                <div className="box-borda-avisos">
-                    <div className="box-scroll-avisos">
-                        {listaAvisos.map((aviso) => (
-                            <div className="linha-aviso" key={aviso.id}>
-                                <div className="aviso-esquerda">
-                                    <div className={`bolinha-status ${aviso.tipoAviso === "alerta" ? "vermelha" : "azul"}`}></div>
-                                    <div className="aviso-textos">
-                                        <h4>{aviso.tituloAviso}</h4>
-                                        <p>{aviso.descricao}</p>
-                                    </div>
-                                </div>
-                                <div className="aviso-direita">
-                                    <span className="aviso-data">
-                                        {aviso.dataCriacao ? new Date(aviso.dataCriacao).toLocaleDateString('pt-BR') : "Data indisponível"}
-                                    </span> 
-                                    <div className={`badge-lidos ${aviso.lidoAdmin ? "status-lido" : "status-nao-lido"}`}>
-                                        <strong>{aviso.lidos || 0}</strong>/{aviso.total || 0} lidos
-                                    </div>
-                                    {/*Pedente Avisos Lidos, e o total de avisos enviado*/}
-                                </div>
+    <div className="box-borda-avisos">
+        <div className="box-scroll-avisos">
+            {listaAvisos.map((aviso) => {
+                const totalLidos = aviso.responsaveisQueLeram?.length || 0;
+                let totalAlunosAlvo = 0;
+                
+                if (aviso.publico && Array.isArray(aviso.publico)) {
+                    aviso.publico.forEach((idTurmaDoAviso: string) => {
+                        const turmaEncontrada = listaTurmas.find(
+                            (t) => String(t.id).trim() === String(idTurmaDoAviso).trim()
+                        );
+                        if (turmaEncontrada && turmaEncontrada.alunos) {
+                            totalAlunosAlvo += turmaEncontrada.alunos.length;
+                        }
+                    });
+                }
+                return (
+                    <div className="linha-aviso" key={aviso.id}>
+                        <div className="aviso-esquerda">
+                            <div className={`bolinha-status ${aviso.tipoAviso === "alerta" ? "vermelha" : "azul"}`}></div>
+                            <div className="aviso-textos">
+                                <h4>{aviso.tituloAviso}</h4>
+                                <p>{aviso.descricao}</p>
                             </div>
-                        ))}
+                        </div>
+                        <div className="aviso-direita">
+                            <span className="aviso-data">
+                                {aviso.dataCriacao ? new Date(aviso.dataCriacao).toLocaleDateString('pt-BR') : "Data indisponível"}
+                            </span> 
+                            <div className={`badge-lidos ${totalLidos > 0 ? "status-lido" : "status-nao-lido"}`}>
+                                <strong>{totalLidos}</strong>/{totalAlunosAlvo} lidos
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                );
+            })}
+        </div>
+    </div>
+</div>
         )} 
         </div>
         <SidebarAdminEscolar></SidebarAdminEscolar>

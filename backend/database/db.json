@@ -343,44 +343,46 @@
       "id": "G4FIbff7DbU"
     },
     {
-      "publico": "A38hJ8yEmhI",
-      "tipoAviso": "informativo",
-      "tituloAviso": "Reuniao",
-      "descricao": "blablaaaaa",
-      "dataCriacao": "2026-06-24T21:40:22.808Z",
-      "id": "fC88O1gb8T8"
-    },
-    {
-      "publico": "4GJbhv2QBSw",
-      "tipoAviso": "informativo",
-      "tituloAviso": "reuniao 2",
-      "descricao": "blablaaa",
-      "dataCriacao": "2026-06-24T21:46:11.424Z",
-      "id": "LIiGUJfYTXo"
-    },
-    {
-      "publico": "4GJbhv2QBSw",
+      "publico": [
+        "tP9M6wBkQ4k"
+      ],
       "tipoAviso": "alerta",
-      "tituloAviso": "teste",
-      "descricao": "ddede",
-      "dataCriacao": "2026-06-24T21:46:19.986Z",
-      "id": "vTq5Rc_PYA0"
+      "tituloAviso": "Reuniao Importante",
+      "descricao": "sixxxx seven teste",
+      "dataCriacao": "2026-06-27T14:27:40.401Z",
+      "responsaveisQueLeram": [
+        "isabelly.silva@estudante.ufjf.br",
+        "isabellyfatima635@gmail.com"
+      ],
+      "id": "W_YYla85uiE"
     },
     {
-      "publico": "L9OiW_tJAZM",
-      "tipoAviso": "informativo",
-      "tituloAviso": "teste",
-      "descricao": "dededede",
-      "dataCriacao": "2026-06-24T21:46:28.563Z",
-      "id": "xB-Owycvpfg"
-    },
-    {
-      "publico": "L9OiW_tJAZM",
+      "publico": [
+        "J4BaxIx3emY"
+      ],
       "tipoAviso": "alerta",
-      "tituloAviso": "Reuniao",
-      "descricao": "Tera uma reuniao",
-      "dataCriacao": "2026-06-26T01:53:42.108Z",
-      "id": "0yGzCf9UvP8"
+      "tituloAviso": "reuniao pais",
+      "descricao": "teste",
+      "remetenteId": "SHSFaET1K4I",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-27T22:14:07.683Z",
+      "id": "zi2xdxVdzJo",
+      "responsaveisQueLeram": [
+        "isabelly.silva@estudante.ufjf.br"
+      ]
+    },
+    {
+      "publico": [
+        "J4BaxIx3emY"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "teste novo reuniao pais",
+      "descricao": "dedededed",
+      "dataCriacao": "2026-06-27T22:14:40.558Z",
+      "responsaveisQueLeram": [
+        "isabelly.silva@estudante.ufjf.br"
+      ],
+      "id": "mDd5DCiFfYg"
     }
   ],
   "solicitacoesCadastro": [
