@@ -76,8 +76,10 @@ export class AlunosService {
     }
 
     async remove(id: string) {
-        const turmas = await axios.get("http://localhost:3001/turmas");
+        const alunoResponse = await axios.get(`${this.url}/${id}`);
+        const aluno = alunoResponse.data;
 
+        const turmas = await axios.get("http://localhost:3001/turmas");
         const alunoEmUso = turmas.data.some((turma: any) =>
             turma.alunos.includes(id)
         );
@@ -88,7 +90,16 @@ export class AlunosService {
             );
         }
 
+        const usuariosResponse = await axios.get(`http://localhost:3001/usuarios?email=${aluno.emailResponsavel}`);
+        const usuarios = usuariosResponse.data;
+
+        if (usuarios.length > 0) {
+            const usuarioId = usuarios[0].id;
+            await axios.delete(`http://localhost:3001/usuarios/${usuarioId}`);
+        }
+
         await axios.delete(`${this.url}/${id}`);
-        return { message: 'Aluno removido' };
+        
+        return { message: 'Aluno removido com sucesso' };
     }
 }

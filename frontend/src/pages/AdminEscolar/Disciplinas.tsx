@@ -308,7 +308,7 @@ export function Disciplinas(){
                                                 <td>{disciplina.cargaHoraria}h</td>
                                                 <td>{disciplina.areaConhecimento}</td>
                                                 <td>
-                                                    {professor?.nomeProfessor || "Professor não encontrado"}
+                                                    {professor?.nome || "Professor não encontrado"} - {professor?.cpf || "Professor não encontrado"}
                                                 </td>
                                                 <td>
                                                     <button className="botao-deletar" 

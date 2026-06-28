@@ -234,7 +234,7 @@ export function TurmaDetalhes() {
                                             {disciplina.nomeDisciplina} - {disciplina.codigo}
                                         </td>
                                         <td>
-                                            {professor.nomeProfessor} - {professor.cpfProfessor}
+                                            {professor.nome} - {professor.cpf}
                                         </td>
                                         <td>
                                             <button className="botao-remover-aluno-disciplina"

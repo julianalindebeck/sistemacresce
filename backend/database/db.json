@@ -55,6 +55,13 @@
       "email": "nandinhafefecoutinho@gmail.com",
       "senha": "ElB1G$iMYf*$zsdJ",
       "tipo": "admin_escolar"
+    },
+    {
+      "id": "DqkJfq-PMw8",
+      "nome": "brenildo",
+      "email": "asdjjkh@kjasahjd.com",
+      "senha": "Dvu@MFMUpc*HXuhq",
+      "tipo": "prof"
     }
   ],
   "alunos": [
@@ -70,26 +77,37 @@
   ],
   "professores": [
     {
-      "nomeProfessor": "juju furacao",
-      "cpfProfessor": "12345678967",
-      "dataNascimentoProfessor": "11111111",
-      "emailProfessor": "email@email.com",
-      "telefoneProfessor": "32999991111",
+      "nome": "juju furacao",
+      "email": "email@email.com",
+      "cpf": "12345678967",
+      "telefone": "32999991111",
+      "dataNascimento": "11111111",
       "formacao": "todas",
       "senha": "123456",
       "tipo": "prof",
       "id": "iA-zflJbl4I"
     },
     {
-      "nomeProfessor": "Loboxco de hierarquia ",
-      "cpfProfessor": "12312312390",
-      "dataNascimentoProfessor": "18021970",
-      "emailProfessor": "loboxco@cresce",
-      "telefoneProfessor": "32988444444",
+      "nome": "Loboxco de hierarquia ",
+      "email": "loboxco@cresce",
+      "cpf": "12312312390",
+      "telefone": "32988444444",
+      "dataNascimento": "18021970",
       "formacao": "todas",
       "senha": "123456",
       "tipo": "prof",
       "id": "F4rPwEa-eu8"
+    },
+    {
+      "nome": "brenildo",
+      "email": "asdjjkh@kjasahjd.com",
+      "cpf": "11111111111",
+      "telefone": "11111111111",
+      "dataNascimento": "22122004",
+      "formacao": "sla vei",
+      "senha": "Dvu@MFMUpc*HXuhq",
+      "tipo": "prof",
+      "id": "trYg-sW_CsI"
     }
   ],
   "responsaveis": [],
@@ -347,8 +365,25 @@
       "id": "IvsRQncMfqk"
     }
   ],
-  "solicitacoesEdicao": [],
-  "solicitacoesRemocao": [],
+  "solicitacoesEdicao": [
+    {
+      "idEscola": "QDIie9KFN8A",
+      "informacao": "nome",
+      "alteracao": "escola do breno",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-28T08:15:12.399Z",
+      "id": "pCgUvFF6lWU"
+    }
+  ],
+  "solicitacoesRemocao": [
+    {
+      "idEscola": "QDIie9KFN8A",
+      "justificativa": "eu to com vontade :)",
+      "status": "PENDENTE",
+      "dataSolicitacao": "2026-06-28T08:15:37.930Z",
+      "id": "XLr0MYryn7s"
+    }
+  ],
   "escolas": [
     {
       "nome": "bell",
@@ -363,7 +398,7 @@
       "id": "su7aj6ifZ7k"
     },
     {
-      "nome": "Fernanda Htinha",
+      "nome": "escola do breno",
       "cnpj": "90893316000142",
       "endereco": "Rua Vasco da Gama",
       "telefone": "32988014437",
@@ -391,16 +426,6 @@
       "numeroAlunos": "501-1000",
       "dataRegistro": "2026-06-26T14:08:12.646Z",
       "id": "1OpVjH3Us3I"
-    },
-    {
-      "nome": "Fernanda Htinha",
-      "cnpj": "90893316000142",
-      "endereco": "Rua Vasco da Gama",
-      "telefone": "32988014437",
-      "setorEducacional": "infantil",
-      "numeroAlunos": "501-1000",
-      "dataRegistro": "2026-06-26T14:08:13.488Z",
-      "id": "48AvFRHMxps"
     }
   ],
   "administradoresEscolares": [
@@ -438,7 +463,7 @@
       "senha": "ElB1G$iMYf*$zsdJ",
       "tipo": "admin_escolar",
       "cargo": "todos",
-      "escolaId": "48AvFRHMxps"
+      "escolaId": null
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -15,9 +15,13 @@
 
 .paginaAdminSistema .texto {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
     padding-top: 30px;
     padding-left: 30px;
+    box-sizing: border-box;
 }
 
 .paginaAdminSistema h1 {

@@ -21,6 +21,8 @@ export function Alunos() {
     const [form, setForm] = useState(formInicial);
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
 
+    const [carregando, setCarregando] = useState(false);
+
     const [modal, setModal] = useState<{
         visivel: boolean;
         tipo: "sucesso" | "erro";
@@ -105,6 +107,8 @@ export function Alunos() {
         setCamposInvalidos(erros);
 
         if (erros.length > 0) return;
+
+        setCarregando(true);
 
         try {
             await axios.post("http://localhost:3000/alunos", form);
@@ -231,7 +235,9 @@ export function Alunos() {
                                 </div>
                             </div>
                             <div className="botao-enviar-alunos">
-                                <button type="submit">Salvar</button>
+                                <button type="submit" disabled={carregando}>
+                                    {carregando ? "Salvando..." : "Salvar"}
+                                </button>
                             </div>
                         </form>
                     </div>

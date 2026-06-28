@@ -46,8 +46,28 @@ export function Escola(){
     
     async function buscarEscola(){
         try {
-            const response = await axios.get("http://localhost:3001/escolas");
-            setListaEscolas(response.data);
+            const usuarioLogado = JSON.parse(localStorage.getItem("usuario") || "{}");
+            
+            if (!usuarioLogado.email) {
+                acionarModal("erro", "Sessão inválida. Faça login novamente.");
+                return;
+            }
+
+            const adminResponse = await axios.get(
+                `http://localhost:3001/administradoresEscolares?email=${usuarioLogado.email}`
+            );
+            const adminDados = adminResponse.data;
+
+            if (adminDados.length === 0) {
+                acionarModal("erro", "Administrador escolar não encontrado.");
+                return;
+            }
+
+            const escolaId = adminDados[0].escolaId;
+
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${escolaId}`);
+
+            setListaEscolas([escolaResponse.data]);
         } catch (error) {
             console.error("Erro ao buscar escola:", error);
             acionarModal("erro", "Não foi possivel carregar a escola.");
@@ -94,9 +114,9 @@ export function Escola(){
         }
         
         try {
-            await axios.post("http://localhost:3000/solicitacaoedicao", {
+            await axios.post("http://localhost:3000/solicitacoes-edicao", {
                 ...formEdicao,
-                idEscola: listaEscolas[0].id,
+                idEscola: listaEscolas[0]?.id,
             });
             acionarModal("sucesso", "Solicitação de edição enviada com sucesso!");
             setFormEdicao(formInicialEdicao); 
@@ -122,9 +142,9 @@ export function Escola(){
         }
         
         try {
-            await axios.post("http://localhost:3000/solicitacaoremocao", {
+            await axios.post("http://localhost:3000/solicitacoes-remocao", {
                 ...formRemocao,
-                idEscola: listaEscolas[0].id,
+                idEscola: listaEscolas[0]?.id,
             });
             acionarModal("sucesso", "Solicitação de remoção enviada com sucesso!");
             setFormRemocao(formInicialRemocao); 
@@ -233,7 +253,7 @@ export function Escola(){
                         onChange={handleChange}
                         placeholder="Digite Nova Informação"
                         required
-                        className={camposInvalidos.includes("novaInfo") ? "campo-invalido" : ""}
+                        className={camposInvalidos.includes("alteracao") ? "campo-invalido" : ""}
                         />
                     </div>
                 </div>

@@ -17,12 +17,12 @@ export class ProfessoresController {
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return this.service.findOne(Number(id));
+        return this.service.findOne(id);
     }
     
     @Put(':id')
     update(@Param('id') id: string, @Body() body: any) {
-        return this.service.update(Number(id), body);
+        return this.service.update(id, body);
     }
     
     @Delete(':id')

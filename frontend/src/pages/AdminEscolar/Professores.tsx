@@ -21,6 +21,8 @@ export function Professores() {
     const [form, setForm] = useState(formInicial);
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
 
+    const [carregando, setCarregando] = useState(false);
+
     const [modal, setModal] = useState<{
         visivel: boolean;
         tipo: "sucesso" | "erro";
@@ -39,7 +41,7 @@ export function Professores() {
 
     async function buscarProfessores() {
         try {
-            const response = await axios.get("http://localhost:3000/professores");
+            const response = await axios.get("http://localhost:3001/professores");
             setListaProfessores(response.data);
         } catch (error) {
             console.error(error);
@@ -106,6 +108,8 @@ export function Professores() {
 
         if (erros.length > 0) return;
 
+        setCarregando(true);
+
         try {
             await axios.post("http://localhost:3000/professores", {
                 nome: form.nomeProfessor,
@@ -123,6 +127,8 @@ export function Professores() {
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao cadastrar professor.");
+        } finally {
+            setCarregando(false);
         }
     }
 
@@ -238,7 +244,9 @@ export function Professores() {
                                 </div>
                             </div>
                             <div className="botao-enviar-professores">
-                                <button type="submit">Salvar</button>
+                                <button type="submit" disabled={carregando}>
+                                    {carregando ? "Salvando..." : "Salvar"}
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -257,11 +265,11 @@ export function Professores() {
                                 </thead>
                                 <tbody>
                                     {listaProfessores.map((prof, index) => {
-                                        const nome = prof.nomeProfessor || prof.nome || "";
-                                        const cpf = prof.cpfProfessor || prof.cpf || "";
-                                        const email = prof.emailProfessor || prof.email || "";
-                                        const telefone = prof.telefoneProfessor || prof.telefone || "";
-                                        const formacao = prof.formacao || "";
+                                        const nome = prof.nome;
+                                        const cpf = prof.cpf;
+                                        const email = prof.email;
+                                        const telefone = prof.telefone;
+                                        const formacao = prof.formacao;
 
                                         return (
                                             <tr key={prof.id || index}>

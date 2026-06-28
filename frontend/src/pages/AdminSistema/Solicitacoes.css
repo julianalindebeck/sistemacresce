@@ -128,3 +128,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+.botoesSol {
+  display: flex;
+  gap: 2px;
+  padding-left: 50px;
+}

@@ -22,35 +22,33 @@ export class ProfessoresService {
         const response = await axios.get(this.url);
         const professores = response.data;
         const senhaAleatoria = gerarSenhaAleatoria();
-        const maiorId = professores.length > 0 ? Math.max(...professores.map((p: any) => Number(p.id))) : 0;
         
-        const payload = { 
-            id: maiorId + 1,
+        const payload = {
             nome: professor.nome,
             email: professor.email,
-            senha: senhaAleatoria,
-            tipo: 'prof',
             cpf: professor.cpf,
             telefone: professor.telefone,
             dataNascimento: professor.dataNascimento,
             formacao: professor.formacao,
+            senha: senhaAleatoria,
+            tipo: "prof",
         };
 
         const novo = await axios.post(this.url, payload);
 
         await this.emailService.enviarCredenciais(
-            professor.nome,
-            professor.email,
+            novo.data.nome,
+            novo.data.email,
             senhaAleatoria,
             'Professor',
         );
 
         await axios.post('http://localhost:3001/usuarios', {
-            id: payload.id,
-            nome: payload.nome,
-            email: payload.email,
-            senha: payload.senha,
-            tipo: payload.tipo,
+            id: novo.data.id,
+            nome: novo.data.nome,
+            email: novo.data.email,
+            senha: senhaAleatoria,
+            tipo: "prof",
         });
 
         return {
@@ -59,12 +57,12 @@ export class ProfessoresService {
         };
     }
 
-    async findOne(id: number) {
+    async findOne(id: string) {
         const response = await axios.get(`${this.url}/${id}`);
         return response.data;
     }
 
-    async update(id: number, data: any) {
+    async update(id: string, data: any) {
         const response = await axios.put(`${this.url}/${id}`, {
             ...data,
             id,
@@ -73,8 +71,10 @@ export class ProfessoresService {
     }
 
     async remove(id: string) {
-        const disciplinas = await axios.get("http://localhost:3001/disciplinas");
+        const professorResponse = await axios.get(`${this.url}/${id}`);
+        const professor = professorResponse.data;
 
+        const disciplinas = await axios.get("http://localhost:3001/disciplinas");
         const profEmUso = disciplinas.data.some((disciplina: any) =>
             disciplina.professorId === id
         );
@@ -85,7 +85,16 @@ export class ProfessoresService {
             );
         }
 
+        const usuariosResponse = await axios.get(`http://localhost:3001/usuarios?email=${professor.email}`);
+        const usuarios = usuariosResponse.data;
+
+        if (usuarios.length > 0) {
+            const usuarioId = usuarios[0].id; 
+            await axios.delete(`http://localhost:3001/usuarios/${usuarioId}`);
+        }
+
         await axios.delete(`${this.url}/${id}`);
-        return { message: 'Professor removido' };
+        
+        return { message: 'Professor removido com sucesso' };
     }
 }
