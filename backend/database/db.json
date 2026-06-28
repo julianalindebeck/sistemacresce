@@ -235,6 +235,19 @@
         "tM4Wo-fv5b4"
       ],
       "id": "V6zF6bdw6kE"
+    },
+    {
+      "nomeTurma": "67 A",
+      "capacidade": "10",
+      "anoSerie": "1",
+      "disciplinas": [
+        "P_mpCZMdz2Y"
+      ],
+      "turno": "Manhã",
+      "alunos": [
+        "RJxTIr2C9VI"
+      ],
+      "id": "Fti6FWjrkQc"
     }
   ],
   "disciplinas": [
@@ -300,6 +313,24 @@
       "descricao": "skadh",
       "professorId": "iA-zflJbl4I",
       "id": "_e5F8MwsqWU"
+    },
+    {
+      "nomeDisciplina": "disciplina",
+      "cargaHoraria": "5",
+      "codigo": "DIS123",
+      "areaConhecimento": "Exatas",
+      "descricao": "disciplina",
+      "professorId": "iA-zflJbl4I",
+      "id": "zOAwlt1BGec"
+    },
+    {
+      "nomeDisciplina": "MAT",
+      "cargaHoraria": "4",
+      "codigo": "MAT123",
+      "areaConhecimento": "Exatas",
+      "descricao": "mat eh bom",
+      "professorId": "WGbkBtrMHJs",
+      "id": "P_mpCZMdz2Y"
     }
   ],
   "avisos": [
@@ -520,8 +551,43 @@
       "bim3": null,
       "bim4": null,
       "id": "VZITubPG_rs"
+    },
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "alunoId": "RJxTIr2C9VI",
+      "disciplina": "P_mpCZMdz2Y",
+      "bim1": 10,
+      "bim2": 10,
+      "bim3": 10,
+      "bim4": 10,
+      "id": "y0xfO871VIg"
     }
   ],
-  "frequencia": [],
+  "frequencia": [
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "disciplinaId": "P_mpCZMdz2Y",
+      "data": "2026-06-28",
+      "chamada": [
+        {
+          "alunoId": "RJxTIr2C9VI",
+          "presente": true
+        }
+      ],
+      "id": "ps_HNWvV_Cc"
+    },
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "disciplinaId": "P_mpCZMdz2Y",
+      "data": "2026-06-27",
+      "chamada": [
+        {
+          "alunoId": "RJxTIr2C9VI",
+          "presente": true
+        }
+      ],
+      "id": "om3OMRkXdwY"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
