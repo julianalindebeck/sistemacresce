@@ -152,14 +152,12 @@ export function FrequenciaAlunos() {
         carregarDadosFrequencia();
     }, [responsavelEmail]);
 
-    // Retorna a cor de texto correta com base nas regras do negócio
     const obterClasseCorGeral = () => {
         if (frequenciaGeral < 75) return "texto-critico";
         if (frequenciaGeral <= 89) return "texto-atencao";
         return "texto-excelente";
     };
 
-    // Retorna a string de aviso corrigindo o bug do caractere "<" que quebrava o HTML
     const obterTextoAvisoGeral = () => {
         if (frequenciaGeral < 75) return "Abaixo do esperado!";
         if (frequenciaGeral <= 89) return "Atenção à frequência!";
@@ -181,7 +179,6 @@ export function FrequenciaAlunos() {
                 {!carregando && !erro && (
                     <>
                         <div className="container-cards-frequencia">
-                            {/* Card Frequência Geral */}
                             <div className="card-frequencia-geral">
                                 <div className="card-info-frequencia">
                                     <span className="card-label">Frequência Geral</span>
@@ -198,7 +195,6 @@ export function FrequenciaAlunos() {
                                 </div>
                             </div>
 
-                            {/* Card de Legendas Corrigido conforme a imagem original */}
                             <div className="card-legenda-frequencia">
                                 <span className="legenda-titulo">Legenda</span>
                                 <div className="legenda-itens-container">
@@ -218,7 +214,6 @@ export function FrequenciaAlunos() {
                             </div>
                         </div>
 
-                        {/* Tabela de Disciplinas */}
                         <div className="container-tabela-layout">
                             <div className="tabela-wrapper-scroll">
                                 <table className="tabela-boletim-escolar">

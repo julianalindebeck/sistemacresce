@@ -383,6 +383,33 @@
         "isabelly.silva@estudante.ufjf.br"
       ],
       "id": "mDd5DCiFfYg"
+    },
+    {
+      "publico": [
+        "Fti6FWjrkQc"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "to enlouquenceod",
+      "descricao": "galera to ficando maluca",
+      "remetenteId": "-2zvOjQe-v8",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-28T21:37:06.731Z",
+      "id": "enMxYIQ7RNg"
+    },
+    {
+      "publico": [
+        "Fti6FWjrkQc"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "festa junina",
+      "descricao": "vai ter",
+      "remetenteId": "-2zvOjQe-v8",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-28T21:37:34.979Z",
+      "id": "CsbIkl3voNc",
+      "responsaveisQueLeram": [
+        "julianalindck1711@gmail.com"
+      ]
     }
   ],
   "solicitacoesCadastro": [
@@ -558,10 +585,10 @@
       "turmaId": "Fti6FWjrkQc",
       "alunoId": "RJxTIr2C9VI",
       "disciplina": "P_mpCZMdz2Y",
-      "bim1": 10,
-      "bim2": 10,
-      "bim3": 10,
-      "bim4": 10,
+      "bim1": 7,
+      "bim2": 7,
+      "bim3": 7,
+      "bim4": 7,
       "id": "y0xfO871VIg"
     }
   ],
@@ -589,6 +616,18 @@
         }
       ],
       "id": "om3OMRkXdwY"
+    },
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "disciplinaId": "P_mpCZMdz2Y",
+      "data": "2026-06-26",
+      "chamada": [
+        {
+          "alunoId": "RJxTIr2C9VI",
+          "presente": false
+        }
+      ],
+      "id": "8eeN5E0f_Oo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
