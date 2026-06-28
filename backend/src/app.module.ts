@@ -14,6 +14,8 @@ import { TurmasModule } from './turmas/turmas.module';
 import { DisciplinasModule } from './disciplinas/disciplinas.module';
 import { SolicitacaoEdicaoModule } from './solicitacao-edicao/solicitacao-edicao.module';
 import { SolicitacaoRemocaoModule } from './solicitacao-remocao/solicitacao-remocao.module';
+import { NotasModule } from './notas/notas.module';
+import { FrequenciaModule } from './frequencia/frequencia.module';
 
 @Module({
   imports: [
@@ -32,6 +34,8 @@ import { SolicitacaoRemocaoModule } from './solicitacao-remocao/solicitacao-remo
     DisciplinasModule,
     SolicitacaoEdicaoModule,
     SolicitacaoRemocaoModule,
+    NotasModule,
+    FrequenciaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

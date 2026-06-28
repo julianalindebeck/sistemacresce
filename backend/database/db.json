@@ -466,5 +466,7 @@
       "escolaId": null
     }
   ],
+  "notas":[],
+  "frequencia":[],
   "$schema": "./node_modules/json-server/schema.json"
 }

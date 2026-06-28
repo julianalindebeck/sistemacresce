@@ -28,12 +28,7 @@ export default function Login() {
     );
 
     await login(response.data.access_token);
-
-    localStorage.setItem("usuario", JSON.stringify({
-      ...response.data,
-      email: email 
-  }));
-
+    localStorage.setItem("usuario_email", email);
     const tipo = response.data.tipo;
 
     if (tipo === "admin_sistema") navigate("/admin-sistema");
