@@ -62,6 +62,21 @@
       "email": "asdjjkh@kjasahjd.com",
       "senha": "Dvu@MFMUpc*HXuhq",
       "tipo": "prof"
+    },
+    {
+      "id": "-2zvOjQe-v8",
+      "nome": "the juju furacao",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "%yYqo9u1z&3*#HW4",
+      "tipo": "prof"
+    },
+    {
+      "id": "v7Q05dgU_ro",
+      "nome": "juju furacao",
+      "email": "julianalindck1711@gmail.com",
+      "telefone": "32999996767",
+      "senha": "rHQ10JdGrpZph*dF",
+      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -73,6 +88,17 @@
       "emailResponsavel": "skdj@kdj.com",
       "telefoneResponsavel": "32999996767",
       "id": "tM4Wo-fv5b4"
+    },
+    {
+      "id": "RJxTIr2C9VI",
+      "nomeAluno": "juju vento",
+      "cpfAluno": "12345678967",
+      "dataNascimentoAluno": "11111111",
+      "nomeResponsavel": "juju furacao",
+      "emailResponsavel": "julianalindck1711@gmail.com",
+      "telefoneResponsavel": "32999996767",
+      "senha": "rHQ10JdGrpZph*dF",
+      "tipo": "responsavel"
     }
   ],
   "professores": [
@@ -108,6 +134,17 @@
       "senha": "Dvu@MFMUpc*HXuhq",
       "tipo": "prof",
       "id": "trYg-sW_CsI"
+    },
+    {
+      "nome": "the juju furacao",
+      "email": "julianalindck1711@gmail.com",
+      "cpf": "12345678967",
+      "telefone": "32999991111",
+      "dataNascimento": "11111111",
+      "formacao": "todas",
+      "senha": "%yYqo9u1z&3*#HW4",
+      "tipo": "prof",
+      "id": "WGbkBtrMHJs"
     }
   ],
   "responsaveis": [],
@@ -373,6 +410,13 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-28T08:15:12.399Z",
       "id": "pCgUvFF6lWU"
+    },
+    {
+      "informacao": "nome",
+      "alteracao": "escola do brenoooo",
+      "status": "PENDENTE",
+      "dataSolicitacao": "2026-06-28T20:48:49.188Z",
+      "id": "aSzoJps7yC8"
     }
   ],
   "solicitacoesRemocao": [
@@ -466,7 +510,18 @@
       "escolaId": null
     }
   ],
-  "notas":[],
-  "frequencia":[],
+  "notas": [
+    {
+      "turmaId": "4GJbhv2QBSw",
+      "alunoId": "tM4Wo-fv5b4",
+      "disciplina": "nhpB7GpT_7I",
+      "bim1": null,
+      "bim2": null,
+      "bim3": null,
+      "bim4": null,
+      "id": "VZITubPG_rs"
+    }
+  ],
+  "frequencia": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

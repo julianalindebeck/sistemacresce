@@ -184,7 +184,7 @@ export function Notas() {
         if (valorFormatado !== "") {
             const numero = Number(valorFormatado);
             if (isNaN(numero)) return;
-            if (numero < 0 || numero > 25) return; // Limita o valor individual digitado entre 0 e 25
+            if (numero < 0 || numero > 25) return; 
         }
 
         setNotasForm((prev) => ({
@@ -196,7 +196,6 @@ export function Notas() {
         }));
     }
 
-    // Calcula a Soma Acumulada (Nota Final) das notas digitadas
     function calcularNotaFinal(alunoId: string): string {
         const notasObj = notasForm[alunoId];
         if (!notasObj) return "-";
