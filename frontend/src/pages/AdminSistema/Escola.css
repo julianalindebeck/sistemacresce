@@ -1,6 +1,7 @@
 .conteudo-escolas {
   padding: 20px;
-  max-width: 1000px;
+  max-width: 1200px; 
+  width: 100%;
 }
 
 .topo-gerenciar {
@@ -10,17 +11,24 @@
   margin-bottom: 24px;
 }
 
+.topo-gerenciar h1 {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
 .tabela-scroll-container {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  max-height: 480px;
+  max-height: 520px;
   overflow-y: auto;
+  overflow-x: auto; 
 }
 
 .tabela-scroll-container::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 .tabela-scroll-container::-webkit-scrollbar-track {
@@ -45,20 +53,22 @@
 .tabela-escolas th {
   color: #1e3a8a;
   font-weight: 800;
-  font-size: 1rem;
-  padding: 24px 32px;
+  font-size: 0.95rem;
+  padding: 20px 24px;
   border-bottom: 1px solid #f1f5f9;
   background-color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 10;
+  white-space: nowrap; 
 }
 
 .tabela-escolas td {
-  padding: 20px 32px;
+  padding: 18px 24px;
   border-bottom: 1px solid #f1f5f9;
-  color: #1e293b;
-  font-size: 0.95rem;
+  color: #334155;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .tabela-escolas tr:last-child td {
@@ -69,55 +79,17 @@
   background-color: #f8fafc;
 }
 
-.coluna-acoes {
-  display: flex;
-  gap: 12px;
-}
-
-.btn-tabela {
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  background-color: #ffffff;
-  transition: all 0.2s ease;
-}
-
-.btn-editar {
-  color: #2563eb;
-  border: 1px solid #2563eb;
-}
-
-.btn-editar:hover {
-  background-color: #eff6ff;
-}
-
-.btn-remover {
-  color: #ef4444;
-  border: 1px solid #ef4444;
-}
-
-.btn-remover:hover {
-  background-color: #fef2f2;
+.coluna-destaque strong {
+  color: #0f172a;
 }
 
 @media (max-width: 768px) {
   .conteudo-escolas {
-    margin-left: 0;
-    padding: 20px;
+    padding: 12px;
   }
 
   .tabela-escolas th,
   .tabela-escolas td {
-    padding: 16px 20px;
-  }
-
-  .coluna-acoes {
-    flex-direction: column;
-    gap: 8px;
+    padding: 14px 16px;
   }
 }

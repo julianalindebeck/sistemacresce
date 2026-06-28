@@ -2,12 +2,15 @@ import { SidebarAdminSistema } from "./SidebarAdminSistema";
 import "./Escola.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface Escola {
-  id: string;
+  id?: string | number; 
   nome: string;
-  emailLogin: string;
+  cnpj: string;
+  endereco: string;
+  telefone: string;
+  setorEducacional: string;
+  numeroAlunos: string;
 }
 
 export function Escolas() {
@@ -26,49 +29,38 @@ export function Escolas() {
     carregarEscolas();
   }, []);
 
-  async function removerEscola(id: string) {
-    try {
-      await axios.delete(`http://localhost:3000/escolas/${id}`);
-      setEscolas((prev) => prev.filter((escola) => escola.id !== id));
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   return (
     <>
       <SidebarAdminSistema />
       <div className="paginaAdminSistema">
         <div className="conteudo-escolas">
           <div className="topo-gerenciar">
-            <h1>Gerenciar escolas</h1>
+            <h1>Escolas Cadastradas</h1>
           </div>
 
           <div className="tabela-scroll-container">
             <table className="tabela-escolas">
               <thead>
                 <tr>
-                  <th>Escolas</th>
-                  <th>Ações</th>
+                  <th>Nome</th>
+                  <th>CNPJ</th>
+                  <th>Endereço</th>
+                  <th>Telefone</th>
+                  <th>Setor Educacional</th>
+                  <th>Nº de Alunos</th>
                 </tr>
               </thead>
               <tbody>
-                {escolas.map((escola) => (
-                  <tr key={escola.id}>
-                    <td className="coluna-nome">
+                {escolas.map((escola, index) => (
+                  <tr key={escola.id || index}>
+                    <td className="coluna-destaque">
                       <strong>{escola.nome}</strong>
                     </td>
-                    <td className="coluna-acoes">
-                      <button className="btn-tabela btn-editar">
-                        Editar <FaEdit />
-                      </button>
-                      <button
-                        className="btn-tabela btn-remover"
-                        onClick={() => removerEscola(escola.id)}
-                      >
-                        Remover <FaTrash />
-                      </button>
-                    </td>
+                    <td>{escola.cnpj}</td>
+                    <td>{escola.endereco}</td>
+                    <td>{escola.telefone}</td>
+                    <td>{escola.setorEducacional}</td>
+                    <td>{escola.numeroAlunos}</td>
                   </tr>
                 ))}
               </tbody>
