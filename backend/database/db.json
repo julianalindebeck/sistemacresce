@@ -106,6 +106,21 @@
       "telefone": "32999996767",
       "senha": "rHQ10JdGrpZph*dF",
       "tipo": "responsavel"
+    },
+    {
+      "id": "vLIH4NI21HE",
+      "nome": "Breno Loureiro de Paula",
+      "email": "brenoloupaula@gmail.com",
+      "senha": "R7o7bcVR%Upjn8d$",
+      "tipo": "prof"
+    },
+    {
+      "id": "1UKFn7cWT8U",
+      "nome": "Breninho",
+      "email": "brenoloupaula@gmail.com",
+      "telefone": "32999999999",
+      "senha": "lDL%L&4e%LeaVFR@",
+      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -127,6 +142,17 @@
       "emailResponsavel": "wjhdqhw@jhdqje.com",
       "telefoneResponsavel": "21222121334",
       "senha": "FB6RnhnAdx*7Dt6V",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "JFt9JrtIRlE",
+      "nomeAluno": "filho imaginario do breno",
+      "cpfAluno": "08722924605",
+      "dataNascimentoAluno": "22/12/2025",
+      "nomeResponsavel": "Breninho",
+      "emailResponsavel": "brenoloupaula@gmail.com",
+      "telefoneResponsavel": "32999999999",
+      "senha": "lDL%L&4e%LeaVFR@",
       "tipo": "responsavel"
     }
   ],
@@ -201,6 +227,17 @@
       "dataNascimento": "22/12/2004",
       "formacao": "se tiver o sla vei eu morro",
       "senha": "Px5I2#ra83HO@Pho",
+      "tipo": "prof"
+    },
+    {
+      "id": "tLcb0jFmcXo",
+      "nome": "Breno Loureiro de Paula",
+      "email": "brenoloupaula@gmail.com",
+      "cpf": "08722924604",
+      "telefone": "32999252212",
+      "dataNascimento": "22/12/2004",
+      "formacao": "Volei",
+      "senha": "R7o7bcVR%Upjn8d$",
       "tipo": "prof"
     }
   ],
@@ -306,6 +343,38 @@
         "ZfEGPBatSOk"
       ],
       "turno": "Manhã"
+    },
+    {
+      "id": "vHpE46wWB5E",
+      "nomeTurma": "Turma Educacao Fisica",
+      "capacidade": "10",
+      "alunos": [
+        "tM4Wo-fv5b4",
+        "uu5OePRfwos"
+      ],
+      "anoSerie": "5",
+      "disciplinas": [
+        "8j1w7A2jFaQ",
+        "ZfEGPBatSOk"
+      ],
+      "turno": "Tarde"
+    },
+    {
+      "id": "z_LHEUyFzjs",
+      "nomeTurma": "Turma nova teste",
+      "capacidade": "100",
+      "alunos": [
+        "JFt9JrtIRlE",
+        "uu5OePRfwos",
+        "tM4Wo-fv5b4"
+      ],
+      "anoSerie": "5",
+      "disciplinas": [
+        "8j1w7A2jFaQ",
+        "EqSKVa3h29M",
+        "ZfEGPBatSOk"
+      ],
+      "turno": "Tarde"
     }
   ],
   "disciplinas": [
@@ -389,6 +458,15 @@
       "areaConhecimento": "Linguagens",
       "descricao": "o sla vei foi de novo",
       "professorId": "WSfv-SA7878"
+    },
+    {
+      "id": "8j1w7A2jFaQ",
+      "nomeDisciplina": "Aula de Volei",
+      "codigo": "VOLEI67",
+      "cargaHoraria": "15",
+      "areaConhecimento": "Natureza",
+      "descricao": "voleiiiii",
+      "professorId": "tLcb0jFmcXo"
     }
   ],
   "avisos": [
@@ -468,6 +546,67 @@
       "responsaveisQueLeram": [
         "julianalindck1711@gmail.com"
       ]
+    },
+    {
+      "id": "WVB5uLKO9Mw",
+      "publico": [
+        "vHpE46wWB5E"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "Teste se o aviso chega",
+      "descricao": "Pfv que o aviso chegue e eu marque como lido",
+      "dataCriacao": "2026-06-29T03:00:08.207Z",
+      "responsaveisQueLeram": []
+    },
+    {
+      "id": "OofyIB4B85Y",
+      "publico": [
+        "vHpE46wWB5E"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "Agr é um alertaaaa",
+      "descricao": "alerta supremo. Acho q arrasei",
+      "dataCriacao": "2026-06-29T03:00:43.670Z",
+      "responsaveisQueLeram": []
+    },
+    {
+      "id": "aJy5VFNCLyI",
+      "publico": [
+        "vHpE46wWB5E",
+        "z_LHEUyFzjs"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "teste supremo do aviso",
+      "descricao": "vamos ver a tela de responsavekl como esta",
+      "dataCriacao": "2026-06-29T03:11:07.038Z",
+      "responsaveisQueLeram": [
+        "brenoloupaula@gmail.com"
+      ]
+    },
+    {
+      "publico": [
+        "vHpE46wWB5E"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "teste pra tela de visualizacao",
+      "descricao": "affffff tem q preencher corretamente",
+      "remetenteId": "vLIH4NI21HE",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-29T07:54:18.380Z",
+      "id": "cZrIgadRRAw"
+    },
+    {
+      "publico": [
+        "vHpE46wWB5E",
+        "z_LHEUyFzjs"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "Vamo ver se vai salvar na escola",
+      "descricao": "espero que salve na escola, preciso resolver dps o filtro das turmas nas notas e frequencia ",
+      "remetenteId": "vLIH4NI21HE",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-29T08:16:07.575Z",
+      "id": "wKRyd3VRfss"
     }
   ],
   "solicitacoesCadastro": [
@@ -536,6 +675,22 @@
       "status": "PENDENTE",
       "dataSolicitacao": "2026-06-28T21:53:38.641Z",
       "id": "oMwsJzmDJW8"
+    },
+    {
+      "idEscola": "QDIie9KFN8A",
+      "informacao": "nome",
+      "alteracao": "Escola do Fabricio (odeio modelagem)",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-29T03:01:13.621Z",
+      "id": "PvqnMBwjyCo"
+    },
+    {
+      "idEscola": "QDIie9KFN8A",
+      "informacao": "numeroAlunos",
+      "alteracao": "67",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-29T03:01:30.940Z",
+      "id": "rFnO0k_Vz0I"
     }
   ],
   "solicitacoesRemocao": [
@@ -561,32 +716,39 @@
       "id": "su7aj6ifZ7k"
     },
     {
-      "nome": "escola do breno",
+      "nome": "Escola do Fabricio (odeio modelagem)",
       "cnpj": "90893316000142",
       "endereco": "Rua Vasco da Gama",
       "telefone": "32988014437",
       "setorEducacional": "infantil",
-      "numeroAlunos": "501-1000",
+      "numeroAlunos": "67",
       "dataRegistro": "2026-06-26T14:08:08.390Z",
       "alunos": [
         "12345678967",
-        "12834091828"
+        "12834091828",
+        "08722924605"
       ],
       "professores": [
         "12312312300",
         "12312312301",
-        "12312312302"
+        "12312312302",
+        "08722924604"
       ],
       "disciplinas": [
         "TESTE",
-        "TESTE2"
+        "TESTE2",
+        "VOLEI67"
       ],
       "turmas": [
-        "turma nao posso repetir nome"
+        "turma nao posso repetir nome",
+        "Turma Educacao Fisica",
+        "Turma nova teste"
       ],
       "avisos": [
-        "2026-06-29T02:12:50.689Z",
-        "2026-06-29T02:13:15.968Z"
+        "2026-06-29T03:00:08.207Z",
+        "2026-06-29T03:00:43.670Z",
+        "2026-06-29T03:11:07.038Z",
+        "2026-06-29T08:16:07.575Z"
       ],
       "id": "QDIie9KFN8A"
     },
@@ -669,6 +831,36 @@
       "bim3": 7,
       "bim4": 7,
       "id": "y0xfO871VIg"
+    },
+    {
+      "turmaId": "z_LHEUyFzjs",
+      "alunoId": "tM4Wo-fv5b4",
+      "disciplina": "8j1w7A2jFaQ",
+      "bim1": null,
+      "bim2": null,
+      "bim3": null,
+      "bim4": null,
+      "id": "5uHBZ_xGPE4"
+    },
+    {
+      "turmaId": "z_LHEUyFzjs",
+      "alunoId": "uu5OePRfwos",
+      "disciplina": "8j1w7A2jFaQ",
+      "bim1": null,
+      "bim2": null,
+      "bim3": null,
+      "bim4": null,
+      "id": "SYthaEHJhfM"
+    },
+    {
+      "turmaId": "z_LHEUyFzjs",
+      "alunoId": "JFt9JrtIRlE",
+      "disciplina": "8j1w7A2jFaQ",
+      "bim1": 10,
+      "bim2": 15,
+      "bim3": 25,
+      "bim4": 9,
+      "id": "QNj6SFP9cMQ"
     }
   ],
   "frequencia": [
@@ -707,6 +899,26 @@
         }
       ],
       "id": "8eeN5E0f_Oo"
+    },
+    {
+      "turmaId": "z_LHEUyFzjs",
+      "disciplinaId": "8j1w7A2jFaQ",
+      "data": "2026-06-29",
+      "chamada": [
+        {
+          "alunoId": "tM4Wo-fv5b4",
+          "presente": false
+        },
+        {
+          "alunoId": "uu5OePRfwos",
+          "presente": false
+        },
+        {
+          "alunoId": "JFt9JrtIRlE",
+          "presente": false
+        }
+      ],
+      "id": "eE-xoTy7wLQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

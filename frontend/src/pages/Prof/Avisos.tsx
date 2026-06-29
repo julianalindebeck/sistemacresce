@@ -148,8 +148,33 @@ export function Avisos(){
                 tipoRemetente: "professor",
                 dataCriacao: new Date().toISOString()
             };
+    
+            const respostaAviso = await axios.post("http://localhost:3001/avisos", dadosAviso);
+            const avisoSalvo = respostaAviso.data;
+    
+            const emailLogado = user?.email;
+            if (emailLogado) {
+                const profRes = await axios.get(`http://localhost:3001/professores?email=${emailLogado}`);
+                const professor = profRes.data[0];
+    
+                if (professor && professor.cpf) {
+                    const escolasRes = await axios.get("http://localhost:3001/escolas");
+                    const escolas = escolasRes.data;
 
-            await axios.post("http://localhost:3001/avisos", dadosAviso);
+                    const escolaDoProfessor = escolas.find((esc: any) => 
+                        esc.professores && esc.professores.includes(professor.cpf)
+                    );
+    
+                    if (escolaDoProfessor) {
+                        const avisosDaEscola = escolaDoProfessor.avisos || [];
+                        avisosDaEscola.push(avisoSalvo.dataCriacao);
+    
+                        await axios.patch(`http://localhost:3001/escolas/${escolaDoProfessor.id}`, {
+                            avisos: avisosDaEscola
+                        });
+                    }
+                }
+            }
             acionarModal("sucesso", "Aviso enviado com sucesso!");
             setForm(formInicial); 
             buscarAvisos();
@@ -277,46 +302,68 @@ export function Avisos(){
             </form>
         </div>
         ) : (
-        <div className="container-lista-avisos">
-            <div className="box-borda-avisos">
-                <div className="box-scroll-avisos">
-                    {listaAvisos.map((aviso) => {
-                        const totalLidos = aviso.responsaveisQueLeram?.length || 0;
-                        let totalAlunosAlvo = 0;
-                        if (aviso.publico && Array.isArray(aviso.publico)) {
-                            aviso.publico.forEach((idTurmaDoAviso: string) => {
-                                const turmaEncontrada = listaTurmas.find(
-                                    (t) => String(t.id).trim() === String(idTurmaDoAviso).trim()
-                                );
-                                if (turmaEncontrada && turmaEncontrada.alunos) {
-                                    totalAlunosAlvo += turmaEncontrada.alunos.length;
+            <div className="container-lista-avisos">
+                <div className="box-borda-avisos">
+                    <div className="box-scroll-avisos">
+                        {(() => {
+                            const idsSuasTurmas = listaTurmas.map((t) => String(t.id).trim());
+                            
+                            const avisosFiltrados = listaAvisos.filter((aviso) => {
+                                if (aviso.remetenteId && String(aviso.remetenteId).trim() === String(idProfessorLogado).trim()) {
+                                    return true;
                                 }
+
+                                if (aviso.publico) {
+                                    if (Array.isArray(aviso.publico)) {
+                                        return aviso.publico.some((idTurma: string) => idsSuasTurmas.includes(String(idTurma).trim()));
+                                    }
+                                    return idsSuasTurmas.includes(String(aviso.publico).trim());
+                                }
+                                return false;
                             });
-                        }
-                        return (
-                            <div className="linha-aviso" key={aviso.id}>
-                                <div className="aviso-esquerda">
-                                    <div className={`bolinha-status ${aviso.tipoAviso === "alerta" ? "vermelha" : "azul"}`}></div>
-                                    <div className="aviso-textos">
-                                        <h4>{aviso.tituloAviso}</h4>
-                                        <p>{aviso.descricao}</p>
+            
+                            if (avisosFiltrados.length === 0) {
+                                return <p className="mensagem-lista-vazia" style={{padding: '20px', color: '#666'}}>Nenhum aviso encontrado para suas turmas.</p>;
+                            }
+            
+                            return avisosFiltrados.map((aviso) => {
+                                const totalLidos = aviso.responsaveisQueLeram?.length || 0;
+                                let totalAlunosAlvo = 0;
+                                if (aviso.publico && Array.isArray(aviso.publico)) {
+                                    aviso.publico.forEach((idTurmaDoAviso: string) => {
+                                        const turmaEncontrada = listaTurmas.find(
+                                            (t) => String(t.id).trim() === String(idTurmaDoAviso).trim()
+                                        );
+                                        if (turmaEncontrada && turmaEncontrada.alunos) {
+                                            totalAlunosAlvo += turmaEncontrada.alunos.length;
+                                        }
+                                    });
+                                }
+                                return (
+                                    <div className="linha-aviso" key={aviso.id}>
+                                        <div className="aviso-esquerda">
+                                            <div className={`bolinha-status ${aviso.tipoAviso === "alerta" ? "vermelha" : "azul"}`}></div>
+                                            <div className="aviso-textos">
+                                                <h4>{aviso.tituloAviso}</h4>
+                                                <p>{aviso.descricao}</p>
+                                            </div>
+                                        </div>
+                                        <div className="aviso-direita">
+                                            <span className="aviso-data">
+                                                {aviso.dataCriacao ? new Date(aviso.dataCriacao).toLocaleDateString('pt-BR') : "Data indisponível"}
+                                            </span> 
+                                            <div className={`badge-lidos ${totalLidos > 0 ? "status-lido" : "status-nao-lido"}`}>
+                                                <strong>{totalLidos}</strong>/{totalAlunosAlvo} lidos
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="aviso-direita">
-                                    <span className="aviso-data">
-                                        {aviso.dataCriacao ? new Date(aviso.dataCriacao).toLocaleDateString('pt-BR') : "Data indisponível"}
-                                    </span> 
-                                    <div className={`badge-lidos ${totalLidos > 0 ? "status-lido" : "status-nao-lido"}`}>
-                                        <strong>{totalLidos}</strong>/{totalAlunosAlvo} lidos
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
+                                );
+                            });
+                        })()}
+                    </div>
                 </div>
             </div>
-        </div>
-        )} 
+            )}
         </div>
         <SidebarProfessor></SidebarProfessor>
         </>

@@ -13,6 +13,7 @@ interface Disciplina {
     id: string;
     nomeDisciplina: string;
     nome?: string;
+    professorId?: string;
 }
 
 interface AlunoFrequencia {
@@ -22,6 +23,8 @@ interface AlunoFrequencia {
 }
 
 export function Frequencia() {
+    const [professorId, setProfessorId] = useState<string>("");
+    const [catalogoDisciplinas, setCatalogoDisciplinas] = useState<Disciplina[]>([]);
     const [turmas, setTurmas] = useState<Turma[]>([]);
     const [turmaSelecionada, setTurmaSelecionada] = useState<string>("");
     
@@ -46,7 +49,51 @@ export function Frequencia() {
     });
 
     useEffect(() => {
-        buscarTurmas();
+        async function iniciarDados() {
+            try {
+                const emailUsuario = localStorage.getItem("usuario_email");
+                if (!emailUsuario) {
+                    console.error("Nenhum professor logado.");
+                    return;
+                }
+
+                const resProf = await axios.get(`http://localhost:3001/professores?email=${emailUsuario}`);
+                
+                if (resProf.data.length > 0) {
+                    const idDoProf = resProf.data[0].id;
+                    setProfessorId(idDoProf);
+
+                    const [resDisc, resTurmas] = await Promise.all([
+                        axios.get("http://localhost:3000/disciplinas"),
+                        axios.get("http://localhost:3000/turmas")
+                    ]);
+
+                    const todasDisciplinas = resDisc.data;
+                    setCatalogoDisciplinas(todasDisciplinas);
+
+                    const disciplinasDoProf = todasDisciplinas.filter(
+                        (d: any) => String(d.professorId) === String(idDoProf)
+                    );
+                    const idsDisciplinasDoProf = disciplinasDoProf.map((d: any) => String(d.id));
+
+                    const turmasFiltradas = resTurmas.data.filter((turma: any) => {
+                        const disciplinasDaTurma = turma.disciplinas || [];
+                        
+                        return disciplinasDaTurma.some((disc: any) => {
+                            const idDisc = typeof disc === "object" && disc !== null ? disc.id : disc;
+                            
+                            return idsDisciplinasDoProf.includes(String(idDisc));
+                        });
+                    });
+                    
+                    setTurmas(turmasFiltradas);
+                }
+            } catch (error) {
+                console.error("Erro ao iniciar dados de frequência:", error);
+                acionarModal("erro", "Erro ao carregar os dados iniciais.");
+            }
+        }
+        iniciarDados();
     }, []);
 
     useEffect(() => {
@@ -68,25 +115,14 @@ export function Frequencia() {
         }
     }, [turmaSelecionada, dataSelecionada, disciplinaSelecionada]);
 
-    async function buscarTurmas() {
-        try {
-            const response = await axios.get("http://localhost:3000/turmas");
-            setTurmas(response.data);
-        } catch (error) {
-            console.error(error);
-            acionarModal("erro", "Erro ao carregar a lista de turmas.");
-        }
-    }
-
     async function buscarDisciplinasDaTurma(turmaId: string) {
         try {
-            const responseTurma = await axios.get(`http://localhost:3000/turmas/${turmaId}`);
+            const responseTurma = await axios.get(`http://localhost:3001/turmas/${turmaId}`);
             const idsDisciplinas: string[] = responseTurma.data.disciplinas || [];
 
-            const responseTodasDisciplinas = await axios.get("http://localhost:3000/disciplinas");
-            
-            const filtradas = responseTodasDisciplinas.data.filter((d: any) => 
-                idsDisciplinas.map(String).includes(String(d.id))
+            const filtradas = catalogoDisciplinas.filter((d: any) => 
+                idsDisciplinas.map(String).includes(String(d.id)) && 
+                String(d.professorId) === String(professorId)
             );
             setDisciplinas(filtradas);
         } catch (error) {
@@ -97,7 +133,7 @@ export function Frequencia() {
 
     async function buscarAlunosEChamada(turmaId: string, data: string, disciplinaId: string) {
         try {
-            const responseTurma = await axios.get(`http://localhost:3000/turmas/${turmaId}`);
+            const responseTurma = await axios.get(`http://localhost:3001/turmas/${turmaId}`);
             const idsAlunosDaTurma: string[] = responseTurma.data.alunos || [];
 
             const responseTodosAlunos = await axios.get(`http://localhost:3000/alunos`);

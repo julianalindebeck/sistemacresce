@@ -25,10 +25,12 @@ interface DisciplinaCatalogo {
     id: string;
     nomeDisciplina?: string;
     nome?: string;
+    professorId?: string;
 }
 
 export function Notas() {
     const [turmas, setTurmas] = useState<Turma[]>([]);
+    const [professorId, setProfessorId] = useState<string>("");
     const [turmaSelecionada, setTurmaSelecionada] = useState<string>("");
     
     const [catalogoDisciplinas, setCatalogoDisciplinas] = useState<DisciplinaCatalogo[]>([]);
@@ -50,8 +52,48 @@ export function Notas() {
 
     useEffect(() => {
         async function iniciarDados() {
-            await buscarTurmas();
-            await buscarCatalogoDisciplinas();
+            try {
+                const emailUsuario = localStorage.getItem("usuario_email");
+                if (!emailUsuario) {
+                    console.error("Nenhum professor logado.");
+                    return;
+                }
+        
+                const resProf = await axios.get(`http://localhost:3001/professores?email=${emailUsuario}`);
+                
+                if (resProf.data.length > 0) {
+                    const idDoProf = resProf.data[0].id;
+                    setProfessorId(idDoProf); 
+        
+                    const [resDisc, resTurmas] = await Promise.all([
+                        axios.get("http://localhost:3000/disciplinas"),
+                        axios.get("http://localhost:3000/turmas")
+                    ]);
+        
+                    const todasDisciplinas = resDisc.data;
+                    setCatalogoDisciplinas(todasDisciplinas);
+        
+                    const disciplinasDoProf = todasDisciplinas.filter(
+                        (d: any) => String(d.professorId).trim() === String(idDoProf).trim()
+                    );
+                    const idsDisciplinasDoProf = disciplinasDoProf.map((d: any) => String(d.id).trim());
+        
+                    const turmasFiltradas = resTurmas.data.filter((turma: any) => {
+                        const disciplinasDaTurma = turma.disciplinas;
+                        if (!disciplinasDaTurma || !Array.isArray(disciplinasDaTurma)) return false;
+        
+                        return disciplinasDaTurma.some((disc: any) => {
+                            const idDisc = typeof disc === "object" && disc !== null ? disc.id : disc;
+                            return idsDisciplinasDoProf.includes(String(idDisc).trim());
+                        });
+                    });
+        
+                    setTurmas(turmasFiltradas);
+                }
+            } catch (error) {
+                console.error("Erro ao iniciar dados iniciais:", error);
+                acionarModal("erro", "Erro ao carregar os dados iniciais.");
+            }
         }
         iniciarDados();
     }, []);
@@ -79,28 +121,9 @@ export function Notas() {
         }
     }, [turmaSelecionada, disciplinaSelecionada]);
 
-    async function buscarTurmas() {
-        try {
-            const response = await axios.get("http://localhost:3000/turmas");
-            setTurmas(response.data);
-        } catch (error) {
-            console.error(error);
-            acionarModal("erro", "Erro ao carregar a lista de turmas.");
-        }
-    }
-
-    async function buscarCatalogoDisciplinas() {
-        try {
-            const response = await axios.get("http://localhost:3000/disciplinas");
-            setCatalogoDisciplinas(response.data);
-        } catch (error) {
-            console.error("Não foi possível carregar o catálogo de disciplinas:", error);
-        }
-    }
-
     async function carregarDisciplinasDaTurma(turmaId: string) {
         try {
-            const response = await axios.get(`http://localhost:3000/turmas/${turmaId}`);
+            const response = await axios.get(`http://localhost:3001/turmas/${turmaId}`);
             const idsDaTurma: any[] = response.data.disciplinas || [];
 
             const mapeadas = idsDaTurma.map(idOuObjeto => {
@@ -111,21 +134,23 @@ export function Notas() {
                 if (correspondente) {
                     return {
                         id: correspondente.id,
-                        nome: correspondente.nomeDisciplina || correspondente.nome || "Sem Nome"
+                        nome: correspondente.nomeDisciplina || correspondente.nome || "Sem Nome",
+                        professorId: correspondente.professorId
                     };
                 }
 
                 if (typeof idOuObjeto === "object" && idOuObjeto !== null) {
                     return {
                         id: idOuObjeto.id,
-                        nome: idOuObjeto.nomeDisciplina || idOuObjeto.nome || idOuObjeto.id
+                        nome: idOuObjeto.nomeDisciplina || idOuObjeto.nome || idOuObjeto.id,
+                        professorId: idOuObjeto.professorId
                     };
                 }
 
-                return { id: String(idOuObjeto), nome: String(idOuObjeto) };
-            });
+                return null;
+            }).filter(d => d !== null && String(d.professorId) === String(professorId));
 
-            setDisciplinasFiltradas(mapeadas);
+            setDisciplinasFiltradas(mapeadas as DisciplinaCatalogo[]);
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao processar as disciplinas da turma.");
@@ -134,7 +159,7 @@ export function Notas() {
 
     async function buscarAlunosENotas(turmaId: string, disciplinaId: string) {
         try {
-            const responseTurma = await axios.get(`http://localhost:3000/turmas/${turmaId}`);
+            const responseTurma = await axios.get(`http://localhost:3001/turmas/${turmaId}`);
             const idsAlunosDaTurma: string[] = responseTurma.data.alunos || [];
 
             const responseTodosAlunos = await axios.get(`http://localhost:3000/alunos`);
