@@ -286,7 +286,6 @@ export function Solicitacoes() {
                       <p><strong>CNPJ:</strong> {escolaCorrespondente.cnpj}</p>
                       <p><strong>Endereço:</strong> {escolaCorrespondente.endereco}</p>
                       <p><strong>Telefone:</strong> {escolaCorrespondente.telefone}</p>
-                      <p><strong>E-mail:</strong> {escolaCorrespondente.email}</p>
                       <p><strong>Setor:</strong> <span className="texto-capitalizado">{escolaCorrespondente.setorEducacional}</span></p>
                       <p><strong>Porte:</strong> {escolaCorrespondente.numeroAlunos} alunos</p>
                     </div>

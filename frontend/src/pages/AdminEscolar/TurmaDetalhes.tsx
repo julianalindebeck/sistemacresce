@@ -4,15 +4,18 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./TurmaDetalhes.css"
 import "./turma.css"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export function TurmaDetalhes() {
     const navigate = useNavigate();
+    const location = useLocation();
     const { id } = useParams();
     const [turma, setTurma] = useState<any>(null);
     const [alunos, setAlunos] = useState<any[]>([]);
     const [disciplinas, setDisciplinas] = useState<any[]>([]);
     const [professores, setProfessores] = useState<any[]>([]);
+
+    const escolaId = location.state?.escolaId || "";
 
     const [modal, setModal] = useState<{
         visivel: boolean;
@@ -65,7 +68,7 @@ export function TurmaDetalhes() {
         if (!confirmar) return;
 
         try {
-            await axios.delete(`http://localhost:3001/turmas/${id}`);
+            await axios.delete(`http://localhost:3000/turmas/${id}?escolaId=${escolaId}`);
     
             navigate("/admin-escolar/turmas", {
                 state: {

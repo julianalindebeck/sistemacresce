@@ -18,6 +18,8 @@ export class AlunosService {
     }
 
     async create(aluno: any) {
+        const { escolaId, ...dadosFormulario } = aluno;
+
         const response = await axios.get(this.url);
         const alunos = response.data;
 
@@ -28,12 +30,12 @@ export class AlunosService {
 
         const payload = {
             id: maiorId + 1,
-            nomeAluno: aluno.nomeAluno,
-            cpfAluno: aluno.cpfAluno,
-            dataNascimentoAluno: aluno.dataNascimentoAluno,
-            nomeResponsavel: aluno.nomeResponsavel,
-            emailResponsavel: aluno.emailResponsavel,
-            telefoneResponsavel: aluno.telefoneResponsavel,
+            nomeAluno: dadosFormulario.nomeAluno,
+            cpfAluno: dadosFormulario.cpfAluno,
+            dataNascimentoAluno: dadosFormulario.dataNascimentoAluno,
+            nomeResponsavel: dadosFormulario.nomeResponsavel,
+            emailResponsavel: dadosFormulario.emailResponsavel,
+            telefoneResponsavel: dadosFormulario.telefoneResponsavel,
             senha: senhaAleatoria,
             tipo: 'responsavel',
         };
@@ -56,6 +58,17 @@ export class AlunosService {
             tipo: payload.tipo,
         });
 
+        if (escolaId) {
+            const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+            const escolaResponse = await axios.get(escolaUrl);
+            const escolaDados = { ...escolaResponse.data };
+    
+            escolaDados.alunos = escolaDados.alunos || [];
+            escolaDados.alunos.push(payload.cpfAluno); 
+    
+            await axios.put(escolaUrl, escolaDados);
+        }
+
         return {
             ...novo.data,
             senha: senhaAleatoria
@@ -75,7 +88,7 @@ export class AlunosService {
         return response.data;
     }
 
-    async remove(id: string) {
+    async remove(id: string, escolaId?: string) {
         const alunoResponse = await axios.get(`${this.url}/${id}`);
         const aluno = alunoResponse.data;
 
@@ -96,6 +109,17 @@ export class AlunosService {
         if (usuarios.length > 0) {
             const usuarioId = usuarios[0].id;
             await axios.delete(`http://localhost:3001/usuarios/${usuarioId}`);
+        }
+
+        if (escolaId) {
+            const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+            const escolaResponse = await axios.get(escolaUrl);
+            const escolaData = { ...escolaResponse.data };
+    
+            if (escolaData.alunos) {
+                escolaData.alunos = escolaData.alunos.filter((cpf: string) => cpf !== aluno.cpfAluno);
+                await axios.put(escolaUrl, escolaData);
+            }
         }
 
         await axios.delete(`${this.url}/${id}`);

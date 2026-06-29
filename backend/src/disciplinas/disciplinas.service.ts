@@ -12,7 +12,8 @@ export class DisciplinasService {
     return response.data;
   }
 
-  async create(disciplina: Disciplina) {
+  async create(disciplina: any) {
+    const { escolaId, ...dadosFormulario } = disciplina;
     const response = await axios.get(this.url);
     const disciplinas = response.data;
 
@@ -21,15 +22,27 @@ export class DisciplinasService {
 
     const payload = {
       id: maiorId + 1,
-      nomeDisciplina: disciplina.nome,
-      codigo: disciplina.codigo,
-      cargaHoraria: disciplina.cargaHorarioSemanal,
-      areaConhecimento: disciplina.areaConhecimento,
-      descricao: disciplina.descricao,
-      professor: disciplina.professor, 
+      nomeDisciplina: dadosFormulario.nomeDisciplina, 
+      codigo: dadosFormulario.codigo,
+      cargaHoraria: dadosFormulario.cargaHoraria, 
+      areaConhecimento: dadosFormulario.areaConhecimento,
+      descricao: dadosFormulario.descricao,
+      professorId: dadosFormulario.professorId, 
     };
 
     const novo = await axios.post(this.url, payload);
+
+    if (escolaId) {
+      const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+      const escolaResponse = await axios.get(escolaUrl);
+      const escolaDados = { ...escolaResponse.data };
+
+      escolaDados.disciplinas = escolaDados.disciplinas || [];
+      escolaDados.disciplinas.push(payload.codigo); 
+
+      await axios.put(escolaUrl, escolaDados);
+    }
+
     return novo.data;
   }
 
@@ -46,7 +59,9 @@ export class DisciplinasService {
     return response.data;
   }
 
-  async remove(id: string) {
+  async remove(id: string, escolaId?: string) {
+    const disciplinaResponse = await axios.get(`${this.url}/${id}`);
+    const disciplina = disciplinaResponse.data;
     const turmas = await axios.get("http://localhost:3001/turmas");
 
     const disciplinaEmUso = turmas.data.some((turma: any) =>
@@ -57,6 +72,17 @@ export class DisciplinasService {
         throw new ConflictException(
             "Disciplina está sendo dada em turma(s)."
         );
+    }
+
+    if (escolaId) {
+      const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+      const escolaResponse = await axios.get(escolaUrl);
+      const escolaData = { ...escolaResponse.data };
+
+      if (escolaData.disciplinas) {
+          escolaData.disciplinas = escolaData.disciplinas.filter((codigo: string) => codigo !== disciplina.codigo);
+          await axios.put(escolaUrl, escolaData);
+      }
     }
 
     await axios.delete(`${this.url}/${id}`);

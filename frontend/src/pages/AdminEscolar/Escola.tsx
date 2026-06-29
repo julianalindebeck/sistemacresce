@@ -46,15 +46,15 @@ export function Escola(){
     
     async function buscarEscola(){
         try {
-            const usuarioLogado = JSON.parse(localStorage.getItem("usuario") || "{}");
-            
-            if (!usuarioLogado.email) {
+            const emailUsuario = localStorage.getItem("usuario_email");
+
+            if (!emailUsuario) {
                 acionarModal("erro", "Sessão inválida. Faça login novamente.");
                 return;
             }
 
             const adminResponse = await axios.get(
-                `http://localhost:3001/administradoresEscolares?email=${usuarioLogado.email}`
+                `http://localhost:3001/administradoresEscolares?email=${emailUsuario}`
             );
             const adminDados = adminResponse.data;
 
@@ -214,7 +214,7 @@ export function Escola(){
                                 return (
                                     <tr key={escola.id || index}>
                                         <td>{escola.nome} - {escola.cnpj}</td>
-                                        <td>{escola.endereco}º</td>
+                                        <td>{escola.endereco}</td>
                                         <td>{escola.telefone}</td>
                                         <td>{escola.setorEducacional}</td>
                                         <td>{escola.numeroAlunos}</td>

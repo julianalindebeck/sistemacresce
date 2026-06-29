@@ -6,15 +6,16 @@ import axios from "axios";
 import { validarCPF, validarTelefone, validarDataNascimento } from "../../utils/validadores";
 
 const formInicial = {
-    nomeProfessor: "",
-    cpfProfessor: "",
-    dataNascimentoProfessor: "",
-    emailProfessor: "",
-    telefoneProfessor: "",
+    nome: "",
+    cpf: "",
+    dataNascimento: "",
+    email: "",
+    telefone: "",
     formacao: "",
 };
 
 export function Professores() {
+    const [escolaId, setEscolaId] = useState<string>("");
     const [aba, setAba] = useState<"cadastro" | "visualizacao">("cadastro");
     const [listaProfessores, setListaProfessores] = useState<any[]>([]);
 
@@ -34,15 +35,55 @@ export function Professores() {
     });
 
     useEffect(() => {
-        if (aba === "visualizacao") {
-            buscarProfessores();
-        }
-    }, [aba]);
+        carregarDadosEscola();
+    }, []);
 
-    async function buscarProfessores() {
+    useEffect(() => {
+        if (aba === "visualizacao" && escolaId) {
+            buscarProfessores(escolaId);
+        }
+    }, [aba, escolaId]);
+
+    async function carregarDadosEscola() {
         try {
-            const response = await axios.get("http://localhost:3001/professores");
-            setListaProfessores(response.data);
+            const emailUsuario = localStorage.getItem("usuario_email");
+
+            if (!emailUsuario) {
+                acionarModal("erro", "Sessão inválida. Faça login novamente.");
+                return;
+            }
+    
+            const adminResponse = await axios.get(
+                `http://localhost:3001/administradoresEscolares?email=${emailUsuario}`
+            );
+            
+            if (adminResponse.data.length > 0) {
+                const idDaEscola = adminResponse.data[0].escolaId;
+                setEscolaId(idDaEscola); 
+                
+                if (aba === "visualizacao") {
+                    buscarProfessores(idDaEscola);
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao carregar dados iniciais da escola:", error);
+        }
+    }
+
+    async function buscarProfessores(idAlvo = escolaId) {
+        if (!idAlvo) return;
+        try {
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${idAlvo}`);
+            const cpfsProfsDaEscola = escolaResponse.data.professores || [];
+
+            const todosProfsResponse = await axios.get("http://localhost:3000/professores");
+            const todosProfs = todosProfsResponse.data;
+
+            const profsFiltrados = todosProfs.filter((professor: any) =>
+                cpfsProfsDaEscola.includes(professor.cpf)
+            );
+
+            setListaProfessores(profsFiltrados);
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao carregar a lista de professores.");
@@ -73,10 +114,10 @@ export function Professores() {
         if (!confirmar) return;
 
         try {
-            await axios.delete(`http://localhost:3000/professores/${profId}`);
+            await axios.delete(`http://localhost:3000/professores/${profId}?escolaId=${escolaId}`);
             
             acionarModal("sucesso", "Professor removido com sucesso!");
-            buscarProfessores();
+            buscarProfessores(escolaId);
         } catch (error: any) {
             console.error(error);
     
@@ -92,15 +133,15 @@ export function Professores() {
 
         const erros: string[] = [];
 
-        if (!validarCPF(form.cpfProfessor)) {
+        if (!validarCPF(form.cpf)) {
             erros.push("cpfProfessor");
         }
 
-        if (!validarTelefone(form.telefoneProfessor)) {
+        if (!validarTelefone(form.telefone)) {
             erros.push("telefoneProfessor");
         }
 
-        if (!validarDataNascimento(form.dataNascimentoProfessor)) {
+        if (!validarDataNascimento(form.dataNascimento)) {
             erros.push("dataNascimentoProfessor");
         }
 
@@ -112,18 +153,14 @@ export function Professores() {
 
         try {
             await axios.post("http://localhost:3000/professores", {
-                nome: form.nomeProfessor,
-                cpf: form.cpfProfessor,
-                dataNascimento: form.dataNascimentoProfessor,
-                email: form.emailProfessor,
-                telefone: form.telefoneProfessor,
-                formacao: form.formacao,
+                ...form,
+                escolaId: escolaId
             });
 
             acionarModal("sucesso", "Professor cadastrado com sucesso!");
             setForm(formInicial);
             setCamposInvalidos([]);
-            buscarProfessores();
+            buscarProfessores(escolaId);
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao cadastrar professor.");
@@ -171,8 +208,8 @@ export function Professores() {
                                     <label>Nome Completo:</label>
                                     <input
                                         type="text"
-                                        name="nomeProfessor"
-                                        value={form.nomeProfessor}
+                                        name="nome"
+                                        value={form.nome}
                                         onChange={handleChange}
                                         placeholder="Digite o nome do professor"
                                         required
@@ -182,12 +219,12 @@ export function Professores() {
                                     <label>CPF:</label>
                                     <input
                                         type="text"
-                                        name="cpfProfessor"
-                                        value={form.cpfProfessor}
+                                        name="cpf"
+                                        value={form.cpf}
                                         onChange={handleChange}
                                         placeholder="000.000.000-00"
                                         required
-                                        className={camposInvalidos.includes("cpfProfessor") ? "campo-invalido" : ""}
+                                        className={camposInvalidos.includes("cpf") ? "campo-invalido" : ""}
                                     />
                                 </div>
                             </div>
@@ -197,20 +234,20 @@ export function Professores() {
                                     <label>Data de Nascimento:</label>
                                     <input
                                         type="text"
-                                        name="dataNascimentoProfessor"
-                                        value={form.dataNascimentoProfessor}
+                                        name="dataNascimento"
+                                        value={form.dataNascimento}
                                         onChange={handleChange}
                                         placeholder="dd/mm/aaaa"
                                         required
-                                        className={camposInvalidos.includes("dataNascimentoProfessor") ? "campo-invalido" : ""}
+                                        className={camposInvalidos.includes("dataNascimentoP") ? "campo-invalido" : ""}
                                     />
                                 </div>
                                 <div className="campo">
                                     <label>E-mail:</label>
                                     <input
                                         type="email"
-                                        name="emailProfessor"
-                                        value={form.emailProfessor}
+                                        name="email"
+                                        value={form.email}
                                         onChange={handleChange}
                                         placeholder="email@exemplo.com"
                                         required
@@ -223,12 +260,12 @@ export function Professores() {
                                     <label>Telefone:</label>
                                     <input
                                         type="text"
-                                        name="telefoneProfessor"
-                                        value={form.telefoneProfessor}
+                                        name="telefone"
+                                        value={form.telefone}
                                         onChange={handleChange}
                                         placeholder="(00) 00000-0000"
                                         required
-                                        className={camposInvalidos.includes("telefoneProfessor") ? "campo-invalido" : ""}
+                                        className={camposInvalidos.includes("telefone") ? "campo-invalido" : ""}
                                     />
                                 </div>
                                 <div className="campo">

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, Patch } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Patch, Query } from '@nestjs/common';
 import { TurmasService } from './turmas.service';
 
 @Controller('turmas')
@@ -26,8 +26,8 @@ export class TurmasController {
     }
     
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.service.remove(id);
+    remove(@Param('id') id: string, @Query('escolaId') escolaId: string) {
+        return this.service.remove(id, escolaId);
     }
 
     @Patch(':id/remover-aluno')

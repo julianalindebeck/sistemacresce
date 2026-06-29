@@ -62,6 +62,35 @@
       "email": "asdjjkh@kjasahjd.com",
       "senha": "Dvu@MFMUpc*HXuhq",
       "tipo": "prof"
+    },
+    {
+      "id": "sV3yoGFK5hc",
+      "nome": "sla",
+      "email": "wjhdqhw@jhdqje.com",
+      "telefone": "21222121334",
+      "senha": "YjHOzZAyV*Mqdp#O",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "K06tQGQnBdw",
+      "nome": "teste",
+      "email": "test@test.com",
+      "senha": "nM5lTpsg@T4oXOES",
+      "tipo": "prof"
+    },
+    {
+      "id": "yxAIvYpr6Y8",
+      "nome": "teste2",
+      "email": "test@test.com",
+      "senha": "UEqt6$u7SGamCesT",
+      "tipo": "prof"
+    },
+    {
+      "id": "RhGKIS1SEN4",
+      "nome": "teste pfv funciona",
+      "email": "testFinal@test.com",
+      "senha": "Px5I2#ra83HO@Pho",
+      "tipo": "prof"
     }
   ],
   "alunos": [
@@ -73,6 +102,17 @@
       "emailResponsavel": "skdj@kdj.com",
       "telefoneResponsavel": "32999996767",
       "id": "tM4Wo-fv5b4"
+    },
+    {
+      "id": "uu5OePRfwos",
+      "nomeAluno": "brenoooo",
+      "cpfAluno": "12834091828",
+      "dataNascimentoAluno": "22/12/2004",
+      "nomeResponsavel": "sla",
+      "emailResponsavel": "wjhdqhw@jhdqje.com",
+      "telefoneResponsavel": "21222121334",
+      "senha": "FB6RnhnAdx*7Dt6V",
+      "tipo": "responsavel"
     }
   ],
   "professores": [
@@ -108,6 +148,45 @@
       "senha": "Dvu@MFMUpc*HXuhq",
       "tipo": "prof",
       "id": "trYg-sW_CsI"
+    },
+    {
+      "id": "TgPp88GTbwA",
+      "formacao": "sla vei",
+      "senha": "k#hSrHv*xH%LW2DK",
+      "tipo": "prof"
+    },
+    {
+      "id": "yw8PY9RpGw8",
+      "nome": "teste",
+      "email": "test@test.com",
+      "cpf": "12312312300",
+      "telefone": "11111111111",
+      "dataNascimento": "22/12/2004",
+      "formacao": "to cansado",
+      "senha": "nM5lTpsg@T4oXOES",
+      "tipo": "prof"
+    },
+    {
+      "id": "-Gtd339Kw6s",
+      "nome": "teste2",
+      "email": "test@test.com",
+      "cpf": "12312312301",
+      "telefone": "11111111111",
+      "dataNascimento": "22/12/2004",
+      "formacao": "to cansado",
+      "senha": "UEqt6$u7SGamCesT",
+      "tipo": "prof"
+    },
+    {
+      "id": "WSfv-SA7878",
+      "nome": "teste pfv funciona",
+      "email": "testFinal@test.com",
+      "cpf": "12312312302",
+      "telefone": "11111111111",
+      "dataNascimento": "22/12/2004",
+      "formacao": "se tiver o sla vei eu morro",
+      "senha": "Px5I2#ra83HO@Pho",
+      "tipo": "prof"
     }
   ],
   "responsaveis": [],
@@ -198,6 +277,20 @@
         "tM4Wo-fv5b4"
       ],
       "id": "V6zF6bdw6kE"
+    },
+    {
+      "id": "YG-yPj0N43M",
+      "nomeTurma": "turma nao posso repetir nome",
+      "capacidade": "35",
+      "alunos": [
+        "uu5OePRfwos"
+      ],
+      "anoSerie": "2",
+      "disciplinas": [
+        "EqSKVa3h29M",
+        "ZfEGPBatSOk"
+      ],
+      "turno": "Manhã"
     }
   ],
   "disciplinas": [
@@ -263,6 +356,24 @@
       "descricao": "skadh",
       "professorId": "iA-zflJbl4I",
       "id": "_e5F8MwsqWU"
+    },
+    {
+      "id": "EqSKVa3h29M",
+      "nomeDisciplina": "Teste de Disciplina",
+      "codigo": "TESTE",
+      "cargaHoraria": "5",
+      "areaConhecimento": "Natureza",
+      "descricao": "teste",
+      "professorId": "yw8PY9RpGw8"
+    },
+    {
+      "id": "ZfEGPBatSOk",
+      "nomeDisciplina": "Teste odio",
+      "codigo": "TESTE2",
+      "cargaHoraria": "5",
+      "areaConhecimento": "Linguagens",
+      "descricao": "o sla vei foi de novo",
+      "professorId": "WSfv-SA7878"
     }
   ],
   "avisos": [
@@ -313,6 +424,22 @@
       "descricao": "Tera uma reuniao",
       "dataCriacao": "2026-06-26T01:53:42.108Z",
       "id": "0yGzCf9UvP8"
+    },
+    {
+      "id": "_0anSy4Gt3Q",
+      "publico": "YG-yPj0N43M",
+      "tipoAviso": "alerta",
+      "tituloAviso": "Reuniao",
+      "descricao": "teste de aviso especifico escola",
+      "dataCriacao": "2026-06-29T02:12:50.689Z"
+    },
+    {
+      "id": "HioKkPqZd1o",
+      "publico": "YG-yPj0N43M",
+      "tipoAviso": "informativo",
+      "tituloAviso": "nao é reuniao agr",
+      "descricao": "outro teste",
+      "dataCriacao": "2026-06-29T02:13:15.968Z"
     }
   ],
   "solicitacoesCadastro": [
@@ -373,6 +500,14 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-28T08:15:12.399Z",
       "id": "pCgUvFF6lWU"
+    },
+    {
+      "idEscola": "QDIie9KFN8A",
+      "informacao": "telefone",
+      "alteracao": "11999111111",
+      "status": "PENDENTE",
+      "dataSolicitacao": "2026-06-28T21:53:38.641Z",
+      "id": "oMwsJzmDJW8"
     }
   ],
   "solicitacoesRemocao": [
@@ -405,6 +540,26 @@
       "setorEducacional": "infantil",
       "numeroAlunos": "501-1000",
       "dataRegistro": "2026-06-26T14:08:08.390Z",
+      "alunos": [
+        "12345678967",
+        "12834091828"
+      ],
+      "professores": [
+        "12312312300",
+        "12312312301",
+        "12312312302"
+      ],
+      "disciplinas": [
+        "TESTE",
+        "TESTE2"
+      ],
+      "turmas": [
+        "turma nao posso repetir nome"
+      ],
+      "avisos": [
+        "2026-06-29T02:12:50.689Z",
+        "2026-06-29T02:13:15.968Z"
+      ],
       "id": "QDIie9KFN8A"
     },
     {

@@ -15,6 +15,7 @@ const formInicial = {
   };
 
 export function Disciplinas(){
+    const [escolaId, setEscolaId] = useState<string>("");
     const [aba, setAba] = useState<"cadastro" | "visualizacao">("cadastro");
     const [listaDisciplinas, setListaDisciplinas] = useState<any[]>([]);
     const [listaProfessores, setListaProfessores] = useState<any[]>([]);
@@ -32,32 +33,80 @@ export function Disciplinas(){
     });
 
     useEffect(() => {
-        if (aba === "visualizacao") {
-            buscarDisciplinas();
-        }
-    }, [aba]);
-
-    useEffect(() => {
-        buscarProfessores();
+        carregarDadosEscola();
     }, []);
 
-    async function buscarDisciplinas() {
+    useEffect(() => {
+        if (aba === "visualizacao" && escolaId) {
+            buscarDisciplinas(escolaId);
+        }
+    }, [aba, escolaId]);
+
+    async function carregarDadosEscola() {
         try {
-            const response = await axios.get("http://localhost:3001/disciplinas");
-            setListaDisciplinas(response.data);
+            const emailUsuario = localStorage.getItem("usuario_email");
+
+            if (!emailUsuario) {
+                acionarModal("erro", "Sessão inválida. Faça login novamente.");
+                return;
+            }
+    
+            const adminResponse = await axios.get(
+                `http://localhost:3001/administradoresEscolares?email=${emailUsuario}`
+            );
+            
+            if (adminResponse.data.length > 0) {
+                const idDaEscola = adminResponse.data[0].escolaId;
+                setEscolaId(idDaEscola); 
+
+                buscarProfessores(idDaEscola);
+                
+                if (aba === "visualizacao") {
+                    buscarDisciplinas(idDaEscola);
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao carregar dados iniciais da escola:", error);
+        }
+    }
+
+    async function buscarDisciplinas(idAlvo = escolaId) {
+        if (!idAlvo) return;
+        try {
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${idAlvo}`);
+            const codigosAlunosDaEscola = escolaResponse.data.disciplinas || [];
+
+            const todasDisciplinasResponse = await axios.get("http://localhost:3000/disciplinas");
+            const todasDisciplinas = todasDisciplinasResponse.data;
+
+            const disciplinasFiltradas = todasDisciplinas.filter((disciplina: any) =>
+                codigosAlunosDaEscola.includes(disciplina.codigo)
+            );
+
+            setListaDisciplinas(disciplinasFiltradas);
         } catch (error) {
             console.error(error);
             acionarModal("erro","Erro ao carregar a lista de disciplinas.");
         }
     }
 
-    async function buscarProfessores() {
+    async function buscarProfessores(idAlvo = escolaId) {
+        if (!idAlvo) return;
         try {
-            const response = await axios.get("http://localhost:3001/professores");
-            setListaProfessores(response.data);
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${idAlvo}`);
+            const cpfsProfsDaEscola = escolaResponse.data.professores || [];
+
+            const todosProfsResponse = await axios.get("http://localhost:3000/professores");
+            const todosProfs = todosProfsResponse.data;
+
+            const profsFiltrados = todosProfs.filter((professor: any) =>
+                cpfsProfsDaEscola.includes(professor.cpf)
+            );
+
+            setListaProfessores(profsFiltrados);
         } catch (error) {
             console.error(error);
-            acionarModal("erro","Erro ao carregar os professores.");
+            acionarModal("erro", "Erro ao carregar a lista de professores.");
         }
     }
 
@@ -104,10 +153,10 @@ export function Disciplinas(){
         if (!confirmar) return;
 
         try {
-            await axios.delete(`http://localhost:3000/disciplinas/${disciplinaId}`);
+            await axios.delete(`http://localhost:3000/disciplinas/${disciplinaId}?escolaId=${escolaId}`);
             
             acionarModal("sucesso", "Disciplina removida com sucesso!");
-            buscarDisciplinas();
+            buscarDisciplinas(escolaId);
         } catch (error: any) {
             console.error(error);
     
@@ -138,12 +187,15 @@ export function Disciplinas(){
         }
     
         try {
-            await axios.post("http://localhost:3001/disciplinas",form);
+            await axios.post("http://localhost:3000/disciplinas", {
+                ...form,
+                escolaId: escolaId
+            });
     
             acionarModal("sucesso","Disciplina cadastrada com sucesso!");
             setForm(formInicial);
             setCamposInvalidos([]);
-            buscarDisciplinas();
+            buscarDisciplinas(escolaId);
         } catch (error) {
             console.error(error);
             acionarModal("erro","Erro ao cadastrar disciplina.");
@@ -269,7 +321,7 @@ export function Disciplinas(){
                                                 key={professor.id}
                                                 value={professor.id}
                                             >
-                                                {professor.nomeProfessor}
+                                                {professor.nome}
                                             </option>
                                         ))}
                                     </select>

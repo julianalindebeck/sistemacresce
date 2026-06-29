@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { Professor } from '../classes/Professor';
 import { EmailService } from '../email/email.service';
 import gerarSenhaAleatoria from '../utils/password.util';
 import { ConflictException } from '@nestjs/common';
@@ -18,18 +17,25 @@ export class ProfessoresService {
         return response.data;
     }
 
-    async create(professor: Professor) {
+    async create(professor: any) {
+        const { escolaId, ...dadosFormulario } = professor;
+
         const response = await axios.get(this.url);
         const professores = response.data;
+
         const senhaAleatoria = gerarSenhaAleatoria();
+
+        const maiorId =
+            professores.length > 0 ? Math.max(...professores.map((a: any) => Number(a.id))) : 0;
         
         const payload = {
-            nome: professor.nome,
-            email: professor.email,
-            cpf: professor.cpf,
-            telefone: professor.telefone,
-            dataNascimento: professor.dataNascimento,
-            formacao: professor.formacao,
+            id: maiorId + 1,
+            nome: dadosFormulario.nome,
+            email: dadosFormulario.email,
+            cpf: dadosFormulario.cpf,
+            telefone: dadosFormulario.telefone,
+            dataNascimento: dadosFormulario.dataNascimento,
+            formacao: dadosFormulario.formacao,
             senha: senhaAleatoria,
             tipo: "prof",
         };
@@ -51,6 +57,17 @@ export class ProfessoresService {
             tipo: "prof",
         });
 
+        if (escolaId) {
+            const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+            const escolaResponse = await axios.get(escolaUrl);
+            const escolaDados = { ...escolaResponse.data };
+    
+            escolaDados.professores = escolaDados.professores || [];
+            escolaDados.professores.push(payload.cpf); 
+    
+            await axios.put(escolaUrl, escolaDados);
+        }
+
         return {
             ...novo.data,
             senha: senhaAleatoria
@@ -70,7 +87,7 @@ export class ProfessoresService {
         return response.data;
     }
 
-    async remove(id: string) {
+    async remove(id: string, escolaId?: string) {
         const professorResponse = await axios.get(`${this.url}/${id}`);
         const professor = professorResponse.data;
 
@@ -91,6 +108,17 @@ export class ProfessoresService {
         if (usuarios.length > 0) {
             const usuarioId = usuarios[0].id; 
             await axios.delete(`http://localhost:3001/usuarios/${usuarioId}`);
+        }
+
+        if (escolaId) {
+            const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+            const escolaResponse = await axios.get(escolaUrl);
+            const escolaData = { ...escolaResponse.data };
+    
+            if (escolaData.professores) {
+                escolaData.professores = escolaData.professores.filter((cpf: string) => cpf !== professor.cpf);
+                await axios.put(escolaUrl, escolaData);
+            }
         }
 
         await axios.delete(`${this.url}/${id}`);

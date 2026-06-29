@@ -18,21 +18,34 @@ export function AdminEscolar() {
   useEffect(() => {
     async function carregarDadosEscola() {
       try {
-        const [resProf, resAlunos, resTurmas, resDisc, resAvisos] = await Promise.all([
-          axios.get("http://localhost:3001/professores"),
-          axios.get("http://localhost:3001/alunos"),
-          axios.get("http://localhost:3001/turmas"),
-          axios.get("http://localhost:3001/disciplinas"),
-          axios.get("http://localhost:3001/avisos"),
-        ]);
+        const emailUsuario = localStorage.getItem("usuario_email");
 
-        setContagem({
-          professores: resProf.data.length,
-          alunos: resAlunos.data.length,
-          turmas: resTurmas.data.length,
-          disciplinas: resDisc.data.length,
-          avisos: resAvisos.data.length,
-        });
+        if (!emailUsuario) {
+          console.error("Nenhum usuário logado.");
+          return;
+        }
+
+        const adminResponse = await axios.get(
+          `http://localhost:3001/administradoresEscolares?email=${emailUsuario}`
+        );
+
+        if (adminResponse.data.length > 0) {
+          const idDaEscola = adminResponse.data[0].escolaId;
+
+          const [escolaResponse] = await Promise.all([
+            axios.get(`http://localhost:3001/escolas/${idDaEscola}`),
+          ]);
+
+          const escola = escolaResponse.data;
+
+          setContagem({
+            professores: escola.professores ? escola.professores.length : 0,
+            alunos: escola.alunos ? escola.alunos.length : 0,
+            turmas: escola.turmas ? escola.turmas.length : 0,
+            disciplinas: escola.disciplinas ? escola.disciplinas.length : 0,
+            avisos: escola.avisos ? escola.avisos.length : 0,
+          });
+        }
       } catch (error) {
         console.error("Erro ao carregar dados do admin escolar:", error);
       }

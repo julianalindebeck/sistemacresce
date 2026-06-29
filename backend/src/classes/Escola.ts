@@ -10,6 +10,11 @@ export class Escola {
     cargoRepresentante: string;
     numeroAlunos: number;
     setorEducacional: string;
+    alunos: string[] = [];
+    professores: string[] = [];
+    disciplinas: string[] = [];
+    turmas: string[] = [];
+    avisos: string[] = [];
 
     constructor(nome: string, endereco: string,email: string,telefone: string,cnpj: string,
     nomeRepresentante: string,cpfRepresentante: string,emailRepresentante: string,cargoRepresentante: string, numeroAlunos: number,setorEducacional: string){

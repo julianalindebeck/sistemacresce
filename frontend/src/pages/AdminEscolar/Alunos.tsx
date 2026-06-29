@@ -15,6 +15,7 @@ const formInicial = {
 };
 
 export function Alunos() {
+    const [escolaId, setEscolaId] = useState<string>("");
     const [aba, setAba] = useState<"cadastro" | "visualizacao">("cadastro");
     const [listaAlunos, setListaAlunos] = useState<any[]>([]);
 
@@ -34,15 +35,55 @@ export function Alunos() {
     });
 
     useEffect(() => {
-        if (aba === "visualizacao") {
-            buscarAlunos();
-        }
-    }, [aba]);
+        carregarDadosEscola();
+    }, []);
 
-    async function buscarAlunos() {
+    useEffect(() => {
+        if (aba === "visualizacao" && escolaId) {
+            buscarAlunos(escolaId);
+        }
+    }, [aba, escolaId]);
+
+    async function carregarDadosEscola() {
         try {
-            const response = await axios.get("http://localhost:3000/alunos");
-            setListaAlunos(response.data);
+            const emailUsuario = localStorage.getItem("usuario_email");
+
+            if (!emailUsuario) {
+                acionarModal("erro", "Sessão inválida. Faça login novamente.");
+                return;
+            }
+    
+            const adminResponse = await axios.get(
+                `http://localhost:3001/administradoresEscolares?email=${emailUsuario}`
+            );
+            
+            if (adminResponse.data.length > 0) {
+                const idDaEscola = adminResponse.data[0].escolaId;
+                setEscolaId(idDaEscola); 
+                
+                if (aba === "visualizacao") {
+                    buscarAlunos(idDaEscola);
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao carregar dados iniciais da escola:", error);
+        }
+    }
+
+    async function buscarAlunos(idAlvo = escolaId) {
+        if (!idAlvo) return;
+        try {
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${idAlvo}`);
+            const cpfsAlunosDaEscola = escolaResponse.data.alunos || [];
+
+            const todosAlunosResponse = await axios.get("http://localhost:3000/alunos");
+            const todosAlunos = todosAlunosResponse.data;
+
+            const alunosFiltrados = todosAlunos.filter((aluno: any) =>
+                cpfsAlunosDaEscola.includes(aluno.cpfAluno)
+            );
+
+            setListaAlunos(alunosFiltrados);
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao carregar a lista de alunos.");
@@ -73,10 +114,10 @@ export function Alunos() {
         if (!confirmar) return;
 
         try {
-            await axios.delete(`http://localhost:3000/alunos/${alunoId}`);
+            await axios.delete(`http://localhost:3000/alunos/${alunoId}?escolaId=${escolaId}`);
             
             acionarModal("sucesso", "Aluno removido com sucesso!");
-            buscarAlunos();
+            buscarAlunos(escolaId);
         } catch (error: any) {
             console.error(error);
     
@@ -111,15 +152,21 @@ export function Alunos() {
         setCarregando(true);
 
         try {
-            await axios.post("http://localhost:3000/alunos", form);
+            await axios.post("http://localhost:3000/alunos", {
+                ...form,
+                escolaId: escolaId
+            });
 
             acionarModal("sucesso", "Aluno cadastrado com sucesso!");
             setForm(formInicial);
             setCamposInvalidos([]);
-            buscarAlunos();
+            buscarAlunos(escolaId);
         } catch (error) {
             console.error(error);
             acionarModal("erro", "Erro ao cadastrar aluno.");
+        }
+        finally {
+            setCarregando(false);
         }
     }
 

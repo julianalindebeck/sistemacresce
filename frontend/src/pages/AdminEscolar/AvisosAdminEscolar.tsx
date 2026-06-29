@@ -12,6 +12,7 @@ const formInicial = {
 }
 
 export function AvisosAdminEscolar(){
+    const [escolaId, setEscolaId] = useState<string>("");
     const [form, setForm] = useState(formInicial);
     const [aba, setAba] = useState<"envio" | "visualizacao">("envio");
     const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
@@ -36,30 +37,75 @@ export function AvisosAdminEscolar(){
         }, 3000);
     }
 
-    useEffect(()=> {
-        buscarTurmas();
-        buscarAvisos();
+    useEffect(() => {
+        carregarDadosEscola();
     }, []);
-    
-    async function buscarAvisos(){
+
+    async function carregarDadosEscola() {
         try {
-            const response = await axios.get("http://localhost:3001/avisos");
-            setListaAvisos(response.data);
+            const emailUsuario = localStorage.getItem("usuario_email");
+
+            if (!emailUsuario) {
+                acionarModal("erro", "Sessão inválida. Faça login novamente.");
+                return;
+            }
+    
+            const adminResponse = await axios.get(
+                `http://localhost:3001/administradoresEscolares?email=${emailUsuario}`
+            );
+            
+            if (adminResponse.data.length > 0) {
+                const idDaEscola = adminResponse.data[0].escolaId;
+                setEscolaId(idDaEscola); 
+                
+                buscarAvisos(idDaEscola);
+                buscarTurmas(idDaEscola);
+            }
+        } catch (error) {
+            console.error("Erro ao carregar dados iniciais da escola:", error);
+        }
+    }
+    
+    async function buscarAvisos(idAlvo = escolaId){
+        if (!idAlvo) return;
+        try {
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${idAlvo}`);
+            const dataAvisosDaEscola = escolaResponse.data.avisos || [];
+
+            const todosAvisosResponse = await axios.get("http://localhost:3000/avisos");
+            const todosAvisos = todosAvisosResponse.data;
+
+            const avisosFiltrados = todosAvisos.filter((aviso: any) =>
+                dataAvisosDaEscola.includes(aviso.dataCriacao)
+            );
+
+            setListaAvisos(avisosFiltrados);
         } catch (error) {
             console.error("Erro ao buscar avisos:", error);
             acionarModal("erro", "Não foi possivel carregar lista de avisos.");
         }
     }
 
-    async function buscarTurmas() {
+    async function buscarTurmas(idAlvo = escolaId) {
+        if (!idAlvo) return;
         try {
-            const response = await axios.get("http://localhost:3001/turmas");
-            setListaTurmas(response.data);
+            const escolaResponse = await axios.get(`http://localhost:3001/escolas/${idAlvo}`);
+            const nomeTurmasDaEscola = escolaResponse.data.turmas || [];
+
+            const todasTurmasResponse = await axios.get("http://localhost:3000/turmas");
+            const todasTurmas = todasTurmasResponse.data;
+
+            const turmasFiltradas = todasTurmas.filter((turma: any) =>
+                nomeTurmasDaEscola.includes(turma.nomeTurma)
+            );
+
+            setListaTurmas(turmasFiltradas);
         } catch (error) {
-            console.error("Erro ao buscar turmas:", error);
-            acionarModal("erro", "Não foi possivel carregar lista de turmas.");
+            console.error(error);
+            acionarModal("erro", "Erro ao carregar a lista de turmas.");
         }
     }
+
     function limparErro(campo: string){
         setCamposInvalidos((prev) => prev.filter((item) => item !== campo));
     }
@@ -102,7 +148,10 @@ export function AvisosAdminEscolar(){
         }
         
         try {
-            await axios.post("http://localhost:3000/avisos", form);
+            await axios.post("http://localhost:3000/avisos", {
+                ...form,
+                escolaId: escolaId
+            });
             acionarModal("sucesso", "Aviso enviado com sucesso!");
             setForm(formInicial); 
             buscarAvisos();

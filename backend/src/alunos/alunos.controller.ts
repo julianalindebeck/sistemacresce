@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query } from '@nestjs/common';
 import { AlunosService } from './alunos.service';
 
 @Controller('alunos')
@@ -26,7 +26,7 @@ export class AlunosController {
     }
     
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.service.remove(id);
+    remove(@Param('id') id: string, @Query('escolaId') escolaId: string) {
+        return this.service.remove(id, escolaId);
     }
 }

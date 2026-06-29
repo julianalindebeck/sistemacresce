@@ -63,7 +63,12 @@ export class SolicitacaoCadastroService {
                     telefone: solicitacao.telefone,
                     setorEducacional: solicitacao.setorEducacional,
                     numeroAlunos: solicitacao.numeroAlunos,
-                    dataRegistro: new Date()
+                    dataRegistro: new Date(),
+                    alunos: [],
+                    professores: [],
+                    disciplinas: [],
+                    turmas: [],
+                    avisos: []
                 };
 
                 const escolaCriada = await axios.post('http://localhost:3001/escolas', novaEscola);

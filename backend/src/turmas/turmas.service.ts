@@ -11,22 +11,36 @@ export class TurmasService {
         return response.data;
     }
 
-    async create(turma: Turma) {
+    async create(turma: any) {
+        const { escolaId, ...dadosFormulario } = turma;
         const response = await axios.get(this.url);
         const turmas = response.data;
 
-        //const maiorId = turmas.length > 0 ? Math.max(...turmas.map((t: any) => Number(t.id))) : 0;
+        const maiorId = turmas.length > 0 ? Math.max(...turmas.map((t: any) => Number(t.id))) : 0;
         
         const payload = { 
-            nomeTurma: turma.nomeTurma,
-            capacidade: turma.capacidade,
-            alunos: turma.alunos,
-            anoSerie: turma.anoSerie,
-            disciplinas: turma.disciplinas,
-            turno: turma.turno,
+            id: maiorId + 1,
+            nomeTurma: dadosFormulario.nomeTurma,
+            capacidade: dadosFormulario.capacidade,
+            alunos: dadosFormulario.alunos,
+            anoSerie: dadosFormulario.anoSerie,
+            disciplinas: dadosFormulario.disciplinas,
+            turno: dadosFormulario.turno,
         };
 
         const novo = await axios.post(this.url, payload);
+
+        if (escolaId) {
+            const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+            const escolaResponse = await axios.get(escolaUrl);
+            const escolaDados = { ...escolaResponse.data };
+    
+            escolaDados.turmas = escolaDados.turmas || [];
+            escolaDados.turmas.push(payload.nomeTurma); 
+    
+            await axios.put(escolaUrl, escolaDados);
+        }
+
         return novo.data;
     }
 
@@ -43,7 +57,21 @@ export class TurmasService {
         return response.data;
     }
 
-    async remove(id: string) {
+    async remove(id: string, escolaId?: string) {
+        const turmaResponse = await axios.get(`${this.url}/${id}`);
+        const turma = turmaResponse.data;
+
+        if (escolaId) {
+            const escolaUrl = `http://localhost:3001/escolas/${escolaId}`;
+            const escolaResponse = await axios.get(escolaUrl);
+            const escolaData = { ...escolaResponse.data };
+    
+            if (escolaData.turmas) {
+                escolaData.turmas = escolaData.turmas.filter((nomeTurma: string) => nomeTurma !== turma.nomeTurma);
+                await axios.put(escolaUrl, escolaData);
+            }
+        }
+
         await axios.delete(`${this.url}/${id}`);
         return { message: 'Turma removida' };
     }
