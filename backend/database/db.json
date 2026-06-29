@@ -91,6 +91,21 @@
       "email": "testFinal@test.com",
       "senha": "Px5I2#ra83HO@Pho",
       "tipo": "prof"
+    },
+    {
+      "id": "-2zvOjQe-v8",
+      "nome": "the juju furacao",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "%yYqo9u1z&3*#HW4",
+      "tipo": "prof"
+    },
+    {
+      "id": "v7Q05dgU_ro",
+      "nome": "juju furacao",
+      "email": "julianalindck1711@gmail.com",
+      "telefone": "32999996767",
+      "senha": "rHQ10JdGrpZph*dF",
+      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -386,60 +401,73 @@
       "id": "G4FIbff7DbU"
     },
     {
-      "publico": "A38hJ8yEmhI",
-      "tipoAviso": "informativo",
-      "tituloAviso": "Reuniao",
-      "descricao": "blablaaaaa",
-      "dataCriacao": "2026-06-24T21:40:22.808Z",
-      "id": "fC88O1gb8T8"
-    },
-    {
-      "publico": "4GJbhv2QBSw",
-      "tipoAviso": "informativo",
-      "tituloAviso": "reuniao 2",
-      "descricao": "blablaaa",
-      "dataCriacao": "2026-06-24T21:46:11.424Z",
-      "id": "LIiGUJfYTXo"
-    },
-    {
-      "publico": "4GJbhv2QBSw",
+      "publico": [
+        "tP9M6wBkQ4k"
+      ],
       "tipoAviso": "alerta",
-      "tituloAviso": "teste",
-      "descricao": "ddede",
-      "dataCriacao": "2026-06-24T21:46:19.986Z",
-      "id": "vTq5Rc_PYA0"
+      "tituloAviso": "Reuniao Importante",
+      "descricao": "sixxxx seven teste",
+      "dataCriacao": "2026-06-27T14:27:40.401Z",
+      "responsaveisQueLeram": [
+        "isabelly.silva@estudante.ufjf.br",
+        "isabellyfatima635@gmail.com"
+      ],
+      "id": "W_YYla85uiE"
     },
     {
-      "publico": "L9OiW_tJAZM",
-      "tipoAviso": "informativo",
-      "tituloAviso": "teste",
-      "descricao": "dededede",
-      "dataCriacao": "2026-06-24T21:46:28.563Z",
-      "id": "xB-Owycvpfg"
-    },
-    {
-      "publico": "L9OiW_tJAZM",
+      "publico": [
+        "J4BaxIx3emY"
+      ],
       "tipoAviso": "alerta",
-      "tituloAviso": "Reuniao",
-      "descricao": "Tera uma reuniao",
-      "dataCriacao": "2026-06-26T01:53:42.108Z",
-      "id": "0yGzCf9UvP8"
+      "tituloAviso": "reuniao pais",
+      "descricao": "teste",
+      "remetenteId": "SHSFaET1K4I",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-27T22:14:07.683Z",
+      "id": "zi2xdxVdzJo",
+      "responsaveisQueLeram": [
+        "isabelly.silva@estudante.ufjf.br"
+      ]
     },
     {
-      "id": "_0anSy4Gt3Q",
-      "publico": "YG-yPj0N43M",
-      "tipoAviso": "alerta",
-      "tituloAviso": "Reuniao",
-      "descricao": "teste de aviso especifico escola",
-      "dataCriacao": "2026-06-29T02:12:50.689Z"
-    },
-    {
-      "id": "HioKkPqZd1o",
-      "publico": "YG-yPj0N43M",
+      "publico": [
+        "J4BaxIx3emY"
+      ],
       "tipoAviso": "informativo",
-      "tituloAviso": "nao é reuniao agr",
-      "descricao": "outro teste",
-      "dataCriacao": "2026-06-29T02:13:15.968Z"
+      "tituloAviso": "teste novo reuniao pais",
+      "descricao": "dedededed",
+      "dataCriacao": "2026-06-27T22:14:40.558Z",
+      "responsaveisQueLeram": [
+        "isabelly.silva@estudante.ufjf.br"
+      ],
+      "id": "mDd5DCiFfYg"
+    },
+    {
+      "publico": [
+        "Fti6FWjrkQc"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "to enlouquenceod",
+      "descricao": "galera to ficando maluca",
+      "remetenteId": "-2zvOjQe-v8",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-28T21:37:06.731Z",
+      "id": "enMxYIQ7RNg"
+    },
+    {
+      "publico": [
+        "Fti6FWjrkQc"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "festa junina",
+      "descricao": "vai ter",
+      "remetenteId": "-2zvOjQe-v8",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-28T21:37:34.979Z",
+      "id": "CsbIkl3voNc",
+      "responsaveisQueLeram": [
+        "julianalindck1711@gmail.com"
+      ]
     }
   ],
   "solicitacoesCadastro": [
@@ -619,6 +647,66 @@
       "tipo": "admin_escolar",
       "cargo": "todos",
       "escolaId": null
+    }
+  ],
+  "notas": [
+    {
+      "turmaId": "4GJbhv2QBSw",
+      "alunoId": "tM4Wo-fv5b4",
+      "disciplina": "nhpB7GpT_7I",
+      "bim1": null,
+      "bim2": null,
+      "bim3": null,
+      "bim4": null,
+      "id": "VZITubPG_rs"
+    },
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "alunoId": "RJxTIr2C9VI",
+      "disciplina": "P_mpCZMdz2Y",
+      "bim1": 7,
+      "bim2": 7,
+      "bim3": 7,
+      "bim4": 7,
+      "id": "y0xfO871VIg"
+    }
+  ],
+  "frequencia": [
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "disciplinaId": "P_mpCZMdz2Y",
+      "data": "2026-06-28",
+      "chamada": [
+        {
+          "alunoId": "RJxTIr2C9VI",
+          "presente": true
+        }
+      ],
+      "id": "ps_HNWvV_Cc"
+    },
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "disciplinaId": "P_mpCZMdz2Y",
+      "data": "2026-06-27",
+      "chamada": [
+        {
+          "alunoId": "RJxTIr2C9VI",
+          "presente": true
+        }
+      ],
+      "id": "om3OMRkXdwY"
+    },
+    {
+      "turmaId": "Fti6FWjrkQc",
+      "disciplinaId": "P_mpCZMdz2Y",
+      "data": "2026-06-26",
+      "chamada": [
+        {
+          "alunoId": "RJxTIr2C9VI",
+          "presente": false
+        }
+      ],
+      "id": "8eeN5E0f_Oo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
