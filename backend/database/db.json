@@ -106,21 +106,6 @@
       "telefone": "32999996767",
       "senha": "rHQ10JdGrpZph*dF",
       "tipo": "responsavel"
-    },
-    {
-      "id": "vLIH4NI21HE",
-      "nome": "Breno Loureiro de Paula",
-      "email": "brenoloupaula@gmail.com",
-      "senha": "R7o7bcVR%Upjn8d$",
-      "tipo": "prof"
-    },
-    {
-      "id": "1UKFn7cWT8U",
-      "nome": "Breninho",
-      "email": "brenoloupaula@gmail.com",
-      "telefone": "32999999999",
-      "senha": "lDL%L&4e%LeaVFR@",
-      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -142,17 +127,6 @@
       "emailResponsavel": "wjhdqhw@jhdqje.com",
       "telefoneResponsavel": "21222121334",
       "senha": "FB6RnhnAdx*7Dt6V",
-      "tipo": "responsavel"
-    },
-    {
-      "id": "JFt9JrtIRlE",
-      "nomeAluno": "filho imaginario do breno",
-      "cpfAluno": "08722924605",
-      "dataNascimentoAluno": "22/12/2025",
-      "nomeResponsavel": "Breninho",
-      "emailResponsavel": "brenoloupaula@gmail.com",
-      "telefoneResponsavel": "32999999999",
-      "senha": "lDL%L&4e%LeaVFR@",
       "tipo": "responsavel"
     }
   ],
@@ -227,17 +201,6 @@
       "dataNascimento": "22/12/2004",
       "formacao": "se tiver o sla vei eu morro",
       "senha": "Px5I2#ra83HO@Pho",
-      "tipo": "prof"
-    },
-    {
-      "id": "tLcb0jFmcXo",
-      "nome": "Breno Loureiro de Paula",
-      "email": "brenoloupaula@gmail.com",
-      "cpf": "08722924604",
-      "telefone": "32999252212",
-      "dataNascimento": "22/12/2004",
-      "formacao": "Volei",
-      "senha": "R7o7bcVR%Upjn8d$",
       "tipo": "prof"
     }
   ],
@@ -354,7 +317,6 @@
       ],
       "anoSerie": "5",
       "disciplinas": [
-        "8j1w7A2jFaQ",
         "ZfEGPBatSOk"
       ],
       "turno": "Tarde"
@@ -364,13 +326,11 @@
       "nomeTurma": "Turma nova teste",
       "capacidade": "100",
       "alunos": [
-        "JFt9JrtIRlE",
         "uu5OePRfwos",
         "tM4Wo-fv5b4"
       ],
       "anoSerie": "5",
       "disciplinas": [
-        "8j1w7A2jFaQ",
         "EqSKVa3h29M",
         "ZfEGPBatSOk"
       ],
@@ -458,15 +418,6 @@
       "areaConhecimento": "Linguagens",
       "descricao": "o sla vei foi de novo",
       "professorId": "WSfv-SA7878"
-    },
-    {
-      "id": "8j1w7A2jFaQ",
-      "nomeDisciplina": "Aula de Volei",
-      "codigo": "VOLEI67",
-      "cargaHoraria": "15",
-      "areaConhecimento": "Natureza",
-      "descricao": "voleiiiii",
-      "professorId": "tLcb0jFmcXo"
     }
   ],
   "avisos": [
@@ -725,19 +676,16 @@
       "dataRegistro": "2026-06-26T14:08:08.390Z",
       "alunos": [
         "12345678967",
-        "12834091828",
-        "08722924605"
+        "12834091828"
       ],
       "professores": [
         "12312312300",
         "12312312301",
-        "12312312302",
-        "08722924604"
+        "12312312302"
       ],
       "disciplinas": [
         "TESTE",
-        "TESTE2",
-        "VOLEI67"
+        "TESTE2"
       ],
       "turmas": [
         "turma nao posso repetir nome",
@@ -854,7 +802,7 @@
     },
     {
       "turmaId": "z_LHEUyFzjs",
-      "alunoId": "JFt9JrtIRlE",
+      "alunoId": null,
       "disciplina": "8j1w7A2jFaQ",
       "bim1": 10,
       "bim2": 15,
@@ -902,7 +850,7 @@
     },
     {
       "turmaId": "z_LHEUyFzjs",
-      "disciplinaId": "8j1w7A2jFaQ",
+      "disciplinaId": null,
       "data": "2026-06-29",
       "chamada": [
         {
