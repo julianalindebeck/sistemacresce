@@ -41,6 +41,7 @@ export function Solicitacoes() {
   const [solicitacoesRemocao, setSolicitacoesRemocao] = useState<SolicitacaoRemocao[]>([]);
   const [listaEscolas, setListaEscolas] = useState<any[]>([]);
   const [aba, setAba] = useState<"cadastro" | "edicao" | "remocao">("cadastro");
+  const [idProcessando, setIdProcessando] = useState<string | null>(null);
 
   useEffect(() => {
     buscarDados();
@@ -84,6 +85,7 @@ export function Solicitacoes() {
   }
 
   async function alterarStatus(id: string, statusDecidido: string) {
+    setIdProcessando(id);
     try {
       await axios.patch(`http://localhost:3000/solicitacoes-cadastro/${id}/status`, {
         status: statusDecidido
@@ -91,10 +93,13 @@ export function Solicitacoes() {
       buscarDados(); 
     } catch (erro) {
       console.error("Erro ao mudar o status:", erro);
+    } finally {
+      setIdProcessando(null);
     }
   }
 
   async function alterarStatusEdicao(id: string, statusDecidido: string) {
+    setIdProcessando(id);
     try {
       await axios.patch(`http://localhost:3000/solicitacoes-edicao/${id}/status`, {
         status: statusDecidido
@@ -102,17 +107,23 @@ export function Solicitacoes() {
       buscarSolicitacoesEdicao(); 
     } catch (erro) {
       console.error("Erro ao mudar o status:", erro);
+    } finally {
+      setIdProcessando(null);
     }
   }
 
   async function alterarStatusRemocao(id: string, statusDecidido: string) {
+    setIdProcessando(id);
     try {
       await axios.patch(`http://localhost:3000/solicitacoes-remocao/${id}/status`, {
         status: statusDecidido
       });
-      buscarSolicitacoesRemocao(); 
+      await buscarSolicitacoesRemocao(); 
+      await buscarEscolas(); 
     } catch (erro) {
       console.error("Erro ao mudar o status:", erro);
+    } finally {
+      setIdProcessando(null);
     }
   }
 
@@ -215,7 +226,7 @@ export function Solicitacoes() {
                 <div key={item.id} className="card-solicitacao">
 
                   <div className="card-cabecalho">
-                    <h2 className="card-titulo">{escolaCorrespondente.nome}</h2>
+                    <h2 className="card-titulo">{escolaCorrespondente?.nome || "Escola Deletada do Sistema"}</h2>
                                 
                       <span className={`badge-status status-${item.status.toLowerCase()}`}>
                         <FaCircle size={8} /> {item.status}
@@ -271,7 +282,7 @@ export function Solicitacoes() {
                 <div key={item.id} className="card-solicitacao">
 
                   <div className="card-cabecalho">
-                    <h2 className="card-titulo">{escolaCorrespondente.nome}</h2>
+                    <h2 className="card-titulo">{escolaCorrespondente?.nome || "Escola Deletada do Sistema"}</h2>
                                 
                       <span className={`badge-status status-${item.status.toLowerCase()}`}>
                         <FaCircle size={8} /> {item.status}
@@ -282,12 +293,12 @@ export function Solicitacoes() {
                     <div className="coluna-dados">
                       <h4 className="titulo-secao">
                         <FaBuilding /> Dados Escola
-                      </h4>
-                      <p><strong>CNPJ:</strong> {escolaCorrespondente.cnpj}</p>
-                      <p><strong>Endereço:</strong> {escolaCorrespondente.endereco}</p>
-                      <p><strong>Telefone:</strong> {escolaCorrespondente.telefone}</p>
-                      <p><strong>Setor:</strong> <span className="texto-capitalizado">{escolaCorrespondente.setorEducacional}</span></p>
-                      <p><strong>Porte:</strong> {escolaCorrespondente.numeroAlunos} alunos</p>
+                        </h4>
+                      <p><strong>CNPJ:</strong> {escolaCorrespondente?.cnpj || "N/A"}</p>
+                      <p><strong>Endereço:</strong> {escolaCorrespondente?.endereco || "N/A"}</p>
+                      <p><strong>Telefone:</strong> {escolaCorrespondente?.telefone || "N/A"}</p>
+                      <p><strong>Setor:</strong> <span className="texto-capitalizado">{escolaCorrespondente?.setorEducacional || "N/A"}</span></p>
+                      <p><strong>Porte:</strong> {escolaCorrespondente?.numeroAlunos ? `${escolaCorrespondente.numeroAlunos} alunos` : "N/A"}</p>
                     </div>
 
                     <div className="coluna-dados">

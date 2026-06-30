@@ -22,6 +22,8 @@ export default function SolicitacaoCadastro() {
   const [form, setForm] = useState(formInicial);
   const [camposInvalidos, setCamposInvalidos] = useState<string[]>([]);
 
+  const [carregando, setCarregando] = useState(false);
+
   const [modal, setModal] = useState<{
     visivel: boolean;
     tipo: "sucesso" | "erro";
@@ -80,6 +82,8 @@ export default function SolicitacaoCadastro() {
       return;
     }
 
+    setCarregando(true);
+
     try {
       await axios.post("http://localhost:3000/solicitacoes-cadastro", form);
       acionarModal("sucesso", "Cadastro solicitado com sucesso!");
@@ -89,6 +93,8 @@ export default function SolicitacaoCadastro() {
     } catch (error) {
       console.error(error);
       acionarModal("erro", "Erro ao solicitar cadastro. Tente novamente.");
+    } finally {
+      setCarregando(false);
     }
   }
   return (
@@ -179,8 +185,8 @@ export default function SolicitacaoCadastro() {
           </div>
 
           <div className="botao-enviar">
-            <button type="submit">
-              Solicitar cadastro
+            <button type="submit" disabled={carregando}>
+                {carregando ? "Solicitando..." : "Solicitar Cadastro"}
             </button>
           </div>
 

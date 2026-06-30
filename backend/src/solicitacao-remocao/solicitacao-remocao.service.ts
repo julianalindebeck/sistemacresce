@@ -47,20 +47,40 @@ export class SolicitacaoRemocaoService {
 
             if (novoStatus === 'APROVADA') {
                 const solicitacao = await this.findOne(id);
-
-                if (!solicitacao || !solicitacao.informacao) {
-                    throw new InternalServerErrorException('Dados da solicitacao incompletos para remocao.');
-                }
-
-                await axios.delete(
-                    `http://localhost:3001/escolas/${solicitacao.idEscola}`
-                );
                 
+                const escolaResponse = await axios.get(`http://localhost:3001/escolas/${solicitacao.idEscola}`);
+                const escola = escolaResponse.data;
+
+                if (escola) {
+                    const adminsResponse = await axios.get(`http://localhost:3001/administradoresEscolares?escolaId=${escola.id}`);
+                    const admins = adminsResponse.data;
+                    
+                    for (const admin of admins) {
+                        const usersResponse = await axios.get(`http://localhost:3001/usuarios?email=${admin.email}`);
+                        for (const usuario of usersResponse.data) {
+                            await axios.delete(`http://localhost:3001/usuarios/${usuario.id}`);
+                        }
+                        await axios.delete(`http://localhost:3001/administradoresEscolares/${admin.id}`);
+                    }
+
+                    const cadastrosResponse = await axios.get(`http://localhost:3001/solicitacoesCadastro?cnpj=${escola.cnpj}`);
+                    for (const cad of cadastrosResponse.data) {
+                        await axios.delete(`http://localhost:3001/solicitacoesCadastro/${cad.id}`);
+                    }
+
+                    const edicoesResponse = await axios.get(`http://localhost:3001/solicitacoesEdicao?idEscola=${escola.id}`);
+                    for (const edicao of edicoesResponse.data) {
+                        await axios.delete(`http://localhost:3001/solicitacoesEdicao/${edicao.id}`);
+                    }
+
+                    await axios.delete(`http://localhost:3001/escolas/${escola.id}`);
+                }
             }
 
             return response.data;
         } catch (error) {
-            throw new InternalServerErrorException('Erro ao atualizar status da solicitacao.');
+            console.error("Erro no processo de remoção:", error);
+            throw new InternalServerErrorException('Erro ao atualizar status e processar exclusão.');
         }
     }
 }

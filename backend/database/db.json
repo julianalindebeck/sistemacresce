@@ -106,6 +106,21 @@
       "telefone": "32999996767",
       "senha": "rHQ10JdGrpZph*dF",
       "tipo": "responsavel"
+    },
+    {
+      "id": "Bq-_Lovx_QQ",
+      "nome": "Professor q nao tenho o login",
+      "email": "prof@prof.com",
+      "senha": "gEKiubnxyk1wxjg8",
+      "tipo": "prof"
+    },
+    {
+      "id": "3o8w96GuSWM",
+      "nome": "Mae da claudia",
+      "email": "blacu@claudia.com",
+      "telefone": "00999990000",
+      "senha": "MTQs5jntag42$zck",
+      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -127,6 +142,28 @@
       "emailResponsavel": "wjhdqhw@jhdqje.com",
       "telefoneResponsavel": "21222121334",
       "senha": "FB6RnhnAdx*7Dt6V",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "_2K0IA8TR48",
+      "nomeAluno": "filho do breno",
+      "cpfAluno": "08722924610",
+      "dataNascimentoAluno": "22/12/2024",
+      "nomeResponsavel": "brenaldo",
+      "emailResponsavel": "brenoloupaula@gmail.com",
+      "telefoneResponsavel": "32999999991",
+      "senha": "YgjyFBnq2ApSHCGj",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "rtZpeA4otAQ",
+      "nomeAluno": "claudia loureiro",
+      "cpfAluno": "08722924640",
+      "dataNascimentoAluno": "08/03/2020",
+      "nomeResponsavel": "Mae da claudia",
+      "emailResponsavel": "blacu@claudia.com",
+      "telefoneResponsavel": "00999990000",
+      "senha": "MTQs5jntag42$zck",
       "tipo": "responsavel"
     }
   ],
@@ -201,6 +238,28 @@
       "dataNascimento": "22/12/2004",
       "formacao": "se tiver o sla vei eu morro",
       "senha": "Px5I2#ra83HO@Pho",
+      "tipo": "prof"
+    },
+    {
+      "id": "O7rbmqo7gLA",
+      "nome": "Breno Loureiro de Paula",
+      "email": "brenoloupaula@gmail.com",
+      "cpf": "08722924604",
+      "telefone": "32999252212",
+      "dataNascimento": "22/12/2004",
+      "formacao": "Esportista",
+      "senha": "*fDf3s20p#WhR8py",
+      "tipo": "prof"
+    },
+    {
+      "id": "78LGSxWFgKo",
+      "nome": "Professor q nao tenho o login",
+      "email": "prof@prof.com",
+      "cpf": "08722924605",
+      "telefone": "32999323232",
+      "dataNascimento": "12/12/2000",
+      "formacao": "Licenciatura em Idiotice",
+      "senha": "gEKiubnxyk1wxjg8",
       "tipo": "prof"
     }
   ],
@@ -335,6 +394,48 @@
         "ZfEGPBatSOk"
       ],
       "turno": "Tarde"
+    },
+    {
+      "id": "BOUHubeKYPA",
+      "nomeTurma": "Turma Pioneira dos Idiomas",
+      "capacidade": "35",
+      "alunos": [
+        "rtZpeA4otAQ"
+      ],
+      "anoSerie": "1",
+      "disciplinas": [
+        "zxZuZoQHPQY"
+      ],
+      "turno": "Manhã"
+    },
+    {
+      "id": "phIdQ35UU3w",
+      "nomeTurma": "Turma dos esportes",
+      "capacidade": "35",
+      "alunos": [
+        "_2K0IA8TR48"
+      ],
+      "anoSerie": "3",
+      "disciplinas": [
+        "UMtK1SLfGtU",
+        "xydmpyTgatA"
+      ],
+      "turno": "Tarde"
+    },
+    {
+      "id": "olXKvTgM4dA",
+      "nomeTurma": "Turma que tem tudo",
+      "capacidade": "35",
+      "alunos": [
+        "rtZpeA4otAQ"
+      ],
+      "anoSerie": "5",
+      "disciplinas": [
+        "xydmpyTgatA",
+        "UMtK1SLfGtU",
+        "zxZuZoQHPQY"
+      ],
+      "turno": "Noite"
     }
   ],
   "disciplinas": [
@@ -418,6 +519,33 @@
       "areaConhecimento": "Linguagens",
       "descricao": "o sla vei foi de novo",
       "professorId": "WSfv-SA7878"
+    },
+    {
+      "id": "UMtK1SLfGtU",
+      "nomeDisciplina": "Esportes Supremos",
+      "codigo": "ESPSUP1",
+      "cargaHoraria": "10",
+      "areaConhecimento": "Idioma",
+      "descricao": "todos os esportes",
+      "professorId": "O7rbmqo7gLA"
+    },
+    {
+      "id": "xydmpyTgatA",
+      "nomeDisciplina": "Disciplina do prof que nao tenho o login",
+      "codigo": "dnsei",
+      "cargaHoraria": "5",
+      "areaConhecimento": "Humanas",
+      "descricao": "aiai sla oq falar",
+      "professorId": "78LGSxWFgKo"
+    },
+    {
+      "id": "zxZuZoQHPQY",
+      "nomeDisciplina": "Alemao",
+      "codigo": "ale01",
+      "cargaHoraria": "4",
+      "areaConhecimento": "Idioma",
+      "descricao": "alemanha perdeu",
+      "professorId": "O7rbmqo7gLA"
     }
   ],
   "avisos": [
@@ -558,6 +686,48 @@
       "tipoRemetente": "professor",
       "dataCriacao": "2026-06-29T08:16:07.575Z",
       "id": "wKRyd3VRfss"
+    },
+    {
+      "id": "CID_sQvU06k",
+      "publico": [
+        "BOUHubeKYPA",
+        "olXKvTgM4dA"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "Reuniao das Turmas Idiomas e Tem tudo",
+      "descricao": "vamos ver como vai ser...",
+      "dataCriacao": "2026-06-30T00:23:48.762Z",
+      "responsaveisQueLeram": [
+        "brenoloupaula@gmail.com"
+      ]
+    },
+    {
+      "id": "elj7g5MildA",
+      "publico": [
+        "phIdQ35UU3w"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "Torneio de volei",
+      "descricao": "correeeee ta atrasado",
+      "dataCriacao": "2026-06-30T00:24:36.137Z",
+      "responsaveisQueLeram": [
+        "brenoloupaula@gmail.com"
+      ]
+    },
+    {
+      "publico": [
+        "BOUHubeKYPA"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "Aula de reposicao",
+      "descricao": "komm Deutsch lernen!",
+      "remetenteId": "cTglRCdoeP4",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-30T00:31:02.100Z",
+      "id": "2zNkyiaGtM4",
+      "responsaveisQueLeram": [
+        "brenoloupaula@gmail.com"
+      ]
     }
   ],
   "solicitacoesCadastro": [
@@ -608,6 +778,38 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-25T21:08:53.937Z",
       "id": "IvsRQncMfqk"
+    },
+    {
+      "nomeInstituicao": "Escola do Breno - teste final",
+      "cnpj": "11111111111110",
+      "endereco": "Rua do Breno 1001",
+      "telefone": "32 999000000",
+      "emailInstituicao": "escolabreno@escola.com",
+      "setorEducacional": "fundamental",
+      "nomeRepresentante": "Breno Loureiro Admin",
+      "cpfRepresentante": "08700000000",
+      "emailRepresentante": "brenoloupaula@gmail.com",
+      "cargo": "Dono de tudo",
+      "numeroAlunos": "1000+",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-30T00:05:43.254Z",
+      "id": "NnhgpF72YRo"
+    },
+    {
+      "nomeInstituicao": "Escola do Breno - teste final",
+      "cnpj": "11111111111112",
+      "endereco": "Rua do Breno 1001",
+      "telefone": "32 999000001",
+      "emailInstituicao": "escolabreno@escola.com",
+      "setorEducacional": "infantil",
+      "nomeRepresentante": "Breno Loureiro Admin",
+      "cpfRepresentante": "08700000001",
+      "emailRepresentante": "brenoloupaula@gmail.com",
+      "cargo": "Dono de tudo",
+      "numeroAlunos": "101-500",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-30T01:14:17.965Z",
+      "id": "pNgTQylO0VI"
     }
   ],
   "solicitacoesEdicao": [
@@ -623,7 +825,7 @@
       "idEscola": "QDIie9KFN8A",
       "informacao": "telefone",
       "alteracao": "11999111111",
-      "status": "PENDENTE",
+      "status": "REJEITADA",
       "dataSolicitacao": "2026-06-28T21:53:38.641Z",
       "id": "oMwsJzmDJW8"
     },
@@ -648,9 +850,30 @@
     {
       "idEscola": "QDIie9KFN8A",
       "justificativa": "eu to com vontade :)",
-      "status": "PENDENTE",
+      "status": "REJEITADA",
       "dataSolicitacao": "2026-06-28T08:15:37.930Z",
       "id": "XLr0MYryn7s"
+    },
+    {
+      "idEscola": "FvMaChabo78",
+      "justificativa": "vou testar a remocao no final. Eu acho q nao deleta os itens mas nao tem problema pq nao vai puxar pra escola nenhuma mesmo",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-30T00:11:06.066Z",
+      "id": "dfvOlH-k-Fc"
+    },
+    {
+      "idEscola": "NTSv-KgdvNk",
+      "justificativa": "espero que agr vá plmd",
+      "status": "REJEITADA",
+      "dataSolicitacao": "2026-06-30T01:15:23.202Z",
+      "id": "zDoQBUiOJ24"
+    },
+    {
+      "idEscola": "NTSv-KgdvNk",
+      "justificativa": "espero que funcione igual a última vez",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-30T01:21:51.135Z",
+      "id": "9ovBs2pZa8k"
     }
   ],
   "escolas": [
@@ -809,6 +1032,56 @@
       "bim3": 25,
       "bim4": 9,
       "id": "QNj6SFP9cMQ"
+    },
+    {
+      "turmaId": "BOUHubeKYPA",
+      "alunoId": "_2K0IA8TR48",
+      "disciplina": "zxZuZoQHPQY",
+      "bim1": 25,
+      "bim2": 25,
+      "bim3": null,
+      "bim4": null,
+      "id": "w2w2YY6qn1Y"
+    },
+    {
+      "turmaId": "BOUHubeKYPA",
+      "alunoId": "rtZpeA4otAQ",
+      "disciplina": "zxZuZoQHPQY",
+      "bim1": 0,
+      "bim2": 0,
+      "bim3": 0,
+      "bim4": 0,
+      "id": "9gSubj7VlpY"
+    },
+    {
+      "turmaId": "phIdQ35UU3w",
+      "alunoId": "_2K0IA8TR48",
+      "disciplina": "UMtK1SLfGtU",
+      "bim1": 10,
+      "bim2": 8,
+      "bim3": null,
+      "bim4": null,
+      "id": "ROs6H9dZWxQ"
+    },
+    {
+      "turmaId": "olXKvTgM4dA",
+      "alunoId": "rtZpeA4otAQ",
+      "disciplina": "UMtK1SLfGtU",
+      "bim1": 25,
+      "bim2": 25,
+      "bim3": 25,
+      "bim4": 24.9,
+      "id": "Kv1VNLN1w9U"
+    },
+    {
+      "turmaId": "olXKvTgM4dA",
+      "alunoId": "rtZpeA4otAQ",
+      "disciplina": "zxZuZoQHPQY",
+      "bim1": 12,
+      "bim2": 19,
+      "bim3": 20,
+      "bim4": 8.9,
+      "id": "udls2yV9qhM"
     }
   ],
   "frequencia": [
@@ -867,6 +1140,86 @@
         }
       ],
       "id": "eE-xoTy7wLQ"
+    },
+    {
+      "turmaId": "BOUHubeKYPA",
+      "disciplinaId": "zxZuZoQHPQY",
+      "data": "2026-06-29",
+      "chamada": [
+        {
+          "alunoId": "_2K0IA8TR48",
+          "presente": true
+        },
+        {
+          "alunoId": "rtZpeA4otAQ",
+          "presente": true
+        }
+      ],
+      "id": "6KNjSM2rBHg"
+    },
+    {
+      "turmaId": "BOUHubeKYPA",
+      "disciplinaId": "zxZuZoQHPQY",
+      "data": "2026-06-30",
+      "chamada": [
+        {
+          "alunoId": "_2K0IA8TR48",
+          "presente": true
+        },
+        {
+          "alunoId": "rtZpeA4otAQ",
+          "presente": false
+        }
+      ],
+      "id": "ukCZp4EFm98"
+    },
+    {
+      "turmaId": "phIdQ35UU3w",
+      "disciplinaId": "UMtK1SLfGtU",
+      "data": "2026-06-29",
+      "chamada": [
+        {
+          "alunoId": "_2K0IA8TR48",
+          "presente": true
+        }
+      ],
+      "id": "hXMxrCpd8oY"
+    },
+    {
+      "turmaId": "phIdQ35UU3w",
+      "disciplinaId": "UMtK1SLfGtU",
+      "data": "2026-06-30",
+      "chamada": [
+        {
+          "alunoId": "_2K0IA8TR48",
+          "presente": false
+        }
+      ],
+      "id": "_ZePnlZUxco"
+    },
+    {
+      "turmaId": "olXKvTgM4dA",
+      "disciplinaId": "UMtK1SLfGtU",
+      "data": "2026-06-30",
+      "chamada": [
+        {
+          "alunoId": "rtZpeA4otAQ",
+          "presente": true
+        }
+      ],
+      "id": "yn4Ke10oY0U"
+    },
+    {
+      "turmaId": "olXKvTgM4dA",
+      "disciplinaId": "zxZuZoQHPQY",
+      "data": "2026-06-30",
+      "chamada": [
+        {
+          "alunoId": "rtZpeA4otAQ",
+          "presente": true
+        }
+      ],
+      "id": "hVcXtmIPCY0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

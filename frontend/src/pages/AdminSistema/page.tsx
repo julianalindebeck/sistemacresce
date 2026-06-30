@@ -16,20 +16,22 @@ export default function AdminSistema() {
   useEffect(() => {
     async function carregarDadosDashboard() {
       try {
-        const [resEscolas, resUsuarios, resSolicitacoes] = await Promise.all([
+        const [resEscolas, resUsuarios, resCad, resEdi, resRem] = await Promise.all([
           axios.get("http://localhost:3001/escolas"),
           axios.get("http://localhost:3001/usuarios"),
           axios.get("http://localhost:3001/solicitacoesCadastro"),
+          axios.get("http://localhost:3001/solicitacoesEdicao"),
+          axios.get("http://localhost:3001/solicitacoesRemocao"),
         ]);
 
-        const pendentes = resSolicitacoes.data.filter(
-          (item: { status: string; }) => item.status === "PENDENTE"
-        );
+        const cadPendentes = resCad.data.filter((i: any) => i.status === "PENDENTE").length;
+        const ediPendentes = resEdi.data.filter((i: any) => i.status === "PENDENTE").length;
+        const remPendentes = resRem.data.filter((i: any) => i.status === "PENDENTE").length;
 
         setContagem({
           escolas: resEscolas.data.length,
           usuarios: resUsuarios.data.length,
-          solicitacoesPendentes: pendentes.length,
+          solicitacoesPendentes: cadPendentes + ediPendentes + remPendentes,
         });
       } catch (error) {
         console.error("Erro ao carregar dados do dashboard:", error);
