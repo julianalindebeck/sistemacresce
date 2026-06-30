@@ -158,6 +158,13 @@
       "telefone": "11911111111",
       "senha": "x$H7NstDyuy*QvzQ",
       "tipo": "responsavel"
+    },
+    {
+      "id": "-Uv0MTsoXO0",
+      "nome": "professor2 teste final ",
+      "email": "skajdagg@jhgasdghjk.com",
+      "senha": "5Qo7dYw3CptrKtuF",
+      "tipo": "prof"
     }
   ],
   "alunos": [
@@ -223,6 +230,17 @@
       "emailResponsavel": "julianalindck1711@gmail.com",
       "telefoneResponsavel": "11911111111",
       "senha": "x$H7NstDyuy*QvzQ",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "perib5Q87Bs",
+      "nomeAluno": "filho imaginario do brenoooo",
+      "cpfAluno": "12834091827",
+      "dataNascimentoAluno": "22/12/2025",
+      "nomeResponsavel": "brenaldooo",
+      "emailResponsavel": "brenoloupaula@gmail.com",
+      "telefoneResponsavel": "21222121338",
+      "senha": "XJhLc7ISS#5sb4#M",
       "tipo": "responsavel"
     }
   ],
@@ -330,6 +348,28 @@
       "dataNascimento": "11111111",
       "formacao": "Todas",
       "senha": "PrllvVr@J88xiKYD",
+      "tipo": "prof"
+    },
+    {
+      "id": "i7Jiw2QAI3s",
+      "nome": "professor1 teste final ",
+      "email": "brenoloupaula@gmail.com",
+      "cpf": "08722924609",
+      "telefone": "32999252212",
+      "dataNascimento": "22/12/2004",
+      "formacao": "Licenciatura em Idiotice master",
+      "senha": "q%p1Ti#TDftHqe70",
+      "tipo": "prof"
+    },
+    {
+      "id": "nN5JiyRd-F4",
+      "nome": "professor2 teste final ",
+      "email": "skajdagg@jhgasdghjk.com",
+      "cpf": "12312312308",
+      "telefone": "11111111112",
+      "dataNascimento": "12/12/2001",
+      "formacao": "sla veiiiii",
+      "senha": "5Qo7dYw3CptrKtuF",
       "tipo": "prof"
     }
   ],
@@ -532,6 +572,20 @@
         "_-QYJYJ4GrU"
       ],
       "turno": "Noite"
+    },
+    {
+      "id": "X5p36XaBY2M",
+      "nomeTurma": "turma nao posso repetir nome ahhhhh",
+      "capacidade": "35",
+      "alunos": [
+        "perib5Q87Bs"
+      ],
+      "anoSerie": "4",
+      "disciplinas": [
+        "REwkDqrtHyc",
+        "n6wCCzSIqD0"
+      ],
+      "turno": "Tarde"
     }
   ],
   "disciplinas": [
