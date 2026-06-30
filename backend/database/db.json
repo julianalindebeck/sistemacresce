@@ -121,6 +121,43 @@
       "telefone": "00999990000",
       "senha": "MTQs5jntag42$zck",
       "tipo": "responsavel"
+    },
+    {
+      "id": "z_7Q9RFbT9Y",
+      "nome": "Juju Furacão",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "BF&zH8BywPYXxJ%o",
+      "tipo": "admin_escolar"
+    },
+    {
+      "id": "q9-HmIYyOlA",
+      "nome": "Juju Furacão",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "CAGpKbn13iJE0P$f",
+      "tipo": "admin_escolar"
+    },
+    {
+      "id": "VV83nD5rp8Q",
+      "nome": "Prof. Juju",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "PrllvVr@J88xiKYD",
+      "tipo": "prof"
+    },
+    {
+      "id": "QFHeNH1bsgc",
+      "nome": "Jujuzão",
+      "email": "julianalindck1711@gmail.com",
+      "telefone": "11911111111",
+      "senha": "&r2EaXH6XP9jgATz",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "kMLKFQmwyEk",
+      "nome": "Mirabellzão",
+      "email": "julianalindck1711@gmail.com",
+      "telefone": "11911111111",
+      "senha": "x$H7NstDyuy*QvzQ",
+      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -164,6 +201,28 @@
       "emailResponsavel": "blacu@claudia.com",
       "telefoneResponsavel": "00999990000",
       "senha": "MTQs5jntag42$zck",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "SRWTqWBsuTs",
+      "nomeAluno": "Jujuzinha",
+      "cpfAluno": "11111111111",
+      "dataNascimentoAluno": "11111111",
+      "nomeResponsavel": "Jujuzão",
+      "emailResponsavel": "julianalindck1711@gmail.com",
+      "telefoneResponsavel": "11911111111",
+      "senha": "&r2EaXH6XP9jgATz",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "oOmh3iQBHwA",
+      "nomeAluno": "Mirabell",
+      "cpfAluno": "11111111111",
+      "dataNascimentoAluno": "11111111",
+      "nomeResponsavel": "Mirabellzão",
+      "emailResponsavel": "julianalindck1711@gmail.com",
+      "telefoneResponsavel": "11911111111",
+      "senha": "x$H7NstDyuy*QvzQ",
       "tipo": "responsavel"
     }
   ],
@@ -260,6 +319,17 @@
       "dataNascimento": "12/12/2000",
       "formacao": "Licenciatura em Idiotice",
       "senha": "gEKiubnxyk1wxjg8",
+      "tipo": "prof"
+    },
+    {
+      "id": "40Gk3Eu2y_k",
+      "nome": "Prof. Juju",
+      "email": "julianalindck1711@gmail.com",
+      "cpf": "11111111111",
+      "telefone": "11911111111",
+      "dataNascimento": "11111111",
+      "formacao": "Todas",
+      "senha": "PrllvVr@J88xiKYD",
       "tipo": "prof"
     }
   ],
@@ -436,6 +506,32 @@
         "zxZuZoQHPQY"
       ],
       "turno": "Noite"
+    },
+    {
+      "id": "9L8FGDUuuLw",
+      "nomeTurma": "1A",
+      "capacidade": "100",
+      "alunos": [
+        "SRWTqWBsuTs"
+      ],
+      "anoSerie": "1",
+      "disciplinas": [
+        "3xcC6-x0Kns"
+      ],
+      "turno": "Manhã"
+    },
+    {
+      "id": "hulhyyvVRKU",
+      "nomeTurma": "2A",
+      "capacidade": "100",
+      "alunos": [
+        "oOmh3iQBHwA"
+      ],
+      "anoSerie": "2",
+      "disciplinas": [
+        "_-QYJYJ4GrU"
+      ],
+      "turno": "Noite"
     }
   ],
   "disciplinas": [
@@ -546,6 +642,24 @@
       "areaConhecimento": "Idioma",
       "descricao": "alemanha perdeu",
       "professorId": "O7rbmqo7gLA"
+    },
+    {
+      "id": "3xcC6-x0Kns",
+      "nomeDisciplina": "Juju Furacão I",
+      "codigo": "JF1",
+      "cargaHoraria": "100",
+      "areaConhecimento": "Exatas",
+      "descricao": "Todos deveriam fazer essa disciplina",
+      "professorId": "40Gk3Eu2y_k"
+    },
+    {
+      "id": "_-QYJYJ4GrU",
+      "nomeDisciplina": "Juju Furacão II",
+      "codigo": "JFII",
+      "cargaHoraria": "100",
+      "areaConhecimento": "Exatas",
+      "descricao": "Essa é top",
+      "professorId": "40Gk3Eu2y_k"
     }
   ],
   "avisos": [
@@ -728,6 +842,31 @@
       "responsaveisQueLeram": [
         "brenoloupaula@gmail.com"
       ]
+    },
+    {
+      "id": "gQqX3CD1MVc",
+      "publico": [
+        "9L8FGDUuuLw"
+      ],
+      "tipoAviso": "informativo",
+      "tituloAviso": "Reunião da Juju Furacão",
+      "descricao": "A diretora Juju Furacão tem um recado para dar",
+      "dataCriacao": "2026-06-30T02:29:18.718Z",
+      "responsaveisQueLeram": [
+        "julianalindck1711@gmail.com"
+      ]
+    },
+    {
+      "publico": [
+        "9L8FGDUuuLw"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "Festa Junina",
+      "descricao": "Terá festa junina",
+      "remetenteId": "VV83nD5rp8Q",
+      "tipoRemetente": "professor",
+      "dataCriacao": "2026-06-30T02:30:57.192Z",
+      "id": "pGEcbXCMmQw"
     }
   ],
   "solicitacoesCadastro": [
@@ -810,6 +949,22 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-30T01:14:17.965Z",
       "id": "pNgTQylO0VI"
+    },
+    {
+      "nomeInstituicao": "Juju Hurricane",
+      "cnpj": "11111111111111",
+      "endereco": "Endereço",
+      "telefone": "11911111111",
+      "emailInstituicao": "julianalindck1711@gmail.com",
+      "setorEducacional": "infantil",
+      "nomeRepresentante": "Juju Furacão",
+      "cpfRepresentante": "11111111111",
+      "emailRepresentante": "julianalindck1711@gmail.com",
+      "cargo": "Todos",
+      "numeroAlunos": "1000+",
+      "status": "APROVADA",
+      "dataSolicitacao": "2026-06-30T02:25:08.333Z",
+      "id": "ebY3uWYNo-8"
     }
   ],
   "solicitacoesEdicao": [
@@ -942,6 +1097,50 @@
       "numeroAlunos": "501-1000",
       "dataRegistro": "2026-06-26T14:08:12.646Z",
       "id": "1OpVjH3Us3I"
+    },
+    {
+      "nome": "Juju Hurricane",
+      "cnpj": "11111111111111",
+      "endereco": "Endereço",
+      "telefone": "11911111111",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "1000+",
+      "dataRegistro": "2026-06-30T02:25:32.943Z",
+      "alunos": [
+        "11111111111",
+        "11111111111"
+      ],
+      "professores": [
+        "11111111111"
+      ],
+      "disciplinas": [
+        "JF1",
+        "JFII"
+      ],
+      "turmas": [
+        "1A",
+        "2A"
+      ],
+      "avisos": [
+        "2026-06-30T02:29:18.718Z",
+        "2026-06-30T02:30:57.192Z"
+      ],
+      "id": "dVacjcfitQg"
+    },
+    {
+      "nome": "Juju Hurricane",
+      "cnpj": "11111111111111",
+      "endereco": "Endereço",
+      "telefone": "11911111111",
+      "setorEducacional": "infantil",
+      "numeroAlunos": "1000+",
+      "dataRegistro": "2026-06-30T02:25:35.424Z",
+      "alunos": [],
+      "professores": [],
+      "disciplinas": [],
+      "turmas": [],
+      "avisos": [],
+      "id": "kwZiKr3sR7M"
     }
   ],
   "administradoresEscolares": [
@@ -980,6 +1179,24 @@
       "tipo": "admin_escolar",
       "cargo": "todos",
       "escolaId": null
+    },
+    {
+      "id": "cg-7DP5sdDk",
+      "nome": "Juju Furacão",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "BF&zH8BywPYXxJ%o",
+      "tipo": "admin_escolar",
+      "cargo": "Todos",
+      "escolaId": "dVacjcfitQg"
+    },
+    {
+      "id": "OtxX5wBdQZk",
+      "nome": "Juju Furacão",
+      "email": "julianalindck1711@gmail.com",
+      "senha": "CAGpKbn13iJE0P$f",
+      "tipo": "admin_escolar",
+      "cargo": "Todos",
+      "escolaId": "kwZiKr3sR7M"
     }
   ],
   "notas": [
@@ -1082,6 +1299,26 @@
       "bim3": 20,
       "bim4": 8.9,
       "id": "udls2yV9qhM"
+    },
+    {
+      "turmaId": "9L8FGDUuuLw",
+      "alunoId": "SRWTqWBsuTs",
+      "disciplina": "3xcC6-x0Kns",
+      "bim1": 10,
+      "bim2": 9,
+      "bim3": 10,
+      "bim4": 10,
+      "id": "XJyRIc1Ziy8"
+    },
+    {
+      "turmaId": "hulhyyvVRKU",
+      "alunoId": "oOmh3iQBHwA",
+      "disciplina": "_-QYJYJ4GrU",
+      "bim1": 10,
+      "bim2": 10,
+      "bim3": 10,
+      "bim4": 10,
+      "id": "IwrDsctDIrE"
     }
   ],
   "frequencia": [
@@ -1220,6 +1457,54 @@
         }
       ],
       "id": "hVcXtmIPCY0"
+    },
+    {
+      "turmaId": "9L8FGDUuuLw",
+      "disciplinaId": "3xcC6-x0Kns",
+      "data": "2026-06-30",
+      "chamada": [
+        {
+          "alunoId": "SRWTqWBsuTs",
+          "presente": true
+        }
+      ],
+      "id": "jU86149zJwA"
+    },
+    {
+      "turmaId": "9L8FGDUuuLw",
+      "disciplinaId": "3xcC6-x0Kns",
+      "data": "2026-06-29",
+      "chamada": [
+        {
+          "alunoId": "SRWTqWBsuTs",
+          "presente": true
+        }
+      ],
+      "id": "0uXDTdOBvy4"
+    },
+    {
+      "turmaId": "9L8FGDUuuLw",
+      "disciplinaId": "3xcC6-x0Kns",
+      "data": "2026-06-28",
+      "chamada": [
+        {
+          "alunoId": "SRWTqWBsuTs",
+          "presente": false
+        }
+      ],
+      "id": "zvXq6_hze9U"
+    },
+    {
+      "turmaId": "hulhyyvVRKU",
+      "disciplinaId": "_-QYJYJ4GrU",
+      "data": "2026-06-30",
+      "chamada": [
+        {
+          "alunoId": "oOmh3iQBHwA",
+          "presente": true
+        }
+      ],
+      "id": "woUU_tYXyZ0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

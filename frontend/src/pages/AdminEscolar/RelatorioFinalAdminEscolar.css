@@ -55,3 +55,10 @@
 .pagRelatorio .botao-gerar-relatorio button:hover {
     background-color: #27ae60;
 }
+
+.status-feedback-txt {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: -30px;
+}
