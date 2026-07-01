@@ -53,21 +53,7 @@ app.post('/api/gerar-relatorios', async (req, res) => {
                     const resNotas = await axios.get(`http://localhost:3001/notas?turmaId=${turmaId}`);
                     const notasAluno = resNotas.data.filter(n => String(n.alunoId) === alunoId);
                     
-                    let somaGeral = 0;
-                    let countGeral = 0;
-                    
-                    notasAluno.forEach(n => {
-                        [n.bim1, n.bim2, n.bim3, n.bim4].forEach(b => {
-                            if (b !== undefined && b !== "" && b !== null) {
-                                somaGeral += Number(b);
-                                countGeral++;
-                            }
-                        });
-                    });
-                    
-                    if (countGeral > 0) {
-                        mediaFinalNotas = (somaGeral / countGeral).toFixed(1);
-                    }
+                    let listaSomasDisciplinas = [];
                     
                     const resChamadas = await axios.get(`http://localhost:3001/frequencia?turmaId=${turmaId}`);
                     
@@ -105,7 +91,10 @@ app.post('/api/gerar-relatorios', async (req, res) => {
                             });
                         }
                         
-                        let mediaD = countD > 0 ? (somaD / countD).toFixed(1) : "0.0";
+                        let mediaD = somaD.toFixed(1);
+                        if (countD > 0) {
+                            listaSomasDisciplinas.push(somaD);
+                        }
                         
                         let totalAulasD = 0;
                         let presencasD = 0;
@@ -133,6 +122,11 @@ app.post('/api/gerar-relatorios', async (req, res) => {
                 } catch (err) {}
             }
 
+            if (listaSomasDisciplinas.length > 0) {
+                const totalDasSomas = listaSomasDisciplinas.reduce((acc, valor) => acc + valor, 0);
+                mediaFinalNotas = (totalDasSomas / listaSomasDisciplinas.length).toFixed(1);
+            }
+            
             const doc = new PDFDocument({ 
                 size: 'A4', 
                 margins: { top: 40, bottom: 0, left: 40, right: 40 } 
@@ -169,7 +163,7 @@ app.post('/api/gerar-relatorios', async (req, res) => {
             doc.rect(40, 485, 515, 20).fill('#1637b7');
             doc.fillColor('#FFFFFF').fontSize(10);
             doc.text('Disciplina', 50, 491);
-            doc.text('Média Final', 340, 491);
+            doc.text('Nota Final', 340, 491);
             doc.text('Frequência', 460, 491);
 
             let currentY = 515;
