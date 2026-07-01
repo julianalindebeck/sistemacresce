@@ -88,12 +88,20 @@ export class SolicitacaoRemocaoService {
                         await axios.delete(`http://localhost:3001/solicitacoesRemocao/${remocao.id}`);
                     }
     
+                    const todosAlunosResponse = await axios.get(`http://localhost:3001/alunos`);
+                    const todosAlunos = todosAlunosResponse.data;
+
                     for (const cpf of escola.alunos || []) {
-                        const alunosRes = await axios.get(`http://localhost:3001/alunos?cpf=${cpf}`);
+                        const cpfEscolaLimpo = cpf.replace(/\D/g, '');
+
+                        const alunosFiltrados = todosAlunos.filter((aluno: any) => {
+                            const alunoCpfLimpo = aluno.cpfAluno ? aluno.cpfAluno.replace(/\D/g, '') : '';
+                            return alunoCpfLimpo === cpfEscolaLimpo;
+                        });
                     
-                        for (const aluno of alunosRes.data) {
-                            if (aluno.email) {
-                                const usersRes = await axios.get(`http://localhost:3001/usuarios?email=${aluno.email}`);
+                        for (const aluno of alunosFiltrados) {
+                            if (aluno.emailResponsavel) {
+                                const usersRes = await axios.get(`http://localhost:3001/usuarios?email=${aluno.emailResponsavel}`);
                                 for (const usuario of usersRes.data) {
                                     await axios.delete(`http://localhost:3001/usuarios/${usuario.id}`);
                                 }
@@ -102,10 +110,18 @@ export class SolicitacaoRemocaoService {
                         }
                     }
 
+                    const todosProfsResponse = await axios.get(`http://localhost:3001/professores`);
+                    const todosProfs = todosProfsResponse.data;
+
                     for (const cpf of escola.professores || []) {
-                        const profsRes = await axios.get(`http://localhost:3001/professores?cpf=${cpf}`);
+                        const cpfEscolaLimpo = cpf.replace(/\D/g, '');
+
+                        const profsFiltrados = todosProfs.filter((prof: any) => {
+                            const profCpfLimpo = prof.cpf ? prof.cpf.replace(/\D/g, '') : '';
+                            return profCpfLimpo === cpfEscolaLimpo;
+                        });
                         
-                        for (const prof of profsRes.data) {
+                        for (const prof of profsFiltrados) {
                             if (prof.email) {
                                 const usersRes = await axios.get(`http://localhost:3001/usuarios?email=${prof.email}`);
                                 for (const usuario of usersRes.data) {

@@ -165,6 +165,29 @@
       "email": "skajdagg@jhgasdghjk.com",
       "senha": "5Qo7dYw3CptrKtuF",
       "tipo": "prof"
+    },
+    {
+      "id": "V6vBaaaoUYc",
+      "nome": "sla responsavel final",
+      "email": "wjhdqhw@aksjhd.com",
+      "telefone": "21222121335",
+      "senha": "q#rb@QK1fiBTCcyL",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "ysLBZQ_KdZU",
+      "nome": "sjhduas",
+      "email": "askdlkajda@test.com",
+      "senha": "x@b3u*sqNiQjTEnj",
+      "tipo": "prof"
+    },
+    {
+      "id": "am4soVcnpkY",
+      "nome": "slaksjfjhbq",
+      "email": "askjfiwjhfajknsd@aksjhd.com",
+      "telefone": "32999999988",
+      "senha": "vhXtUQSbzZ&mBmUY",
+      "tipo": "responsavel"
     }
   ],
   "alunos": [
@@ -186,17 +209,6 @@
       "emailResponsavel": "wjhdqhw@jhdqje.com",
       "telefoneResponsavel": "21222121334",
       "senha": "FB6RnhnAdx*7Dt6V",
-      "tipo": "responsavel"
-    },
-    {
-      "id": "_2K0IA8TR48",
-      "nomeAluno": "filho do breno",
-      "cpfAluno": "08722924610",
-      "dataNascimentoAluno": "22/12/2024",
-      "nomeResponsavel": "brenaldo",
-      "emailResponsavel": "brenoloupaula@gmail.com",
-      "telefoneResponsavel": "32999999991",
-      "senha": "YgjyFBnq2ApSHCGj",
       "tipo": "responsavel"
     },
     {
@@ -233,14 +245,25 @@
       "tipo": "responsavel"
     },
     {
-      "id": "perib5Q87Bs",
-      "nomeAluno": "filho imaginario do brenoooo",
-      "cpfAluno": "12834091827",
-      "dataNascimentoAluno": "22/12/2025",
-      "nomeResponsavel": "brenaldooo",
-      "emailResponsavel": "brenoloupaula@gmail.com",
-      "telefoneResponsavel": "21222121338",
-      "senha": "XJhLc7ISS#5sb4#M",
+      "id": "0i0ljWTNT84",
+      "nomeAluno": "bell me traiu",
+      "cpfAluno": "12834091882",
+      "dataNascimentoAluno": "22/12/2024",
+      "nomeResponsavel": "sla responsavel final",
+      "emailResponsavel": "wjhdqhw@aksjhd.com",
+      "telefoneResponsavel": "21222121335",
+      "senha": "q#rb@QK1fiBTCcyL",
+      "tipo": "responsavel"
+    },
+    {
+      "id": "8_cMsg9Mwzc",
+      "nomeAluno": "brenooooaksljhfhjahjdf",
+      "cpfAluno": "15534091828",
+      "dataNascimentoAluno": "22/12/2009",
+      "nomeResponsavel": "slaksjfjhbq",
+      "emailResponsavel": "askjfiwjhfajknsd@aksjhd.com",
+      "telefoneResponsavel": "32999999988",
+      "senha": "vhXtUQSbzZ&mBmUY",
       "tipo": "responsavel"
     }
   ],
@@ -318,17 +341,6 @@
       "tipo": "prof"
     },
     {
-      "id": "O7rbmqo7gLA",
-      "nome": "Breno Loureiro de Paula",
-      "email": "brenoloupaula@gmail.com",
-      "cpf": "08722924604",
-      "telefone": "32999252212",
-      "dataNascimento": "22/12/2004",
-      "formacao": "Esportista",
-      "senha": "*fDf3s20p#WhR8py",
-      "tipo": "prof"
-    },
-    {
       "id": "78LGSxWFgKo",
       "nome": "Professor q nao tenho o login",
       "email": "prof@prof.com",
@@ -351,17 +363,6 @@
       "tipo": "prof"
     },
     {
-      "id": "i7Jiw2QAI3s",
-      "nome": "professor1 teste final ",
-      "email": "brenoloupaula@gmail.com",
-      "cpf": "08722924609",
-      "telefone": "32999252212",
-      "dataNascimento": "22/12/2004",
-      "formacao": "Licenciatura em Idiotice master",
-      "senha": "q%p1Ti#TDftHqe70",
-      "tipo": "prof"
-    },
-    {
       "id": "nN5JiyRd-F4",
       "nome": "professor2 teste final ",
       "email": "skajdagg@jhgasdghjk.com",
@@ -370,6 +371,17 @@
       "dataNascimento": "12/12/2001",
       "formacao": "sla veiiiii",
       "senha": "5Qo7dYw3CptrKtuF",
+      "tipo": "prof"
+    },
+    {
+      "id": "GANnUsQxE6o",
+      "nome": "sjhduas",
+      "email": "askdlkajda@test.com",
+      "cpf": "08722824609",
+      "telefone": "11111111112",
+      "dataNascimento": "22/12/2005",
+      "formacao": "to cansadooooo",
+      "senha": "x@b3u*sqNiQjTEnj",
       "tipo": "prof"
     }
   ],
@@ -586,6 +598,19 @@
         "n6wCCzSIqD0"
       ],
       "turno": "Tarde"
+    },
+    {
+      "id": "gCq6vhgz7wA",
+      "nomeTurma": "Turma Zasjkldahd",
+      "capacidade": "35",
+      "alunos": [
+        "8_cMsg9Mwzc"
+      ],
+      "anoSerie": "2",
+      "disciplinas": [
+        "ba4OY0CIe88"
+      ],
+      "turno": "Manhã"
     }
   ],
   "disciplinas": [
@@ -714,6 +739,15 @@
       "areaConhecimento": "Exatas",
       "descricao": "Essa é top",
       "professorId": "40Gk3Eu2y_k"
+    },
+    {
+      "id": "ba4OY0CIe88",
+      "nomeDisciplina": "Disciplina Teste3333333",
+      "codigo": "DDDD33",
+      "cargaHoraria": "4",
+      "areaConhecimento": "Natureza",
+      "descricao": "askjdjahdfhajkhbdfjkashjkfajk",
+      "professorId": "GANnUsQxE6o"
     }
   ],
   "avisos": [
@@ -921,6 +955,17 @@
       "tipoRemetente": "professor",
       "dataCriacao": "2026-06-30T02:30:57.192Z",
       "id": "pGEcbXCMmQw"
+    },
+    {
+      "id": "eisl_ZkcwpM",
+      "publico": [
+        "gCq6vhgz7wA"
+      ],
+      "tipoAviso": "alerta",
+      "tituloAviso": "nao é reuniao agrmnfnad",
+      "descricao": "asknfdjkashfjhaijsfdadf",
+      "dataCriacao": "2026-07-01T03:47:42.653Z",
+      "responsaveisQueLeram": []
     }
   ],
   "solicitacoesCadastro": [
@@ -971,22 +1016,6 @@
       "status": "APROVADA",
       "dataSolicitacao": "2026-06-25T21:08:53.937Z",
       "id": "IvsRQncMfqk"
-    },
-    {
-      "nomeInstituicao": "Escola do Breno - teste final",
-      "cnpj": "11111111111110",
-      "endereco": "Rua do Breno 1001",
-      "telefone": "32 999000000",
-      "emailInstituicao": "escolabreno@escola.com",
-      "setorEducacional": "fundamental",
-      "nomeRepresentante": "Breno Loureiro Admin",
-      "cpfRepresentante": "08700000000",
-      "emailRepresentante": "brenoloupaula@gmail.com",
-      "cargo": "Dono de tudo",
-      "numeroAlunos": "1000+",
-      "status": "APROVADA",
-      "dataSolicitacao": "2026-06-30T00:05:43.254Z",
-      "id": "NnhgpF72YRo"
     },
     {
       "nomeInstituicao": "Escola do Breno - teste final",
@@ -1195,6 +1224,31 @@
       "turmas": [],
       "avisos": [],
       "id": "kwZiKr3sR7M"
+    },
+    {
+      "nome": "Escola do Breno - teste final mesmooo",
+      "cnpj": "11111111111119",
+      "endereco": "odioooo 101111",
+      "telefone": "32999252213",
+      "setorEducacional": "fundamental",
+      "numeroAlunos": "1000+",
+      "dataRegistro": "2026-07-01T03:44:41.675Z",
+      "alunos": [
+        "15534091828"
+      ],
+      "professores": [
+        "08722824609"
+      ],
+      "disciplinas": [
+        "DDDD33"
+      ],
+      "turmas": [
+        "Turma Zasjkldahd"
+      ],
+      "avisos": [
+        "2026-07-01T03:47:42.653Z"
+      ],
+      "id": "p9_kw13Lg0Q"
     }
   ],
   "administradoresEscolares": [
@@ -1373,6 +1427,26 @@
       "bim3": 10,
       "bim4": 10,
       "id": "IwrDsctDIrE"
+    },
+    {
+      "turmaId": null,
+      "alunoId": "YlRh5xldwwQ",
+      "disciplina": "Gz7R4A53aQ4",
+      "bim1": 25,
+      "bim2": 0,
+      "bim3": 12,
+      "bim4": 23,
+      "id": "YJbjIy713Gs"
+    },
+    {
+      "turmaId": null,
+      "alunoId": "RKqCsnpbvAI",
+      "disciplina": "OPKR8MFj3XE",
+      "bim1": 21,
+      "bim2": 25,
+      "bim3": 24,
+      "bim4": 22,
+      "id": "5swgLmYucIM"
     }
   ],
   "frequencia": [
@@ -1559,6 +1633,30 @@
         }
       ],
       "id": "woUU_tYXyZ0"
+    },
+    {
+      "turmaId": null,
+      "disciplinaId": null,
+      "data": "2026-07-01",
+      "chamada": [
+        {
+          "alunoId": "YlRh5xldwwQ",
+          "presente": true
+        }
+      ],
+      "id": "6WQZIAmm6Sw"
+    },
+    {
+      "turmaId": null,
+      "disciplinaId": null,
+      "data": "2026-07-01",
+      "chamada": [
+        {
+          "alunoId": "RKqCsnpbvAI",
+          "presente": false
+        }
+      ],
+      "id": "DRR78v5QyfI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
